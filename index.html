@@ -179,6 +179,67 @@ html.gl .poster{display:none}
  .wide{height:56svh}
  .nature{height:100svh}
 }
+
+/* v5 · added content (same language) */
+.who{display:grid;grid-template-columns:3fr 9fr;gap:0 40px;margin-top:clamp(90px,10vw,140px);border-top:1px solid var(--rule);padding-top:26px}
+.who blockquote{margin:0;grid-column:2;font-size:clamp(20px,1.75vw,27px);line-height:1.6;max-width:30em;letter-spacing:-.005em}
+.who blockquote+p{grid-column:2;margin-top:22px;max-width:640px;font-size:15px;line-height:2;color:var(--ink2)}
+.vals{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
+.vals div{border-top:1px solid var(--rule);padding-top:16px}.vals b{display:block;font-weight:500;font-size:16px;margin-bottom:4px}.vals p{font-size:13.5px;color:var(--ink2);line-height:1.85}
+.svc{background:var(--paper)}
+.slist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 40px;border-top:1px solid var(--rule)}
+.slist li{display:grid;grid-template-columns:44px 1fr;padding:18px 0;border-bottom:1px solid var(--rule);font-size:clamp(17px,1.3vw,20px)}
+.slist li span{font-size:11.5px;letter-spacing:.12em;color:var(--mute);padding-top:6px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:clamp(70px,8vw,110px)}
+.steps article{border-top:1px solid var(--ink);padding-top:20px}
+.steps h3{font-size:clamp(20px,1.6vw,24px);margin:12px 0 8px;line-height:1.4}
+.steps p{font-size:14px;color:var(--ink2);line-height:1.9}
+.steps ul{list-style:none;margin:16px 0 0;padding:0;font-size:13px;color:var(--mute)}.steps li{padding:6px 0;border-top:1px solid var(--rule)}
+.areas{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:clamp(60px,7vw,90px);padding-top:20px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink2)}
+.areas .label{width:100%;margin-bottom:4px}
+.fp{background:var(--stone)}
+.fp .lede2{font-size:clamp(16px,1.2vw,19px);line-height:2;color:var(--ink2);max-width:34em}
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;margin-top:clamp(56px,6vw,80px)}
+.mods article{border-top:1px solid var(--rule);padding:20px 0 34px}
+.mods b{font-weight:500;font-size:clamp(19px,1.5vw,23px);letter-spacing:-.01em}
+.mods .k{display:block;font-size:12px;color:var(--mute);margin:4px 0 12px;letter-spacing:.02em}
+.mods p{font-size:13.5px;color:var(--ink2);line-height:1.85;max-width:24em}
+.fpshot{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,4vw,64px);align-items:start}
+.fpshot img{width:100%;aspect-ratio:700/356;object-fit:cover;filter:saturate(.55) contrast(.96);border:1px solid var(--rule)}
+.fpshot .note2{font-size:14px;color:var(--ink2);line-height:1.95}
+.fpshot .note2 p+p{margin-top:16px}
+.prods{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:clamp(70px,8vw,110px)}
+.prods article{border-top:1px solid var(--ink);padding-top:20px}
+.prods h3{font-size:clamp(20px,1.6vw,24px);margin:10px 0 8px}
+.prods p{font-size:14px;color:var(--ink2);line-height:1.9;max-width:30em}
+.prods ul{list-style:none;margin:14px 0 0;padding:0;font-size:13px;color:var(--mute)}.prods li{padding:6px 0;border-top:1px solid var(--rule)}
+.pidx{margin-top:clamp(70px,8vw,110px);border-top:1px solid var(--rule);padding-top:22px}
+.pidx ol{list-style:none;margin:18px 0 0;padding:0;columns:2;column-gap:40px}
+.pidx li{break-inside:avoid;display:grid;grid-template-columns:44px 1fr;padding:12px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.pidx li span{font-size:11.5px;letter-spacing:.12em;color:var(--mute);padding-top:4px}
+.awards a{border-bottom:1px solid var(--rule)}
+.awards .src{display:block;font-size:11.5px;color:var(--mute);margin-top:6px}
+.cert{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;margin-top:34px;padding-top:18px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink2)}
+.cert b{font-weight:500;color:var(--ink)}
+.voice{margin-top:clamp(70px,8vw,110px);display:grid;grid-template-columns:3fr 9fr;gap:0 40px;border-top:1px solid var(--rule);padding-top:22px}
+.voice blockquote{margin:0;font-size:clamp(19px,1.6vw,25px);line-height:1.7;max-width:28em}
+.voice cite{display:block;font-style:normal;font-size:12.5px;color:var(--mute);margin-top:14px}
+.clients{background:var(--paper)}
+.wall{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.wall li{list-style:none;display:grid;place-items:center;height:clamp(92px,8vw,120px);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:0 14%}
+.wall img{max-width:100%;max-height:30px;width:auto;opacity:.5;transition:opacity .6s var(--ease)}
+.wall img.sq{max-height:44px}.wall li:hover img{opacity:.9}
+.wall li.txt{font-size:12px;line-height:1.5;text-align:center;color:var(--mute)}
+.wall{margin:0;padding:0}
+.partner{display:grid;grid-template-columns:3fr 9fr;gap:0 40px;align-items:center;margin-top:clamp(56px,6vw,80px);border-top:1px solid var(--ink);padding-top:22px}
+.partner .pl{display:flex;align-items:center;gap:28px;flex-wrap:wrap}.partner img{height:40px;width:auto;opacity:.75}
+.partner p{font-size:14px;color:var(--ink2);max-width:34em}
+.clients .cap2{font-size:12px;color:var(--mute);margin-top:18px}
+@media(max-width:860px){
+ .who,.voice,.partner{grid-template-columns:1fr}.who blockquote,.who blockquote+p,.vals{grid-column:1}.who .label,.voice .label,.partner .label{margin-bottom:16px}
+ .vals,.slist,.steps,.mods,.fpshot,.prods{grid-template-columns:1fr}.vals,.steps{gap:30px}.pidx ol{columns:1}
+ .wall{grid-template-columns:repeat(3,1fr)}.wall li{height:78px;padding:0 12%}.wall img{max-height:22px}.wall img.sq{max-height:34px}
+ .bar nav a.hm{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -191,7 +252,7 @@ html.gl .poster{display:none}
 
 <header class="bar" id="bar">
  <a class="logo" href="#top" aria-label="Artron Innovative"><img class="lg1" src="assets/artron-italic-white.svg" alt="Artron"><img class="lg2" src="assets/artron-italic-ink.svg" alt="" aria-hidden="true"></a>
- <nav aria-label="เมนู"><a href="#vow">ปณิธาน</a><a href="#academy">Academy</a><a href="#works">ผลงาน</a><a href="#location">ติดต่อ</a></nav>
+ <nav aria-label="เมนู"><a href="#vow">ปณิธาน</a><a class="hm" href="#services">บริการ</a><a class="hm" href="#factorypro">Factory Pro</a><a href="#academy">Academy</a><a href="#works">ผลงาน</a><a href="#location">ติดต่อ</a></nav>
 </header>
 
 <main id="top">
@@ -231,6 +292,17 @@ html.gl .poster{display:none}
    <article data-r><p class="label">มนุษย์</p><h3>หัวใจที่ใฝ่เรียนรู้</h3><p>Academy ชวนเด็ก ๆ เรียนรู้ผ่านการลงมือสร้าง</p><figure><div class="ph"><img src="assets/workshop-crop.webp" alt="มือเด็กต่อวงจร"></div><figcaption class="cap">ภาพประกอบ · บรรยากาศการเรียนรู้</figcaption></figure></article>
    <article data-r><p class="label">ธรรมชาติ</p><h3>ความสงบที่ไม่ควรสูญเสีย</h3><p>เราออกแบบเทคโนโลยีให้อยู่ร่วมกับโลกใบนี้อย่างเกื้อกูล</p><figure><div class="ph"><img src="assets/nature-fern.webp" alt="เฟิร์นริมลำธาร"></div><figcaption class="cap">ภาพประกอบ · ธรรมชาติและแสง</figcaption></figure></article>
   </div>
+  <!-- source: https://www.artroninnovative.co.th/ · Who We Are / Our Values -->
+  <div class="who" data-r>
+   <p class="label">Who We Are</p>
+   <blockquote>“The IoT solutions company develops the knowledge-based capabilities of engineering to create new products to meet the needs of customers.”</blockquote>
+   <p>เราให้คำปรึกษา ออกแบบ และวิจัยพัฒนาเทคโนโลยี IoT แบบครบวงจร — วิเคราะห์ปัญหา ออกแบบผลิตภัณฑ์ และต่อยอดเป็นโซลูชันใหม่ เพื่อเพิ่มขีดความสามารถของระบบเดิมให้บริหารจัดการได้ดีขึ้น</p>
+   <div class="vals">
+    <div><b>Grow</b><p>เปิดพื้นที่ให้การเปลี่ยนแปลงที่เกิดจากงานของทุกคนในทีมอยู่เสมอ</p></div>
+    <div><b>Explore</b><p>เป็นนักสำรวจที่ช่างสงสัยและมุ่งมั่น และลงมือจริงเพื่อส่งมอบงานที่ดีอย่างต่อเนื่อง</p></div>
+    <div><b>Share</b><p>คาดการณ์ความต้องการของผู้เกี่ยวข้อง และพร้อมสนับสนุน แนะนำ และเป็นพี่เลี้ยงให้ผู้อื่นสำเร็จ</p></div>
+   </div>
+  </div>
  </div>
 </section>
 
@@ -242,9 +314,50 @@ html.gl .poster{display:none}
  <p class="cap">ภาพประกอบ · ลำธารยามเช้า</p>
 </section>
 
+<!-- source: https://www.artroninnovative.co.th/ · Services / Application Area -->
+<section class="svc sec sand" id="services">
+ <div class="wrap">
+  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">02 / สิ่งที่เราทำ · Services</span></div><h2 data-r>จากโจทย์แรก<br>จนถึงระบบที่ใช้งานจริง.</h2></div>
+  <ol class="slist" data-r>
+   <li><span>01</span>IoT Solutions</li><li><span>02</span>IoT Mobile App &amp; Web App Development</li>
+   <li><span>03</span>System Integration</li><li><span>04</span>Rapid POC &amp; Prototype Development</li>
+   <li><span>05</span>Hardware Design</li><li><span>06</span>UX/UI Design for IoT Applications</li>
+  </ol>
+  <div class="steps">
+   <article data-r><p class="label">Consult and Design</p><h3>เข้าใจโจทย์ก่อนเลือกเทคโนโลยี</h3><p>วิเคราะห์ปัญหาเพื่อออกแบบระบบตามความต้องการของลูกค้า</p><ul><li>Choose the right technology</li><li>Suggest the best solution</li><li>Customers centric design</li></ul></article>
+   <article data-r><p class="label">Research and Development</p><h3>วิจัยและพัฒนาแบบครบวงจร</h3><p>ตั้งแต่ความต้องการ การออกแบบฮาร์ดแวร์และซอฟต์แวร์ การทดสอบตามมาตรฐาน จนถึงการติดตั้งใช้งาน</p><ul><li>Hardware prototype development</li><li>Front-end and Back-end development</li><li>Firmware development</li></ul></article>
+   <article data-r><p class="label">Service</p><h3>อยู่ด้วยกันหลังส่งมอบ</h3><p>บริการหลังการขาย ให้คำปรึกษา และสอนการติดตั้งใช้งาน</p></article>
+  </div>
+  <div class="areas" data-r><p class="label">Application Area</p><span>Smart Manufacturing</span><span>Smart Healthcare</span><span>Smart Solar Farming</span><span>Smart Agriculture</span><span>Smart Power Monitoring</span><span>Smart Environment</span></div>
+ </div>
+</section>
+
+<!-- source: https://www.factorypro.ai/ (platform, modules, depa) · https://www.artroninnovative.co.th/ (ModuRa-01, PdM Box) -->
+<section class="fp sec" id="factorypro">
+ <div class="wrap">
+  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">03 / Factory Pro</span></div><div data-r><h2>One connected<br>manufacturing ecosystem.</h2><p class="lede2" style="margin-top:22px">เชื่อมการผลิต คลังสินค้า การบำรุงรักษา และการมองเห็นด้วย AI — แพลตฟอร์มบริหารการผลิตด้วย IoT, Big Data และ AI สำหรับโรงงานในยุค 4.0</p></div></div>
+  <div class="mods">
+   <article data-r><b>FacOEE</b><span class="k">การผลิตและเครื่องจักร · ประสิทธิภาพการผลิต</span><p>Measures Overall Equipment Effectiveness (Availability × Performance × Quality) per machine in real time and shows where production time is lost.</p></article>
+   <article data-r><b>FacWMS</b><span class="k">คลังสินค้าและระบบสนับสนุน · คลังสินค้า</span><p>Warehouse management with QR/RFID item identity, real-time stock accuracy and full movement traceability, integrated with ERP.</p></article>
+   <article data-r><b>FacCare</b><span class="k">การผลิตและเครื่องจักร · บำรุงรักษา</span><p>Predictive maintenance and machine care that reduces unplanned downtime.</p></article>
+   <article data-r><b>FacZero</b><span class="k">พลังงานและความยั่งยืน</span><p>Energy and carbon footprint monitoring for cost reduction and ESG reporting.</p></article>
+   <article data-r><b>FacTWIN</b><span class="k">ภาพรวมและการตัดสินใจ · Digital Twin</span><p>3D digital twin combining OEE, defects, energy and downtime in a single visual model of the plant.</p></article>
+   <article data-r><b>FacVision</b><span class="k">การผลิตและเครื่องจักร · ตรวจสอบด้วยภาพ</span><p>AI camera intelligence for real-time quality inspection and 24/7 safety monitoring on the production line.</p></article>
+  </div>
+  <div class="fpshot">
+   <figure data-r="img"><img src="assets/factorypro-ui-700.webp" alt="หน้าจอแพลตฟอร์ม Factory Pro" loading="lazy"><figcaption class="cap">รูปจริง · หน้าจอ Factory Pro (จาก artroninnovative.co.th)</figcaption></figure>
+   <div class="note2" data-r><p><b>FacMind</b> · เลือกซื้อเพิ่มเติม — ผู้ช่วยแชท AI สำหรับทุกโมดูล ให้ทีมงานแชทถามและค้นข้อมูลที่เกี่ยวข้อง และช่วยพนักงานใหม่เรียนรู้การใช้งานระบบได้สะดวกขึ้น</p><p>ได้รับการสนับสนุนจากสำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa) เพื่อพัฒนา Factory Pro แพลตฟอร์มดิจิทัลสำหรับโรงงานไทย</p><p><a class="btn" href="https://www.factorypro.ai/" target="_blank" rel="noopener">factorypro.ai <span>↗</span></a></p></div>
+  </div>
+  <div class="prods">
+   <article data-r><p class="label">Hardware · LoRaWAN</p><h3>ModuRa-01</h3><p>อุปกรณ์แปลง RS-485 เป็น LoRaWAN สำหรับเชื่อมเซนเซอร์ได้ง่าย ส่งข้อมูลไร้สายได้ระยะไกล ใช้แบตเตอรี่ได้นานกว่าหนึ่งปีโดยไม่ต้องเปลี่ยน</p><ul><li>LoRaWAN Class A / Class C · AS923</li><li>Modbus RTU (RS485) · Analog 0-10V / 4-20mA · 12-bit</li><li>IP68 · กันฝุ่นและน้ำ</li></ul></article>
+   <article data-r><p class="label">Official Partner with SCG</p><h3>PdM Box</h3><p>ติดตามค่าสำคัญของเครื่องจักร เช่น การสั่นสะเทือน อุณหภูมิ และการตั้งแนว แบบเรียลไทม์บนแดชบอร์ด Factory PRO เพื่อการบำรุงรักษาเชิงพยากรณ์</p><ul><li>Real-Time Monitoring</li><li>Predictive Maintenance</li><li>ติดตั้งเสร็จภายใน 30 นาที · ไม่ต้องเดินสายซับซ้อน</li></ul></article>
+  </div>
+ </div>
+</section>
+
 <section class="academy" id="academy">
  <div class="sec" style="padding-bottom:0"><div class="wrap ahead">
-  <div data-r><div class="num"><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">02 / Artron Academy</span></div><p class="label" style="margin-top:10px;letter-spacing:.06em;text-transform:none">ห้องเรียนที่เริ่มจากความอยากรู้</p></div>
+  <div data-r><div class="num"><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">04 / Artron Academy</span></div><p class="label" style="margin-top:10px;letter-spacing:.06em;text-transform:none">ห้องเรียนที่เริ่มจากความอยากรู้</p></div>
   <h2 data-r>ส่งต่อความกล้า<br>ให้มือเล็ก ๆ</h2></div></div>
  <div class="wide" data-r="img"><img id="wsimg" src="assets/workshop-wide.webp" alt="มือเด็กต่อวงจรบนโต๊ะไม้ข้างหน้าต่าง"></div>
  <div class="strip"><div class="wrap">
@@ -255,22 +368,48 @@ html.gl .poster{display:none}
 
 <section class="works sec sand" id="works">
  <div class="wrap">
-  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">03 / ผลงานที่ภาคภูมิใจ</span></div><h2 data-r>ความประณีต<br>ที่เป็นประโยชน์ต่อผู้คน</h2></div>
+  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">05 / ผลงานที่ภาคภูมิใจ</span></div><h2 data-r>ความประณีต<br>ที่เป็นประโยชน์ต่อผู้คน</h2></div>
   <div class="feat">
    <figure data-r="img"><img src="assets/robot-900.webp" alt="หุ่นยนต์บริการโรงพยาบาลของ Artron"><figcaption class="cap">รูปจริง · หุ่นยนต์บริการในโรงพยาบาล</figcaption></figure>
    <div data-r><p class="label">Robotics · Healthcare</p><h3>เทคโนโลยีในพื้นที่<br>ของการดูแลผู้คน</h3><p>หนึ่งในงานต้นแบบของ Artron สำหรับบริการ ที่ให้คนดูแลคนได้ดีขึ้น</p>
     <div class="hw"><img src="assets/art-di-16p-800.webp" alt=""><div><span class="label" style="font-size:10.5px">Hardware / IoT</span><b>ART-DI-16P</b><span>อุปกรณ์รับสัญญาณดิจิทัล 16 ช่อง</span></div></div></div>
   </div>
+  <!-- source: https://www.artroninnovative.co.th/ · Portfolio -->
+  <div class="pidx" data-r><p class="label">Portfolio · Healthcare · Energy · Factory</p>
+   <ol>
+    <li><span>01</span>Overall dashboard monitoring of failed sites</li><li><span>02</span>Dashboard Monitoring</li>
+    <li><span>03</span>Model Prototype</li><li><span>04</span>AMR Robot Smart Farming</li>
+    <li><span>05</span>Temp with screen monitoring</li><li><span>06</span>Service Robot For Hospital</li>
+    <li><span>07</span>Platform for factory &amp; IoT monitoring</li><li><span>08</span>Solar Power Plant Monitoring and Control System</li>
+   </ol></div>
   <div class="awards" data-r><p class="label">ความไว้วางใจที่ได้รับ · รางวัลของ Artron Innovative</p>
-   <div class="grid"><figure><img src="assets/award-2026-960.webp" alt="Thai Digital &amp; AI Award 2569"><h4>Thai Digital &amp; AI Award · พ.ศ. 2569</h4><span>Silver Award · Manufacturing Tech</span></figure>
-   <figure><img src="assets/award-2025-960.webp" alt="Technology for Equipment and Machinery Awards 2568"><h4>Technology for Equipment and Machinery Awards · พ.ศ. 2568</h4><span>ผลงาน Factory Pro · งานมหกรรมงานวิจัยแห่งชาติ · กระทรวง อว.</span></figure></div></div>
+   <div class="grid">
+    <figure><img src="assets/award-2025-960.webp" alt="Technology for Equipment and Machinery Awards 2025"><h4>Winner · Technology for Equipment and Machinery Awards 2025</h4><span>รางวัลชนะเลิศ สาขาโปรแกรมสำเร็จรูป ภาคการผลิตและบริการ · ระบบบริหารจัดการประสิทธิภาพการผลิตแบบเรียลไทม์ Factory Pro</span><span class="src">ที่มา · <a href="https://thai-machinery.or.th/tma_award_68-2/" target="_blank" rel="noopener">ประกาศผลรางวัล · สมาคมไทยเครื่องจักรกลและอุปกรณ์ ↗</a></span></figure>
+    <!-- TODO verify: Thai Digital & AI Award 2026 Silver — source is factorypro.ai only; no official winners list found yet -->
+    <figure><img src="assets/award-2026-960.webp" alt="Thai Digital &amp; AI Award 2026"><h4>Silver · Thai Digital &amp; AI Award 2026</h4><span>สาขาเทคโนโลยีการผลิต (Manufacturing Tech)</span><span class="src">ที่มา · <a href="https://www.factorypro.ai/" target="_blank" rel="noopener">factorypro.ai ↗</a></span></figure>
+   </div>
+   <!-- TODO confirm 29110-4-1:2018 vs 29110-3 -->
+   <div class="cert"><p class="label" style="margin:0">มาตรฐาน</p><b>ISO/IEC 29110 · TÜV SÜD</b></div>
+  </div>
+  <!-- source: https://www.artroninnovative.co.th/ · Testimonials -->
+  <div class="voice" data-r><p class="label">เสียงจากผู้ร่วมงาน</p><div><blockquote>“ทีมมีความเชี่ยวชาญในงานเป็นอย่างดี ให้คำแนะนำและช่วยเหลือในการแก้ไขปัญหาได้อย่างรวดเร็ว”</blockquote><cite>อาจารย์อรรถวิทย์ จันทร์ศิริ · ที่ปรึกษาโครงการ · มหาวิทยาลัยพายัพ</cite></div></div>
+ </div>
+</section>
+
+<!-- source: https://www.artroninnovative.co.th/ (Our Clients, Official Partner) · https://www.factorypro.ai/ (Panasonic Energy, AISIN, JTEKT, KM Interlab) -->
+<section class="clients sec sand" id="clients">
+ <div class="wrap">
+  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">06 / ผู้ที่ไว้วางใจเรา</span></div><h2 data-r>เติบโตไปด้วยกัน<br>กับผู้ที่เชื่อในสิ่งเดียวกัน.</h2></div>
+  <ul class="wall" data-r><li><img src="assets/clients/panasonic-energy.webp" alt="Panasonic Energy" loading="lazy"></li><li><img src="assets/clients/aisin.webp" alt="AISIN" loading="lazy"></li><li><img src="assets/clients/jtekt.webp" alt="JTEKT" loading="lazy"></li><li><img src="assets/clients/toyota-tsusho.webp" alt="Toyota Tsusho (Thailand)" loading="lazy"></li><li><img src="assets/clients/km-interlab.webp" alt="KM Interlab" loading="lazy"></li><li><img src="assets/clients/nawaplastic.webp" alt="SCG Chemicals · NAWAPLASTIC" loading="lazy"></li><li><img src="assets/clients/eastwater.webp" alt="eastwater" loading="lazy"></li><li><img src="assets/clients/universal-utilities.webp" alt="Universal Utilities Group" loading="lazy"></li><li><img src="assets/clients/nt.webp" alt="NT" loading="lazy" class="sq"></li><li><img src="assets/clients/arrow-energy.webp" alt="Arrow Energy" loading="lazy"></li><li><img src="assets/clients/vekin.webp" alt="VEKIN" loading="lazy"></li><li><img src="assets/clients/sensornic.webp" alt="SENSORNIC" loading="lazy"></li><li><img src="assets/clients/thai-industech.webp" alt="Thai Industech" loading="lazy" class="sq"></li><li><img src="assets/clients/ibcon.webp" alt="IBCON" loading="lazy"></li><li><img src="assets/clients/kmutnb.webp" alt="KMUTNB" loading="lazy"></li><li><img src="assets/clients/payap.webp" alt="Payap University" loading="lazy"></li><li><img src="assets/clients/udonthani-cancer-hospital.webp" alt="Udonthani Cancer Hospital" loading="lazy" class="sq"></li><li class="txt">โรงพยาบาลสมเด็จพระยุพราชเชียงของ</li></ul>
+  <p class="cap2">โลโก้แสดงเป็นโทนเดียวเพื่อความสงบของหน้า · ลิขสิทธิ์เป็นของเจ้าของแต่ละราย</p>
+  <div class="partner" data-r><p class="label">Official Partner</p><div class="pl"><img src="assets/clients/scg.webp" alt="SCG"><p>PdM Box – Official Partner with SCG · ระบบบำรุงรักษาเชิงพยากรณ์ที่เชื่อมกับ Factory PRO</p></div></div>
  </div>
 </section>
 </main>
 
 <section class="loc sec sand" id="location" aria-label="ติดต่อเรา ที่ตั้ง">
  <div class="wrap">
-  <div class="lhead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">04 / ติดต่อเรา · ที่ตั้ง</span></div><h2 data-r>แวะมาคุยกัน<br>ที่ปากเกร็ด นนทบุรี</h2></div>
+  <div class="lhead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">07 / ติดต่อเรา · ที่ตั้ง</span></div><h2 data-r>แวะมาคุยกัน<br>ที่ปากเกร็ด นนทบุรี</h2></div>
   <div class="lgrid">
    <figure data-r><div class="mapill"><img src="assets/artron-3d-map.webp" alt="ภาพประกอบแผนที่ 3 มิติ บริเวณที่ตั้ง Artron Innovative" loading="lazy"></div><figcaption class="cap"><span class="tag">ภาพประกอบ</span>แผนที่โดยรอบสำนักงาน · ไม่ได้ย่อตามมาตราส่วนจริง</figcaption></figure>
    <div class="linfo" data-r>
@@ -294,9 +433,9 @@ html.gl .poster{display:none}
   <h2 data-r style="margin-top:26px">สิ่งดี ๆ เริ่มต้น<br>จากการคุยกัน.</h2>
   <a class="btn inv" data-r href="mailto:sales@artroninnovative.co.th" style="margin-top:34px">ปรึกษาโครงการ <span>↗</span></a>
   <div class="row">
-   <div><b>Artron Innovative</b>IoT · Automation · การผลิต<br><a href="https://www.factorypro.ai/">Factory Pro ↗</a></div>
+   <div><b>Artron Innovative</b>IoT · Automation · การผลิต<br><a href="https://www.factorypro.ai/">Factory Pro ↗</a> <a href="https://www.facebook.com/ArtronInnovative">Facebook ↗</a></div>
    <div><b>Artron Academy</b>หลักสูตรเรียนรู้การลงมือสร้าง<br>STEM · Robotics<br><a href="https://www.facebook.com/ArtronAcademy/">Academy ↗</a></div>
-   <div><b>Artron Shop</b>บริษัท อาร์ทรอน ชอป จำกัด<br>อุปกรณ์อิเล็กทรอนิกส์สำหรับนักสร้าง<br><a href="https://www.artronshop.co.th/">artronshop.co.th ↗</a></div>
+   <div><b>Artron Shop</b>บริษัท อาร์ทรอน ชอป จำกัด<br>อุปกรณ์อิเล็กทรอนิกส์สำหรับนักสร้าง<br><a href="https://www.artronshop.co.th/">artronshop.co.th ↗</a> <a href="https://page.line.me/280czymm">LINE Official ↗</a></div>
   </div>
   <div class="base"><span>37/145 หมู่ 5 ถนนติวานนท์ ปากเกร็ด นนทบุรี 11120 · +66 2 003 3688 · sales@artroninnovative.co.th</span><span>© 2026 Artron Innovative · เทคโนโลยี · มนุษย์ · ธรรมชาติ</span></div>
  </div>
