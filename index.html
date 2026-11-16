@@ -11,7 +11,7 @@
 @font-face{font-family:Anuphan;src:url(assets/anuphan-1.woff2) format('woff2');font-weight:100 700;font-display:swap;unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC}
 @font-face{font-family:Anuphan;src:url(assets/anuphan-2.woff2) format('woff2');font-weight:100 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
- --black:#0a0a0a;--ink:#141414;--ink2:#3c3d3f;--mute:#7a7b7d;--rule:#d9d8d3;--paper:#f4f3ef;--stone:#e9e7e1;--white:#fff;
+ --black:#0a0a0a;--ink:#141414;--ink2:#3c3d3f;--mute:#7a7b7d;--rule:#d9d8d3;--paper:#f4f3ef;--card:#f8f7f3;--stone:#e9e7e1;--white:#fff;
  --blue:#203fe4;--moss:#5e6f4f;--oak:#a27c55;--rust:#9a5b3e;
  --side:clamp(22px,4.2vw,64px);--col:min(1120px,calc(100vw - 2*var(--side)));
  --ease:cubic-bezier(.22,.7,.18,1)}
@@ -102,14 +102,14 @@ html.gl .poster{display:none}
 
 
 /* academy */
-.academy{background:#fff}
+.academy{background:var(--paper)}
 .ahead{display:grid;grid-template-columns:5fr 7fr;align-items:end;gap:40px;padding-bottom:clamp(50px,6vw,80px)}
 .ahead h2{font-size:clamp(36px,4vw,64px);line-height:1.22}
 .wide{position:relative;overflow:hidden;height:min(72svh,820px)}
 .wide img{width:100%;height:118%;object-fit:cover;position:absolute;top:-9%;will-change:transform}
 .strip{background:var(--black);color:#fff;padding:36px 0 44px}
 .strip .wrap{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
-.strip h3{font-size:clamp(26px,2.4vw,38px);line-height:1.2;margin-top:18px}.strip h3 em{font-style:normal;color:#8ea0ff;display:block}
+.strip h3{font-size:clamp(26px,2.4vw,38px);line-height:1.2;margin-top:18px}.strip h3 em{font-style:normal;color:#c9c2b3;display:block}
 .strip p{font-size:14px;color:#cfcfcf;max-width:30em;margin-bottom:22px}
 .strip .cap{color:#9a9a9a;margin:0}
 
@@ -118,14 +118,14 @@ html.gl .poster{display:none}
 .whead{display:grid;grid-template-columns:5fr 7fr;align-items:end;gap:40px;margin-bottom:56px}
 .whead h2{font-size:clamp(34px,3.6vw,56px);line-height:1.28}
 .feat{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,4vw,64px);align-items:end}
-.feat figure img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.feat figure img{width:100%;aspect-ratio:3/2;object-fit:cover;filter:saturate(.82) contrast(.97) sepia(.06)}
 .feat h3{font-size:clamp(22px,1.9vw,30px);line-height:1.35;margin-top:14px}
 .feat p{font-size:14.5px;color:var(--ink2);margin-top:10px;max-width:26em}
 .hw{display:flex;gap:20px;align-items:center;border-top:1px solid var(--rule);margin-top:36px;padding-top:22px}
 .hw img{width:84px;mix-blend-mode:multiply}.hw b{display:block;font-weight:500;font-size:16px}.hw span{font-size:13px;color:var(--mute)}
 .awards{margin-top:clamp(90px,10vw,140px);border-top:1px solid var(--rule);padding-top:22px}
 .awards .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px}
-.awards img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.awards img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.82) contrast(.97) sepia(.06)}
 .awards h4{margin:16px 0 2px;font-weight:500;font-size:15px}.awards span{font-size:12.5px;color:var(--mute)}
 
 
@@ -134,7 +134,7 @@ html.gl .poster{display:none}
 .lhead{display:grid;grid-template-columns:5fr 7fr;align-items:end;gap:40px;margin-bottom:56px}
 .lhead h2{font-size:clamp(34px,3.6vw,56px);line-height:1.28}
 .lgrid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,4vw,64px);align-items:start}
-.mapill{background:#fbfaf7;border:1px solid var(--rule);padding:clamp(14px,1.6vw,24px)}
+.mapill{background:var(--card);border:1px solid var(--rule);padding:clamp(14px,1.6vw,24px)}
 .mapill img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.72) contrast(.96);mix-blend-mode:multiply}
 .linfo dl{margin:0;border-top:1px solid var(--rule)}
 .linfo dl>div{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule)}
@@ -197,7 +197,7 @@ html.gl .poster{display:none}
 .steps ul{list-style:none;margin:16px 0 0;padding:0;font-size:13px;color:var(--mute)}.steps li{padding:6px 0;border-top:1px solid var(--rule)}
 .areas{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:clamp(60px,7vw,90px);padding-top:20px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink2)}
 .areas .label{width:100%;margin-bottom:4px}
-.fp{background:var(--stone)}
+.fp{background:var(--paper)}
 .fp .lede2{font-size:clamp(16px,1.2vw,19px);line-height:2;color:var(--ink2);max-width:34em}
 .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;margin-top:clamp(56px,6vw,80px)}
 .mods article{border-top:1px solid var(--rule);padding:20px 0 34px}
@@ -205,7 +205,7 @@ html.gl .poster{display:none}
 .mods .k{display:block;font-size:12px;color:var(--mute);margin:4px 0 12px;letter-spacing:.02em}
 .mods p{font-size:13.5px;color:var(--ink2);line-height:1.85;max-width:24em}
 .fpshot{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,4vw,64px);align-items:start}
-.fpshot img{width:100%;aspect-ratio:700/356;object-fit:cover;filter:saturate(.55) contrast(.96);border:1px solid var(--rule)}
+.fpshot img{width:100%;aspect-ratio:700/356;object-fit:cover;filter:saturate(.82) contrast(.97) sepia(.06);border:1px solid var(--rule)}
 .fpshot .note2{font-size:14px;color:var(--ink2);line-height:1.95}
 .fpshot .note2 p+p{margin-top:16px}
 .prods{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:clamp(70px,8vw,110px)}
@@ -225,20 +225,19 @@ html.gl .poster{display:none}
 .voice blockquote{margin:0;font-size:clamp(19px,1.6vw,25px);line-height:1.7;max-width:28em}
 .voice cite{display:block;font-style:normal;font-size:12.5px;color:var(--mute);margin-top:14px}
 .clients{background:var(--paper)}
-.wall{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
-.wall li{list-style:none;display:grid;place-items:center;height:clamp(92px,8vw,120px);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:0 14%}
-.wall img{max-width:100%;max-height:30px;width:auto;opacity:.5;transition:opacity .6s var(--ease)}
-.wall img.sq{max-height:44px}.wall li:hover img{opacity:.9}
-.wall li.txt{font-size:12px;line-height:1.5;text-align:center;color:var(--mute)}
-.wall{margin:0;padding:0}
+.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:0;padding:0}
+.wall li{list-style:none;display:grid;place-items:center;height:clamp(96px,8.4vw,124px);background:var(--card);border:1px solid var(--rule);padding:0 12%}
+.wall img{width:var(--w);max-width:100%;height:auto;transition:transform .6s var(--ease)}
+.wall li:hover img{transform:translateY(-2px) scale(1.03)}
 .partner{display:grid;grid-template-columns:3fr 9fr;gap:0 40px;align-items:center;margin-top:clamp(56px,6vw,80px);border-top:1px solid var(--ink);padding-top:22px}
-.partner .pl{display:flex;align-items:center;gap:28px;flex-wrap:wrap}.partner img{height:40px;width:auto;opacity:.75}
+.partner .pl{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.partner .pcell{display:grid;place-items:center;width:clamp(180px,16vw,220px);height:clamp(96px,8.4vw,124px);background:var(--card);border:1px solid var(--rule)}.partner .pcell img{width:var(--w);height:auto}
 .partner p{font-size:14px;color:var(--ink2);max-width:34em}
 .clients .cap2{font-size:12px;color:var(--mute);margin-top:18px}
 @media(max-width:860px){
  .who,.voice,.partner{grid-template-columns:1fr}.who blockquote,.who blockquote+p,.vals{grid-column:1}.who .label,.voice .label,.partner .label{margin-bottom:16px}
  .vals,.slist,.steps,.mods,.fpshot,.prods{grid-template-columns:1fr}.vals,.steps{gap:30px}.pidx ol{columns:1}
- .wall{grid-template-columns:repeat(3,1fr)}.wall li{height:78px;padding:0 12%}.wall img{max-height:22px}.wall img.sq{max-height:34px}
+ .wall{grid-template-columns:repeat(3,1fr);gap:6px}.wall li{height:80px;padding:0 10%}.wall img{width:calc(var(--w)*.6)}.partner .pcell{width:160px;height:84px}.partner .pcell img{width:calc(var(--w)*.75)}
  .bar nav a.hm{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -333,7 +332,7 @@ html.gl .poster{display:none}
 </section>
 
 <!-- source: https://www.factorypro.ai/ (platform, modules, depa) · https://www.artroninnovative.co.th/ (ModuRa-01, PdM Box) -->
-<section class="fp sec" id="factorypro">
+<section class="fp sec sand" id="factorypro">
  <div class="wrap">
   <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">03 / Factory Pro</span></div><div data-r><h2>One connected<br>manufacturing ecosystem.</h2><p class="lede2" style="margin-top:22px">เชื่อมการผลิต คลังสินค้า การบำรุงรักษา และการมองเห็นด้วย AI — แพลตฟอร์มบริหารการผลิตด้วย IoT, Big Data และ AI สำหรับโรงงานในยุค 4.0</p></div></div>
   <div class="mods">
@@ -355,7 +354,7 @@ html.gl .poster{display:none}
  </div>
 </section>
 
-<section class="academy" id="academy">
+<section class="academy sand" id="academy">
  <div class="sec" style="padding-bottom:0"><div class="wrap ahead">
   <div data-r><div class="num"><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">04 / Artron Academy</span></div><p class="label" style="margin-top:10px;letter-spacing:.06em;text-transform:none">ห้องเรียนที่เริ่มจากความอยากรู้</p></div>
   <h2 data-r>ส่งต่อความกล้า<br>ให้มือเล็ก ๆ</h2></div></div>
@@ -400,9 +399,9 @@ html.gl .poster{display:none}
 <section class="clients sec sand" id="clients">
  <div class="wrap">
   <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">06 / ผู้ที่ไว้วางใจเรา</span></div><h2 data-r>เติบโตไปด้วยกัน<br>กับผู้ที่เชื่อในสิ่งเดียวกัน.</h2></div>
-  <ul class="wall" data-r><li><img src="assets/clients/panasonic-energy.webp" alt="Panasonic Energy" loading="lazy"></li><li><img src="assets/clients/aisin.webp" alt="AISIN" loading="lazy"></li><li><img src="assets/clients/jtekt.webp" alt="JTEKT" loading="lazy"></li><li><img src="assets/clients/toyota-tsusho.webp" alt="Toyota Tsusho (Thailand)" loading="lazy"></li><li><img src="assets/clients/km-interlab.webp" alt="KM Interlab" loading="lazy"></li><li><img src="assets/clients/nawaplastic.webp" alt="SCG Chemicals · NAWAPLASTIC" loading="lazy"></li><li><img src="assets/clients/eastwater.webp" alt="eastwater" loading="lazy"></li><li><img src="assets/clients/universal-utilities.webp" alt="Universal Utilities Group" loading="lazy"></li><li><img src="assets/clients/nt.webp" alt="NT" loading="lazy" class="sq"></li><li><img src="assets/clients/arrow-energy.webp" alt="Arrow Energy" loading="lazy"></li><li><img src="assets/clients/vekin.webp" alt="VEKIN" loading="lazy"></li><li><img src="assets/clients/sensornic.webp" alt="SENSORNIC" loading="lazy"></li><li><img src="assets/clients/thai-industech.webp" alt="Thai Industech" loading="lazy" class="sq"></li><li><img src="assets/clients/ibcon.webp" alt="IBCON" loading="lazy"></li><li><img src="assets/clients/kmutnb.webp" alt="KMUTNB" loading="lazy"></li><li><img src="assets/clients/payap.webp" alt="Payap University" loading="lazy"></li><li><img src="assets/clients/udonthani-cancer-hospital.webp" alt="Udonthani Cancer Hospital" loading="lazy" class="sq"></li><li class="txt">โรงพยาบาลสมเด็จพระยุพราชเชียงของ</li></ul>
-  <p class="cap2">โลโก้แสดงเป็นโทนเดียวเพื่อความสงบของหน้า · ลิขสิทธิ์เป็นของเจ้าของแต่ละราย</p>
-  <div class="partner" data-r><p class="label">Official Partner</p><div class="pl"><img src="assets/clients/scg.webp" alt="SCG"><p>PdM Box – Official Partner with SCG · ระบบบำรุงรักษาเชิงพยากรณ์ที่เชื่อมกับ Factory PRO</p></div></div>
+  <ul class="wall" data-r><li><img src="assets/clients-color/panasonic-energy.webp" alt="Panasonic Energy" loading="lazy" style="--w:92px"></li><li><img src="assets/clients-color/aisin.webp" alt="AISIN" loading="lazy" style="--w:122px"></li><li><img src="assets/clients-color/jtekt.webp" alt="JTEKT" loading="lazy" style="--w:86px"></li><li><img src="assets/clients-color/toyota-tsusho.webp" alt="Toyota Tsusho (Thailand)" loading="lazy" style="--w:135px"></li><li><img src="assets/clients-color/km-interlab.webp" alt="KM Interlab" loading="lazy" style="--w:150px"></li><li><img src="assets/clients-color/nawaplastic.webp" alt="SCG Chemicals · NAWAPLASTIC" loading="lazy" style="--w:142px"></li><li><img src="assets/clients-color/eastwater.webp" alt="eastwater" loading="lazy" style="--w:127px"></li><li><img src="assets/clients-color/universal-utilities.webp" alt="Universal Utilities Group" loading="lazy" style="--w:130px"></li><li><img src="assets/clients-color/nt.webp" alt="NT" loading="lazy" style="--w:83px"></li><li><img src="assets/clients-color/arrow-energy.webp" alt="Arrow Energy" loading="lazy" style="--w:118px"></li><li><img src="assets/clients-color/vekin.webp" alt="VEKIN" loading="lazy" style="--w:108px"></li><li><img src="assets/clients-color/sensornic.webp" alt="SENSORNIC" loading="lazy" style="--w:129px"></li><li><img src="assets/clients-color/thai-industech.webp" alt="Thai Industech" loading="lazy" style="--w:58px"></li><li><img src="assets/clients-color/ibcon.webp" alt="IBCON" loading="lazy" style="--w:87px"></li><li><img src="assets/clients-color/kmutnb.webp" alt="KMUTNB" loading="lazy" style="--w:103px"></li><li><img src="assets/clients-color/payap.webp" alt="Payap University" loading="lazy" style="--w:115px"></li><li><img src="assets/clients-color/udonthani-cancer-hospital.webp" alt="Udonthani Cancer Hospital" loading="lazy" style="--w:56px"></li><li><img src="assets/clients-color/chiangkhong-hospital.webp" alt="โรงพยาบาลสมเด็จพระยุพราชเชียงของ" loading="lazy" style="--w:54px"></li></ul>
+  <p class="cap2">โลโก้และเครื่องหมายการค้าเป็นลิขสิทธิ์ของเจ้าของแต่ละราย</p>
+  <div class="partner" data-r><p class="label">Official Partner</p><div class="pl"><span class="pcell"><img src="assets/clients-color/scg.webp" alt="SCG" style="--w:96px"></span><p>PdM Box – Official Partner with SCG · ระบบบำรุงรักษาเชิงพยากรณ์ที่เชื่อมกับ Factory PRO</p></div></div>
  </div>
 </section>
 </main>
