@@ -61,6 +61,8 @@ html.gl .poster{display:none}
 .slabel span::after{content:"";width:1px;height:22px;background:currentColor;opacity:.4}
 .settle small{display:block;font-size:11px;letter-spacing:.2em;color:#7d7d7d;text-transform:uppercase;margin-bottom:8px}
 .paperlayer{position:absolute;inset:0;opacity:0}
+.vig{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse 75% 70% at 50% 52%,transparent 55%,rgba(0,0,0,.55) 100%)}
+.foot .flogo{width:132px;height:auto;margin-bottom:56px;opacity:.95}
 .reveal{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0}
 .reveal .head{width:var(--col);margin:0 auto;padding-top:clamp(96px,14vh,150px)}
 .reveal h2{font-size:clamp(34px,3.6vw,56px);line-height:1.25;margin-top:14px}
@@ -98,25 +100,6 @@ html.gl .poster{display:none}
 .nature .enso{color:#fff;width:26px;height:26px}
 .nature .cap{position:absolute;z-index:2;right:var(--side);bottom:28px;color:#c7c9bf}
 
-/* crisis */
-.crisis{position:relative;height:300svh;background:var(--paper)}
-.crisis .pin{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center}
-.crisis .top{position:absolute;top:clamp(100px,14vh,140px);left:0;right:0}
-.crisis .top p{font-size:14px;color:var(--ink2);margin-top:10px;max-width:28em}
-.lines{position:relative;width:var(--col);margin:0 auto;height:200px}
-.ln{position:absolute;left:0;right:0;height:20px;display:flex;align-items:center}
-.ln:nth-child(1){top:30px}.ln:nth-child(2){top:90px}.ln:nth-child(3){top:150px}
-.ln b{width:110px;flex:none;font-size:13px;font-weight:400;color:var(--ink2)}
-.ln .tr{position:relative;flex:1;height:1px}
-.ln .tr::before{content:"";position:absolute;inset:0;background:var(--rule);opacity:.6}
-.ln i{position:absolute;left:0;top:0;height:1px;width:0;background:var(--ink)}
-.ln i::after{content:"";position:absolute;right:-3px;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--c,var(--ink))}
-.gap{position:absolute;top:30px;height:130px;left:0;width:0;opacity:0;border-left:1px dashed rgba(154,91,62,.55);background:linear-gradient(90deg,rgba(154,91,62,.07),rgba(154,91,62,.02))}
-.note{position:absolute;top:212px;font-size:13px;color:var(--rust);max-width:22em;line-height:1.8;opacity:0;transform:translateY(6px)}
-.resolve{position:absolute;left:0;right:0;bottom:clamp(70px,14vh,150px);opacity:0}
-.resolve .in2{display:flex;align-items:center;gap:18px}
-.resolve h3{font-size:clamp(24px,2.3vw,36px);line-height:1.4}
-.resolve p{font-size:13px;color:var(--mute);margin-top:6px}
 
 /* academy */
 .academy{background:#fff}
@@ -194,8 +177,6 @@ html.gl .poster{display:none}
  .three{grid-template-columns:1fr;gap:56px}
  .ahead,.strip .wrap,.whead,.feat,.awards .grid,.foot .row{grid-template-columns:1fr}
  .wide{height:56svh}
- .ln b{width:74px;font-size:12px}
- .note{left:74px!important;right:0}
  .nature{height:100svh}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -209,7 +190,7 @@ html.gl .poster{display:none}
 </svg>
 
 <header class="bar" id="bar">
- <a class="logo" href="#top" aria-label="Artron Innovative"><img class="lg1" src="assets/artron-italic-white.svg" alt="Artron"><img class="lg2" src="assets/artron.svg" alt="" aria-hidden="true"></a>
+ <a class="logo" href="#top" aria-label="Artron Innovative"><img class="lg1" src="assets/artron-italic-white.svg" alt="Artron"><img class="lg2" src="assets/artron-italic-ink.svg" alt="" aria-hidden="true"></a>
  <nav aria-label="เมนู"><a href="#vow">ปณิธาน</a><a href="#academy">Academy</a><a href="#works">ผลงาน</a><a href="#location">ติดต่อ</a></nav>
 </header>
 
@@ -217,6 +198,7 @@ html.gl .poster{display:none}
 <section class="hero" id="hero" aria-label="เติบโตไปด้วยกัน">
  <div class="stage" id="stage">
   <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="vig" id="vig" aria-hidden="true"></div>
   <img class="poster" src="assets/a-dust-poster-wm2.webp" alt="" aria-hidden="true">
   <div class="copy" id="copy">
    <p class="label">Art + Electronic</p>
@@ -260,23 +242,9 @@ html.gl .poster{display:none}
  <p class="cap">ภาพประกอบ · ลำธารยามเช้า</p>
 </section>
 
-<section class="crisis" id="crisis" aria-label="จังหวะเดียวกัน">
- <div class="pin sand">
-  <div class="top"><div class="wrap"><p class="label">02 / จังหวะเดียวกัน</p><p>สามเส้นทางที่ต้องเดินไปพร้อมกัน</p></div></div>
-  <div class="lines" id="lines">
-   <div class="ln" style="--c:var(--blue)"><b>เทคโนโลยี</b><span class="tr"><i id="lT"></i></span></div>
-   <div class="ln" style="--c:var(--oak)"><b>มนุษย์</b><span class="tr"><i id="lH"></i></span></div>
-   <div class="ln" style="--c:var(--moss)"><b>ธรรมชาติ</b><span class="tr"><i id="lN"></i></span></div>
-   <div class="gap" id="gap"></div>
-   <p class="note" id="note">ถ้าเทคโนโลยีนำ แต่ความเป็นมนุษย์ไม่พัฒนาตาม<br>วิกฤตจะตามมา</p>
-  </div>
-  <div class="resolve" id="resolve"><div class="wrap"><div class="in2"><svg class="enso" id="ensoR" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><div><h3>เราจึงเตรียมคน ไปพร้อมกับเทคโนโลยี.</h3><p>Academy · Innovative · Shop — สามทางที่พาไปถึงที่เดียวกัน</p></div></div></div></div>
- </div>
-</section>
-
 <section class="academy" id="academy">
  <div class="sec" style="padding-bottom:0"><div class="wrap ahead">
-  <div data-r><div class="num"><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">03 / Artron Academy</span></div><p class="label" style="margin-top:10px;letter-spacing:.06em;text-transform:none">ห้องเรียนที่เริ่มจากความอยากรู้</p></div>
+  <div data-r><div class="num"><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">02 / Artron Academy</span></div><p class="label" style="margin-top:10px;letter-spacing:.06em;text-transform:none">ห้องเรียนที่เริ่มจากความอยากรู้</p></div>
   <h2 data-r>ส่งต่อความกล้า<br>ให้มือเล็ก ๆ</h2></div></div>
  <div class="wide" data-r="img"><img id="wsimg" src="assets/workshop-wide.webp" alt="มือเด็กต่อวงจรบนโต๊ะไม้ข้างหน้าต่าง"></div>
  <div class="strip"><div class="wrap">
@@ -287,7 +255,7 @@ html.gl .poster{display:none}
 
 <section class="works sec sand" id="works">
  <div class="wrap">
-  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">04 / ผลงานที่ภาคภูมิใจ</span></div><h2 data-r>ความประณีต<br>ที่เป็นประโยชน์ต่อผู้คน</h2></div>
+  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">03 / ผลงานที่ภาคภูมิใจ</span></div><h2 data-r>ความประณีต<br>ที่เป็นประโยชน์ต่อผู้คน</h2></div>
   <div class="feat">
    <figure data-r="img"><img src="assets/robot-900.webp" alt="หุ่นยนต์บริการโรงพยาบาลของ Artron"><figcaption class="cap">รูปจริง · หุ่นยนต์บริการในโรงพยาบาล</figcaption></figure>
    <div data-r><p class="label">Robotics · Healthcare</p><h3>เทคโนโลยีในพื้นที่<br>ของการดูแลผู้คน</h3><p>หนึ่งในงานต้นแบบของ Artron สำหรับบริการ ที่ให้คนดูแลคนได้ดีขึ้น</p>
@@ -302,7 +270,7 @@ html.gl .poster{display:none}
 
 <section class="loc sec sand" id="location" aria-label="ติดต่อเรา ที่ตั้ง">
  <div class="wrap">
-  <div class="lhead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">05 / ติดต่อเรา · ที่ตั้ง</span></div><h2 data-r>แวะมาคุยกัน<br>ที่ปากเกร็ด นนทบุรี</h2></div>
+  <div class="lhead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">04 / ติดต่อเรา · ที่ตั้ง</span></div><h2 data-r>แวะมาคุยกัน<br>ที่ปากเกร็ด นนทบุรี</h2></div>
   <div class="lgrid">
    <figure data-r><div class="mapill"><img src="assets/artron-3d-map.webp" alt="ภาพประกอบแผนที่ 3 มิติ บริเวณที่ตั้ง Artron Innovative" loading="lazy"></div><figcaption class="cap"><span class="tag">ภาพประกอบ</span>แผนที่โดยรอบสำนักงาน · ไม่ได้ย่อตามมาตราส่วนจริง</figcaption></figure>
    <div class="linfo" data-r>
@@ -321,6 +289,7 @@ html.gl .poster{display:none}
 </section>
 <footer class="foot dark" id="contact">
  <div class="wrap">
+  <img class="flogo" src="assets/artron-italic-white.svg" alt="Artron Innovative">
   <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg></div>
   <h2 data-r style="margin-top:26px">สิ่งดี ๆ เริ่มต้น<br>จากการคุยกัน.</h2>
   <a class="btn inv" data-r href="mailto:sales@artroninnovative.co.th" style="margin-top:34px">ปรึกษาโครงการ <span>↗</span></a>
@@ -340,33 +309,27 @@ const D=document,RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});
 D.querySelectorAll('[data-r]').forEach(el=>io.observe(el));
 const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,seg=(p,a,b)=>ease(cl((p-a)/(b-a)));
-const hero=D.getElementById('hero'),copy=D.getElementById('copy'),settle=D.getElementById('settle'),paper=D.getElementById('paper'),reveal=D.getElementById('reveal'),sculpt=D.getElementById('sculpt'),hint=D.getElementById('hint'),bar=D.getElementById('bar');
-const crisis=D.getElementById('crisis'),lT=D.getElementById('lT'),lH=D.getElementById('lH'),lN=D.getElementById('lN'),gap=D.getElementById('gap'),note=D.getElementById('note'),resolve=D.getElementById('resolve'),ensoR=D.getElementById('ensoR'),lines=D.getElementById('lines');
+const hero=D.getElementById('hero'),copy=D.getElementById('copy'),settle=D.getElementById('settle'),paper=D.getElementById('paper'),reveal=D.getElementById('reveal'),sculpt=D.getElementById('sculpt'),hint=D.getElementById('hint'),bar=D.getElementById('bar'),vig=D.getElementById('vig');
 const natimg=D.getElementById('natimg'),nature=D.getElementById('nature'),wsimg=D.getElementById('wsimg');
 let target=0,hp=0,cp=0,ctarget=0;window.__hero={p:0};
 function prog(el){const r=el.getBoundingClientRect(),t=el.offsetHeight-innerHeight;return cl(-r.top/t)}
-function onScroll(){target=prog(hero);ctarget=prog(crisis);
+function onScroll(){target=prog(hero);
  const darkAt=y=>{for(const el of [hero,nature,D.querySelector('.strip'),D.getElementById('contact')]){const b=el.getBoundingClientRect();if(b.top<=y&&b.bottom>y)return el}return null};
  const el=darkAt(40);bar.classList.toggle('lt',!el||(el===hero&&hp>.86))}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 function frame(){
- hp+=(target-hp)*(RM?1:.075);cp+=(ctarget-cp)*(RM?1:.09);window.__hero.p=hp;
+ hp+=(target-hp)*(RM?1:.075);window.__hero.p=hp;
  const p=hp;
  copy.style.opacity=1-seg(p,.05,.15);copy.style.transform='translateY('+(-24*seg(p,.05,.15))+'px)';
  const mob=innerWidth<861,s=seg(p,.43,.5)*(1-seg(p,.58,.63));settle.style.opacity=s;settle.style.transform=(mob?'':'translateY(-50%) ')+'translateY('+(10*(1-seg(p,.43,.5)))+'px)';
  const s2=seg(p,.64,.7)*(1-seg(p,.77,.8)),st2=D.getElementById('settle2');st2.style.opacity=s2;st2.style.transform=(mob?'':'translateY(-50%) ')+'translateY('+(10*(1-seg(p,.64,.7)))+'px)';
- const L=seg(p,.9,.94);paper.style.opacity=L;D.getElementById('dust').style.opacity=1-seg(p,.92,.96);
- const R=seg(p,.9,.985);reveal.style.opacity=R;sculpt.style.filter='blur('+(14*(1-R)).toFixed(2)+'px)';sculpt.style.transform='scale('+(1.06-.06*R)+')';
+ const gl=D.documentElement.classList.contains('gl');
+ const L=gl?seg(p,.955,.99):seg(p,.9,.94);paper.style.opacity=L;D.getElementById('dust').style.opacity=1-(gl?seg(p,.965,1):seg(p,.92,.96));
+ const R=gl?seg(p,.9,.965):seg(p,.9,.985),Hd=gl?seg(p,.94,.99):R;reveal.style.opacity=1;sculpt.style.opacity=R;sculpt.style.filter='blur('+(6*(1-R)).toFixed(2)+'px)';sculpt.style.transform='scale('+(1.02-.02*R)+')';
+ reveal.querySelector('.head').style.opacity=Hd;reveal.querySelector('.rfoot').style.opacity=Hd;reveal.querySelector('.head').style.transform='translateY('+(12*(1-Hd))+'px)';
+ vig.style.opacity=gl?seg(p,.3,.45)*(1-seg(p,.8,.9)):0;
  hint.style.opacity=1-seg(p,0,.06);
  if(hp>.86!==bar._l){bar._l=hp>.86;onScroll()}
- /* crisis */
- const q=cp,full=lines.querySelector('.tr').offsetWidth,a=seg(q,.05,.28),b=seg(q,.32,.58),c=seg(q,.68,.9);
- const wT=.38*a+.6*b-.18*c,wH=.38*a+.06*b+.36*c,wN=.38*a+.04*b+.38*c;
- lT.style.width=(wT*100)+'%';lH.style.width=(wH*100)+'%';lN.style.width=(wN*100)+'%';
- const off=lines.querySelector('.ln b').offsetWidth,g=b*(1-c);
- gap.style.left=(off+wH*full)+'px';gap.style.width=Math.max(0,(wT-wH)*full)+'px';gap.style.opacity=g;
- note.style.left=(off+wH*full+18)+'px';note.style.opacity=seg(q,.45,.56)*(1-seg(q,.66,.74));note.style.transform='translateY('+(6*(1-seg(q,.45,.56)))+'px)';
- resolve.style.opacity=seg(q,.84,.95);ensoR.classList.toggle('in',q>.86);
  /* gentle parallax */
  if(!RM){const r=nature.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const t=(r.top+r.height)/(innerHeight+r.height);natimg.style.transform='translateY('+((t-.5)*6)+'%) scale(1.04)'}
   const w=wsimg.parentElement.getBoundingClientRect();if(w.bottom>0&&w.top<innerHeight){const t=(w.top+w.height)/(innerHeight+w.height);wsimg.style.transform='translateY('+((t-.5)*10)+'%)'}}
@@ -383,7 +346,7 @@ const cl=x=>Math.min(1,Math.max(0,x)),sm=(a,b,x)=>{const t=cl((x-a)/(b-a));retur
 function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}const R=rng(7);
 /* ---------- garden layout (world units) ---------- */
 const GY=-1.6, FREQ=4.6;
-const ST=[[-.82,.28,.4],[.78,.38,.47],[.0,-.6,.34]];   // tech, human, nature : x,z,r  (inside the a's bowl)
+const ST=[[-.56,.22,.5],[.56,.4,.29],[.06,-.72,.3]];   // tech, human, nature : x,z,r  (inside the a's bowl)
 /* centreline of the artron lowercase "a" (logo units, y down) traced from the logo outline:
    terminal -> top arc -> stem -> bowl bottom -> left -> crossbar inward (one continuous inward spiral) */
 const AP=[[33.7,96],[42,89],[52,83.5],[64,80],[78,78.3],[92,77.8],[106,77.8],[118,78.6],[129,80.5],[139,84],[148,89],[155,96],[159.5,104],[161.5,113],[161,124],[159.3,136],[157.5,148],[155.6,161],[153.7,174],[151.8,187],[150,199],[148.3,211],[146,222],[141,230],[133,234.5],[122,237.5],[108,239.5],[93,240.6],[78,240.4],[63,238.5],[50,234.5],[38,228],[29,219.5],[23,209.5],[20.3,198.5],[21.5,188],[26,178.5],[33,170.5],[41,165],[50,161.5],[62,159],[76,156.2],[90,153.4],[104,150.6],[117,148],[127,145.5],[136,142.5],[144,138.5],[150,134.5]];
@@ -431,33 +394,52 @@ float fbm(vec2 p){float s=0.,a=.5;for(int i=0;i<4;i++){s+=a*vnoise(p);p*=2.03;a*
 /* ---------- ground: raked sand ---------- */
 const trailC=document.createElement('canvas');trailC.width=trailC.height=256;const tx=trailC.getContext('2d');tx.fillStyle='#000';tx.fillRect(0,0,256,256);
 const trailT=new THREE.CanvasTexture(trailC);trailT.minFilter=THREE.LinearFilter;
-const GA=[];for(let i=0;i<AP.length;i+=2)GA.push(new THREE.Vector2((AP[i][0]-AC[0])*.032,(AP[i][1]-200)*.032));GA.push(new THREE.Vector2((AP[AP.length-1][0]-AC[0])*.032,(AP[AP.length-1][1]-200)*.032));
+const GA=[];for(let i=0;i<AP.length;i+=1)GA.push(new THREE.Vector2((AP[i][0]-AC[0])*.032,(AP[i][1]-200)*.032));
 const NGA=GA.length;
-const GU={uSA:{value:0},uM:{value:0},uGa:{value:GA},uT:{value:0},uG:{value:0},uDay:{value:0},uBg:{value:new THREE.Color()},uTrail:{value:trailT},uSt:{value:ST.map(s=>new THREE.Vector3(...s))},uCam:{value:new THREE.Vector3()}};
+const GU={uSA:{value:0},uM:{value:0},uGa:{value:GA},uT:{value:0},uG:{value:0},uDay:{value:0},uBg:{value:new THREE.Color()},uTrail:{value:trailT},uSt:{value:ST.map(s=>new THREE.Vector3(...s))},uCam:{value:new THREE.Vector3()},uKey:{value:new THREE.Vector3(-.2,.5,-1)}};
 const ground=new THREE.Mesh(new THREE.PlaneGeometry(60,40).rotateX(-Math.PI/2).translate(0,GY,-6),new THREE.ShaderMaterial({uniforms:GU,
 vertexShader:`varying vec3 vW;void main(){vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`,
-fragmentShader:`uniform float uT,uG,uDay,uSA,uM;uniform vec3 uBg,uCam;uniform sampler2D uTrail;uniform vec3 uSt[3];uniform vec2 uGa[${NGA}];varying vec3 vW;${NOISE}
+fragmentShader:`uniform float uT,uG,uDay,uSA,uM;uniform vec3 uBg,uCam,uKey;uniform sampler2D uTrail;uniform vec3 uSt[3];uniform vec2 uGa[${NGA}];varying vec3 vW;${NOISE}
 float sdSeg(vec2 p,vec2 a,vec2 b){vec2 pa=p-a,ba=b-a;float h=clamp(dot(pa,ba)/dot(ba,ba),0.,1.);return length(pa-ba*h);}
 float smin(float a,float b,float k){float h=max(k-abs(a-b),0.)/k;return min(a,b)-h*h*k*.25;}
 void main(){vec2 p=vW.xz;
- vec2 d=p-uSt[0].xy*vec2(1.,1.);d=p-vec2(uSt[0].x,uSt[0].y);float e=length(d);float o=max(max(abs(d.x),abs(d.y)),(abs(d.x)+abs(d.y))*.7071);
- float d1=mix(o,e,smoothstep(.9,2.6,e))-uSt[0].z;
- float d2=length(p-vec2(uSt[1].x,uSt[1].y))-uSt[1].z,d3=length(p-vec2(uSt[2].x,uSt[2].y))-uSt[2].z;
- float F=smin(smin(d1,d2,.6),d3,.6);
- if(uM>.001){float g=1e3;for(int i=0;i<${NGA-1};i++)g=min(g,sdSeg(p,uGa[i],uGa[i+1]));float Fa=smin(F,g-.3,.45);F=mix(F,Fa,uM);}
+ vec2 d=p-vec2(uSt[0].x,uSt[0].y);float e=length(d);float o=max(max(abs(d.x),abs(d.y)),(abs(d.x)+abs(d.y))*.7071);
+ float d1=mix(mix(o,e,smoothstep(.9,2.6,e)),e,uDay)-uSt[0].z;
+ float d2=length((p-vec2(uSt[1].x,uSt[1].y))*vec2(.8,1.05))-uSt[1].z,d3=length(p-vec2(uSt[2].x,uSt[2].y))-uSt[2].z;
+ float F=smin(smin(d1,d2,.6),d3,.6);float g=1e3;
+ if(uM>.001){for(int i=0;i<${NGA-1};i++)g=min(g,sdSeg(p,uGa[i],uGa[i+1]));float Fa=smin(F,g-.3,.45);F=mix(F,Fa,uM);}
  F=smin(F,4.2-p.y,1.1);
  vec2 tuv=vec2(p.x/24.+.5,(p.y+7.)/14.);float tr=texture2D(uTrail,tuv).r;
  float ph=F*${FREQ.toFixed(2)}+.05*sin(uT*.45-F*1.4)+tr*.32;
  float w=fwidth(ph);float c=1.-smoothstep(.1,.42,w);
- float h=.5+.5*cos(6.2832*ph),s=sin(6.2832*ph);
- float grain=hash(floor(gl_FragCoord.xy))*.5+vnoise(p*14.)*.5;
  float dist=length(vW-uCam);
+ /* height field: rounded raked ridges + the "a" carved deeper + fine grain */
+ float rr=.5+.5*cos(6.2832*ph);rr=rr*rr*(3.-2.*rr);
+ float H=rr*c*(1.-.75*tr);
+ float ag=uM*exp(-g*g/.006);H-=1.1*ag;
+ float gf=1.-smoothstep(4.,13.,dist);
+ float gr=(vnoise(p*95.)-.5)*.6+(vnoise(p*230.)-.5)*.4;
+ float Ht=H*.055+gr*.006*gf;
+ vec3 dpx=dFdx(vW),dpy=dFdy(vW);float hx=dFdx(Ht),hy=dFdy(Ht);vec3 n0=vec3(0.,1.,0.);
+ vec3 r1=cross(dpy,n0),r2=cross(n0,dpx);float det=dot(dpx,r1);vec3 N=normalize(abs(det)*n0-sign(det)*(hx*r1+hy*r2));
+ vec3 L=normalize(uKey),V=normalize(uCam-vW),Hh=normalize(L+V);
+ float dif=clamp((dot(N,L)+.25)/1.25,0.,1.);
+ float spec=pow(max(dot(N,Hh),0.),36.)*.06;
+ float glint=step(.9965,hash(floor(p*520.)))*pow(max(dot(N,Hh),0.),8.)*gf*.5;
  float moon=exp(-dot(p-vec2(0.,-2.),p-vec2(0.,-2.))/26.);
- vec3 night=vec3(.30,.295,.28)*(.38+.62*moon);vec3 day=vec3(.925,.915,.885);
- vec3 sand=mix(night,day,uDay);
- float relief=c*(1.-.75*tr)*mix(1.,.6,uDay);
- vec3 col=sand*(1.-.11*relief+ .16*relief*(h-.5)+.10*relief*s*mix(1.,.6,uDay)) * (0.94+.1*grain);
- float sh=min(min(d1,d2),d3);col*=mix(1.-.5*uSA,1.,smoothstep(-.05,.5,sh));
+ vec3 albN=vec3(.30,.296,.285)*(.45+.75*moon),albD=vec3(.95,.94,.915);
+ vec3 alb=mix(albN,albD,uDay)*(.95+.07*(vnoise(p*14.)-.5)+.05*gr*gf);
+ vec3 keyC=mix(vec3(.78,.82,.92),vec3(1.,.985,.96),uDay),ambC=mix(vec3(.30,.31,.34),vec3(.80,.80,.79),uDay);
+ float cav=mix(.78,1.,smoothstep(-.3,.8,H));
+ vec3 col=alb*(ambC*cav+keyC*dif*mix(.95,.32,uDay))+ (spec+glint)*keyC;
+ /* contact + soft cast shadows of the three stones, and the blue glass caustic */
+ float ao=1.;vec2 lo=-normalize(L.xz+1e-4);
+ for(int i=0;i<3;i++){vec2 cc=vec2(uSt[i].x,uSt[i].y);float r=uSt[i].z;float dd=length(p-cc)-r*(i==1?1.15:1.);
+  ao*=mix(1.,smoothstep(-.02,r*.55,dd)*.75+.25,uSA*mix(1.,.55,uDay));
+  float ds=length(p-(cc+lo*r*mix(.7,.35,uDay)))-r*1.02;ao*=1.-uSA*mix(.42,.22,uDay)*(1.-smoothstep(-.05,r*.9,ds));}
+ col*=ao;
+ vec2 cq=p-(vec2(uSt[0].x,uSt[0].y)+lo*uSt[0].z*1.05);
+ col+=vec3(.10,.24,.95)*exp(-dot(cq,cq)/(uSt[0].z*uSt[0].z*.35))*.32*uSA*(.6+.4*uDay)*(.85+.3*vnoise(p*30.+uT*.2));
  float fog=smoothstep(30.,9.,dist)*smoothstep(-15.,-4.,p.y);
  col=mix(uBg,col,fog*uG);
  gl_FragColor=vec4(col,1.);}`}));
@@ -475,10 +457,10 @@ for(let i=0;i<NS+NPRE;i++){const a=i*2;bidx.push(a,a+1,a+2,a+1,a+3,a+2)}
 for(let i=0;i<NS+1+NPRE;i++){const s=(i-NPRE)/NS;bS[i*2]=bS[i*2+1]=s;bV[i*2]=-1.35;bV[i*2+1]=1.35}
 const bgeo=new THREE.BufferGeometry();bgeo.setAttribute('position',new THREE.BufferAttribute(bpos,3).setUsage(THREE.DynamicDrawUsage));bgeo.setAttribute('aS',new THREE.BufferAttribute(bS,1));bgeo.setAttribute('aV',new THREE.BufferAttribute(bV,1));bgeo.setIndex(bidx);
 const HW=s=>{s=Math.max(s,0);return ENSO.r*(.03+.034*(1-s*.45)*(1-sm(.78,1,s)*.75)+.024*Math.exp(-s*16))};
-const EU={uDraw:{value:0},uA:{value:0},uDay:{value:0},uLen:{value:1},uHW0:{value:HW(0)}};
+const EU={uDraw:{value:0},uA:{value:0},uDay:{value:0},uLen:{value:1},uHW0:{value:HW(0)},uSteel:{value:0},uT:{value:0}};
 const enso=new THREE.Mesh(bgeo,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,depthTest:false,side:THREE.DoubleSide,
 vertexShader:`attribute float aS,aV;varying float vS,vV;varying vec2 vP;void main(){vS=aS;vV=aV;vP=position.xy;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-fragmentShader:`uniform float uDraw,uA,uDay,uLen,uHW0;varying float vS,vV;varying vec2 vP;${NOISE}
+fragmentShader:`uniform float uDraw,uA,uDay,uLen,uHW0,uSteel,uT;varying float vS,vV;varying vec2 vP;${NOISE}
 void main(){float s=vS,sc=max(s,0.),y=vV;
  float bristle=vnoise(vec2(sc*8.,y*6.5+3.))*.55+vnoise(vec2(sc*38.,y*17.))*.3+vnoise(vec2(sc*170.,y*3.))*.15;
  float dry=.18+.22*smoothstep(.1,.8,sc)+.42*smoothstep(.8,1.,sc)+.22*smoothstep(.5,1.,abs(y));
@@ -491,33 +473,75 @@ void main(){float s=vS,sc=max(s,0.),y=vV;
  a*=smoothstep(uDraw+.002,uDraw-.014,s)*step(s,1.)*step(.0005,uDraw);
  a*=mix(1.,.8,smoothstep(.6,0.,abs(y))*(1.-sc))*(.78+.22*bristle);
  a*=.92+.08*vnoise(vP*18.);
- vec3 inkN=vec3(.82,.805,.77),inkD=vec3(.1,.1,.11);
- gl_FragColor=vec4(mix(inkN,inkD,uDay),a*uA);}`}));
+ vec3 inkN=vec3(.82,.805,.77),inkD=vec3(.1,.1,.11);vec3 ink=mix(inkN,inkD,uDay);
+ /* brushed steel: crisp edges, broad twisting reflections, fine anisotropic streaks along the stroke */
+ float ae=(1.-smoothstep(.93,1.,abs(y)))*smoothstep(-.02,.0,s)*step(s,1.)*step(.0005,uDraw)*smoothstep(uDraw+.002,uDraw-.014,s);
+ float tw=sin(sc*13.+y*.8+.6)*.5+sin(sc*31.-y*.5)*.25+sin(sc*5.3+1.)*.25;
+ float streak=vnoise(vec2(sc*1400.,y*2.))*.6+vnoise(vec2(sc*420.,y*7.))*.4;
+ float hl=smoothstep(.55,.95,tw)*.55+smoothstep(-.2,.9,tw)*.25;
+ vec3 base=mix(vec3(.36,.37,.39),vec3(.62,.63,.65),uDay);
+ vec3 steel=base*(.45+.6*(.5+.5*tw))+hl*mix(vec3(.6,.62,.68),vec3(.5),uDay);
+ steel*=.9+.14*streak;steel*=1.-.25*pow(abs(y),6.);
+ gl_FragColor=vec4(mix(ink,steel,uSteel),mix(a,ae,uSteel)*uA);}`}));
 enso.renderOrder=2;enso.frustumCulled=false;scene.add(enso);
-const PP=new Float32Array((NS+1)*2);let lastM=-1;
-function buildBrush(M){if(Math.abs(M-lastM)<1e-4)return;lastM=M;let len=0;
+const PP=new Float32Array((NS+1)*2);let lastM=-1,lastS=-1,STL=0;
+function buildBrush(M,S=0){if(Math.abs(M-lastM)<1e-4&&Math.abs(S-lastS)<1e-4)return;lastM=M;lastS=S;STL=S;let len=0;
  for(let i=0;i<=NS;i++){const s=i/NS,mm=sm(0,1,M*1.35-s*.35);PP[i*2]=lerp(PE[i*2],PA[i*2],mm);PP[i*2+1]=lerp(PE[i*2+1],PA[i*2+1],mm);if(i)len+=Math.hypot(PP[i*2]-PP[i*2-2],PP[i*2+1]-PP[i*2-1])}
  EU.uLen.value=len;
  const put=(vi,x,y)=>{bpos[vi*3]=x;bpos[vi*3+1]=y;bpos[vi*3+2]=ENSO.z};
  for(let i=0;i<=NS;i++){const i0=Math.max(0,i-1),i1=Math.min(NS,i+1);let tx=PP[i1*2]-PP[i0*2],ty=PP[i1*2+1]-PP[i0*2+1];const tl=Math.hypot(tx,ty)||1;tx/=tl;ty/=tl;
-  const hw=HW(i/NS)*1.35,nx=-ty,ny=tx,k=i+NPRE;put(k*2,PP[i*2]+nx*hw,PP[i*2+1]+ny*hw);put(k*2+1,PP[i*2]-nx*hw,PP[i*2+1]-ny*hw)}
+  const hw=lerp(HW(i/NS)*1.35,ENSO.r*.075*(1-.35*sm(.9,1,i/NS)),STL),nx=-ty,ny=tx,k=i+NPRE;put(k*2,PP[i*2]+nx*hw,PP[i*2+1]+ny*hw);put(k*2+1,PP[i*2]-nx*hw,PP[i*2+1]-ny*hw)}
  let tx=PP[2]-PP[0],ty=PP[3]-PP[1];const tl=Math.hypot(tx,ty)||1;tx/=tl;ty/=tl;const hw=HW(0)*1.35;
  for(let j=0;j<NPRE;j++){const s=(j-NPRE)/NS,b=-s*len,x=PP[0]-tx*b,y=PP[1]-ty*b;put(j*2,x-ty*hw,y+tx*hw);put(j*2+1,x+ty*hw,y-tx*hw)}
  bgeo.attributes.position.needsUpdate=true}
 buildBrush(0);
-/* ---------- three stones ---------- */
-const stones=[],stoneCols=[[0x2a3550,.5,.26],[0xa47a52,.05,.55],[0x46523a,.0,.85]];
-function stoneGeo(seed,r){const g=new THREE.SphereGeometry(1,mobile?40:64,mobile?28:44),P=g.attributes.position,rr=rng(seed),v=new THREE.Vector3(),c=[];const a=rr()*9,b=rr()*9;
- for(let i=0;i<P.count;i++){v.fromBufferAttribute(P,i);const n=Math.sin(v.x*2.1+a)*Math.cos(v.z*1.7+b)*.08+Math.sin(v.y*4.3+a*v.x)*.03;v.multiplyScalar(1+n);v.y=v.y>0?v.y*.62:v.y*.35;v.multiplyScalar(r);P.setXYZ(i,v.x,v.y,v.z);c.push(v.y/r)}
- g.computeVertexNormals();return [g,c]}
-ST.forEach((s,i)=>{const [g,c]=stoneGeo(11+i*7,s[2]);
- if(i===2){const col=new Float32Array(g.attributes.position.count*3);for(let k=0;k<col.length/3;k++){const m=sm(.12,.5,c[k]);col.set([lerp(.5,.42,m),lerp(.5,.6,m),lerp(.46,.33,m)],k*3)}g.setAttribute('color',new THREE.BufferAttribute(col,3))}
- const m=new THREE.MeshStandardMaterial({color:i===2?0xffffff:stoneCols[i][0],metalness:stoneCols[i][1],roughness:stoneCols[i][2],vertexColors:i===2,transparent:true,opacity:0});
- if(i===0){m.emissive=new THREE.Color(0x203fe4);m.emissiveIntensity=0}
- const me=new THREE.Mesh(g,m);me.position.set(s[0],GY-s[2]*.4,s[1]);me.rotation.y=i*1.7;me.renderOrder=3;scene.add(me);stones.push(me)});
-const amb=new THREE.HemisphereLight(0xcfd3dc,0x1a1a18,.2);scene.add(amb);
-const key=new THREE.DirectionalLight(0xe9ecf3,1.3);key.position.set(-1.5,4,-7);scene.add(key);
-const fill=new THREE.DirectionalLight(0xffe8cc,.25);fill.position.set(4,3,8);scene.add(fill);
+/* ---------- three stones: blue glass dome · oak pebble · matte moss stone ---------- */
+const stones=[];
+const SHAPE=[{top:1.0,bot:.74,sx:1,sz:1,n:0},{top:.73,bot:.5,sx:1.25,sz:.95,n:.035},{top:.62,bot:.45,sx:1.08,sz:.96,n:.07}];
+function stoneGeo(seed,r,sh){const g=new THREE.SphereGeometry(1,mobile?48:80,mobile?32:56),P=g.attributes.position,rr=rng(seed),v=new THREE.Vector3();const a=rr()*9,b=rr()*9;
+ for(let i=0;i<P.count;i++){v.fromBufferAttribute(P,i);const n=(Math.sin(v.x*2.1+a)*Math.cos(v.z*1.7+b)+Math.sin(v.y*3.3+a*v.x)*.4)*sh.n;v.multiplyScalar(1+n);v.x*=sh.sx;v.z*=sh.sz;v.y=v.y>0?v.y*sh.top:v.y*sh.bot;v.multiplyScalar(r);P.setXYZ(i,v.x,v.y,v.z)}
+ g.computeVertexNormals();return g}
+const SU={uDay:{value:0},uCam:{value:new THREE.Vector3()},uKey:{value:new THREE.Vector3()},uGY:{value:GY},uT:{value:0}};
+const SVS=`varying vec3 vN,vW,vL;void main(){vL=position;vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;vN=normalize(mat3(modelMatrix)*normal);gl_Position=projectionMatrix*viewMatrix*w;}`;
+const SFS=`uniform float uDay,uGY,uKind,uR,uT;uniform vec3 uCam,uKey;varying vec3 vN,vW,vL;${NOISE}
+vec3 env(vec3 d){float sky=smoothstep(-.25,.85,d.y);
+ vec3 c=mix(mix(vec3(.03),vec3(.80,.79,.76),uDay),mix(vec3(.12,.13,.16),vec3(1.,.995,.98),uDay),sky);
+ c+=smoothstep(.86,.97,dot(d,normalize(vec3(-.55,.7,.45))))*mix(.5,2.4,uDay);
+ c+=smoothstep(.9,.985,dot(d,normalize(vec3(.65,.45,.6))))*mix(.15,.8,uDay);
+ c+=(1.-uDay)*smoothstep(.8,.97,dot(d,normalize(vec3(-.15,.45,-1.))))*1.6;
+ return c;}
+void main(){vec3 N=normalize(vN),V=normalize(uCam-vW),L=normalize(uKey),H=normalize(L+V);
+ float NV=max(dot(N,V),0.),fr=.04+.96*pow(1.-NV,5.);vec3 q=vL/uR;float hgt=(vW.y-uGY)/uR;vec3 col;
+ vec3 keyC=mix(vec3(.75,.8,.92),vec3(1.,.98,.95),uDay);
+ if(uKind<.5){/* glass: fake transmission + absorption, internal caustic, fresnel env reflection */
+  vec3 T=refract(-V,N,.66);vec3 R=reflect(-V,N);
+  float th=pow(NV,.7);
+  vec3 deep=vec3(.006,.02,.2),thin=vec3(.08,.22,.9);
+  vec3 sandC=mix(vec3(.22,.22,.23),vec3(.93,.92,.9),uDay);
+  float look=.55+.45*vnoise(T.xz*3.+T.y);
+  vec3 tc=mix(thin,deep,th*.85)*(sandC*1.1+.15)*look;
+  float side=smoothstep(-.2,.9,dot(normalize(N.xz+1e-4),-normalize(L.xz+1e-4)));
+  tc+=vec3(.15,.38,1.)*(1.-smoothstep(-.1,.55,hgt))*side*mix(.6,1.1,uDay);
+  tc+=vec3(.2,.45,1.)*pow(1.-NV,2.)*.25;
+  col=mix(tc,env(R),fr*.9+.04)+keyC*pow(max(dot(R,L),0.),260.)*1.6;
+ }else if(uKind<1.5){/* oak: rings along the long axis, open-pore flecks, satin finish */
+  float rings=length(q.yz*vec2(1.6,1.))*7.+fbm(q.xy*vec2(1.2,5.)+3.)*2.2;
+  float gl=smoothstep(.25,.05,abs(fract(rings)-.5));
+  float pore=smoothstep(.62,.8,vnoise(vec2(q.x*7.,q.y*90.+q.z*60.)));
+  vec3 alb=mix(vec3(.86,.74,.60),vec3(.74,.60,.46),gl*.55)*(1.-.1*pore)*(.95+.08*fbm(q.xz*4.));
+  float dif=clamp((dot(N,L)+.35)/1.35,0.,1.);
+  col=alb*(env(N)*.5+keyC*dif*.7)+keyC*pow(max(dot(N,H),0.),18.)*.05+env(reflect(-V,N))*fr*.18;
+ }else{/* matte stone with a breath of moss on top */
+  float sp=fbm(q.xz*5.+q.y*3.);float fl=step(.93,hash(floor(q.xz*60.+q.y*40.)));
+  vec3 alb=mix(vec3(.44,.44,.41),vec3(.30,.31,.28),sp)+fl*.06;
+  alb=mix(alb,vec3(.33,.40,.25)*(.8+.4*fbm(q.xz*9.)),smoothstep(.55,.95,N.y)*smoothstep(.45,.7,fbm(q.xz*3.+7.))*.8);
+  float dif=clamp((dot(N,L)+.3)/1.3,0.,1.);
+  col=alb*(env(N)*.4+keyC*dif*.8)+keyC*pow(max(dot(N,H),0.),12.)*.025;}
+ col*=mix(.35,1.,smoothstep(-.05,.3,hgt));
+ gl_FragColor=vec4(col,1.);}`;
+ST.forEach((s,i)=>{const g=stoneGeo(11+i*7,s[2],SHAPE[i]);
+ const m=new THREE.ShaderMaterial({uniforms:{...SU,uKind:{value:i},uR:{value:s[2]}},vertexShader:SVS,fragmentShader:SFS});
+ const me=new THREE.Mesh(g,m);me.position.set(s[0],GY-s[2]*1.2,s[1]);me.rotation.y=[0,-.35,1.1][i];me.renderOrder=3;me.visible=false;scene.add(me);stones.push(me)});
 /* ---------- particles ---------- */
 const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(G,3));geo.setAttribute('pd',new THREE.BufferAttribute(Dd,3));geo.setAttribute('pz',new THREE.BufferAttribute(Z,3));geo.setAttribute('rnd',new THREE.BufferAttribute(rnd,1));geo.setAttribute('del',new THREE.BufferAttribute(del,1));geo.setAttribute('kind',new THREE.BufferAttribute(kind,1));
 const U={uK:{value:0},uT:{value:0},uA:{value:0},uB:{value:0},uFade:{value:1},uEnsoFade:{value:1},uOff:{value:new THREE.Vector3()},uSc:{value:1},uMouse:{value:new THREE.Vector2(99,99)},uSize:{value:30*DPR}};
@@ -556,36 +580,51 @@ const C1=mobile?new THREE.Vector3(0,2.2,25):new THREE.Vector3(0,1.15,11.4),L1=ne
 const C2=mobile?new THREE.Vector3(0,2.,23.5):new THREE.Vector3(0,1.,10.8),L2=new THREE.Vector3(0,-.58,-.9);
 const C3=mobile?new THREE.Vector3(-.1,.6,16):new THREE.Vector3(-.1,.15,7.7),L3=new THREE.Vector3(-.1,-1.05,-.9);
 const look=new THREE.Vector3(),cpos=new THREE.Vector3();
+const C4=new THREE.Vector3(),L4=new THREE.Vector3();
+/* photo: glass-dome centre (540,410) & oak centre (873,464) in the 1280x720 image */
+function solveFrame(){const im=document.getElementById('sculpt');if(!im)return;const b=im.getBoundingClientRect();if(!b.width)return;
+ const sc=1/(1.06-.06*(+getComputedStyle(document.getElementById('reveal')).opacity||0));
+ const w=b.width*sc,h=b.height*sc,x0=b.left+(b.width-w)/2,y0=b.top+(b.height-h)/2,k=Math.max(w/1280,h/720),ox=x0+(w-1280*k)/2,oy=y0+(h-720*k)/2;
+ const T0=[ox+540*k,oy+410*k],T1=[ox+873*k,oy+464*k],tm=[(T0[0]+T1[0])/2,(T0[1]+T1[1])/2],ts=Math.hypot(T1[0]-T0[0],T1[1]-T0[1]);
+ const P0=new THREE.Vector3(ST[0][0],GY+ST[0][2]*.72,ST[0][1]),P1=new THREE.Vector3(ST[1][0],GY+ST[1][2]*.5,ST[1][1]),M=P0.clone().add(P1).multiplyScalar(.5);
+ const dir=new THREE.Vector3(0,.2,1).normalize();let dist=6,off=new THREE.Vector3();const c=cam.clone(),a=new THREE.Vector3(),bb=new THREE.Vector3();
+ for(let it=0;it<60;it++){const lk=M.clone().add(off);c.position.copy(lk).addScaledVector(dir,dist);c.lookAt(lk);c.updateMatrixWorld();
+  a.copy(P0).project(c);bb.copy(P1).project(c);const W=innerWidth,Hh=innerHeight;const s0=[(a.x*.5+.5)*W,(-a.y*.5+.5)*Hh],s1=[(bb.x*.5+.5)*W,(-bb.y*.5+.5)*Hh];
+  const cs=Math.hypot(s1[0]-s0[0],s1[1]-s0[1]);if(!(cs>0)||!(ts>0))break;dist=Math.min(30,Math.max(1.5,dist*Math.pow(cs/ts,.8)));const wpp=2*dist*Math.tan(c.fov*Math.PI/360)/Hh;
+  off.x+=((s0[0]+s1[0])/2-tm[0])*wpp*.8;off.y-=((s0[1]+s1[1])/2-tm[1])*wpp*.8}
+ if(!isFinite(dist+off.x+off.y))return;L4.copy(M).add(off);C4.copy(L4).addScaledVector(dir,dist);window.__fr={C4:C4.toArray(),L4:L4.toArray(),ts,tm,T0,T1}}
+
 /* ---------- mouse: repel + raked trail ---------- */
 const ray=new THREE.Raycaster(),plane=new THREE.Plane(new THREE.Vector3(0,1,0),-GY),hit=new THREE.Vector3(),ndc=new THREE.Vector2();let last=null,mouseOn=false;
 addEventListener('pointermove',e=>{ndc.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);mouseOn=true});
 function trail(){ if(!mouseOn)return;ray.setFromCamera(ndc,cam);
  const v=new THREE.Vector3(ndc.x,ndc.y,.5).unproject(cam).sub(cam.position).normalize();const d=-cam.position.z/v.z;U.uMouse.value.set(cam.position.x+v.x*d,cam.position.y+v.y*d);
  if(GU.uG.value>.3&&ray.ray.intersectPlane(plane,hit)){const u=(hit.x/24+.5)*256,vv=(1-(hit.z+7)/14)*256;
-  if(last){const n=Math.ceil(Math.hypot(u-last[0],vv-last[1])/2);for(let i=0;i<=n;i++){const x=lerp(last[0],u,i/n),y=lerp(last[1],vv,i/n);const gr=tx.createRadialGradient(x,y,0,x,y,14);gr.addColorStop(0,'rgba(255,255,255,.12)');gr.addColorStop(1,'rgba(255,255,255,0)');tx.fillStyle=gr;tx.fillRect(x-15,y-15,30,30)}}
+  if(last){const n=Math.max(1,Math.ceil(Math.hypot(u-last[0],vv-last[1])/2));for(let i=0;i<=n;i++){const x=lerp(last[0],u,i/n),y=lerp(last[1],vv,i/n);const gr=tx.createRadialGradient(x,y,0,x,y,14);gr.addColorStop(0,'rgba(255,255,255,.12)');gr.addColorStop(1,'rgba(255,255,255,0)');tx.fillStyle=gr;tx.fillRect(x-15,y-15,30,30)}}
   last=[u,vv]}}
 /* ---------- loop ---------- */
 const t0=performance.now();let vis=true,frameN=0;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
 (function loop(now){requestAnimationFrame(loop);if(!vis||document.hidden)return;const t=(now-t0)/1000,p=window.__hero.p;frameN++;
  /* timeline */
- const A=cl((p-.07)/.2),B=cl((p-.25)/.22),Gd=seg(p,.36,.5),Dr=sC*sm(.41,.6,p)+(1-sC)*sm(.6,.73,p),Mo=sm(.6,.76,p),Day=seg(p,.86,.93),Cm=seg(p,.22,.55),Dl=seg(p,.5,.66),In=seg(p,.7,.88);
- buildBrush(Mo);GU.uM.value=Mo;
+ const A=cl((p-.07)/.2),B=cl((p-.25)/.22),Gd=seg(p,.36,.5),Dr=sC*sm(.41,.6,p)+(1-sC)*sm(.6,.73,p),Mo=sm(.6,.76,p),Day=seg(p,.8,.92),Cm=seg(p,.22,.55),Dl=seg(p,.5,.66),In=seg(p,.7,.88);
+ GU.uM.value=Mo*(1.-.9*seg(p,.84,.95));
  U.uT.value=t;U.uK.value=cl(t/3.6);U.uA.value=A;U.uB.value=B;U.uFade.value=1-seg(p,.44,.58);U.uEnsoFade.value=1-seg(p,.42,.6)*.8-seg(p,.58,.66)*.2;
  GU.uT.value=t;GU.uG.value=Gd;GU.uDay.value=Day;bg.copy(BG0).lerp(BG1,Day);GU.uBg.value.copy(bg);renderer.setClearColor(bg,1);
  EU.uDraw.value=Dr;EU.uA.value=seg(p,.4,.46);EU.uDay.value=Day;
  MU.uA.value=seg(p,.34,.55)*(1-.5*In);MU.uDay.value=Day;MU2.uT.value=t;MU2.uA.value=seg(p,.36,.52)*(1-seg(p,.8,.88));
- const sr=seg(p,.5,.64);stones.forEach((s,i)=>{const r=ST[i][2];s.position.y=GY-r*.45+r*.42*seg(p,.5+i*.03,.62+i*.03);s.material.opacity=seg(p,.5+i*.03,.58+i*.03);s.material.transparent=s.material.opacity<1;s.rotation.y=i*1.7+t*.01});
- stones[0].material.emissiveIntensity=.12*sr*(1-Day);amb.intensity=.42+.5*Day;key.intensity=1.3+.3*Day;GU.uSA.value=sr;
+ const sr=seg(p,.5,.64);stones.forEach((s,i)=>{const r=ST[i][2],k=seg(p,.5+i*.03,.63+i*.03);s.visible=k>.001;s.position.y=GY-r*(1.2-1.13*k)+(SHAPE[i].bot-.74)*r*k});
+ const Fin=seg(p,.84,.95),Stl=seg(p,.74,.84);buildBrush(Mo,Stl);EU.uSteel.value=Stl;EU.uA.value*=1-seg(p,.89,.945);
+ SU.uDay.value=Day;SU.uKey.value.set(lerp(-.15,-.45,Day),lerp(.45,1.,Day),lerp(-1.,.75,Day));GU.uKey.value.copy(SU.uKey.value);GU.uSA.value=sr;
  /* camera dolly */
- cpos.copy(C0).lerp(C1,Cm).lerp(C2,Dl*Cm).lerp(C3,In);look.copy(L0).lerp(L1,Cm).lerp(L2,Dl*Cm).lerp(L3,In);
- cpos.x+=(Math.sin(t*.07)*.12+ndc.x*.18)*Cm*(1-.6*In);cpos.y+=ndc.y*.08*Cm*(1-.6*In);
- cam.position.copy(cpos);cam.lookAt(look);GU.uCam.value.copy(cpos);
+ if(!C4.lengthSq()||frameN%30===1)solveFrame();cpos.copy(C0).lerp(C1,Cm).lerp(C2,Dl*Cm).lerp(C3,In).lerp(C4,Fin);look.copy(L0).lerp(L1,Cm).lerp(L2,Dl*Cm).lerp(L3,In).lerp(L4,Fin);
+ cpos.x+=(Math.sin(t*.07)*.12+ndc.x*.18)*Cm*(1-.6*In)*(1-Fin);cpos.y+=ndc.y*.08*Cm*(1-.6*In)*(1-Fin);
+ cam.position.copy(cpos);cam.lookAt(look);GU.uCam.value.copy(cpos);SU.uCam.value.copy(cpos);
  /* heal trail */
  if(frameN%2===0){tx.fillStyle='rgba(0,0,0,.035)';tx.fillRect(0,0,256,256)}trail();trailT.needsUpdate=true;
  renderer.render(scene,cam);
  /* labels */
  const la=seg(p,.79,.83)*(1-seg(p,.87,.9));const v=new THREE.Vector3();
- lbls.forEach((el,i)=>{v.set(ST[i][0],GY+ST[i][2]*.75,ST[i][1]).project(cam);el.style.opacity=la;el.style.transform=`translate(${(v.x*.5+.5)*innerWidth}px,${(-v.y*.5+.5)*innerHeight}px)`});
+ lbls.forEach((el,i)=>{v.set(ST[i][0],GY+ST[i][2]*.75,ST[i][1]).project(cam);el.style.opacity=la;el.style.color=Day>.45?'#5a5a58':'';el.style.transform=`translate(${(v.x*.5+.5)*innerWidth}px,${(-v.y*.5+.5)*innerHeight}px)`});
 })(t0);}
 </script>
 </body>
