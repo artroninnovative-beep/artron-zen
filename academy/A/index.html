@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<title>Artron Innovative — สร้างเทคโนโลยีที่เติบโตไปพร้อมกับมนุษย์</title>
+<meta name="description" content="Artron Innovative · IoT · Robotics · AI — ผสานเทคโนโลยีเข้ากับพื้นที่จริง ในภาคอุตสาหกรรม สุขภาพ พลังงาน และวิถีเกษตร พร้อม Artron Academy ที่บ่มเพาะคนตั้งแต่จิตใจถึงฝีมือ">
+<link rel="icon" href="../../proposals/assets/artron-italic-white.svg" type="image/svg+xml">
+<link rel="preload" href="../../proposals/assets/anuphan-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../proposals/assets/a-dust-poster-wm2-s.webp" as="image" fetchpriority="high">
+<style>
+@font-face{font-family:Anuphan;src:url(../../proposals/assets/anuphan-1.woff2) format('woff2');font-weight:100 700;font-display:swap;unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:Anuphan;src:url(../../proposals/assets/anuphan-2.woff2) format('woff2');font-weight:100 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+ --black:#0a0a0a;--ink:#141414;--ink2:#3c3d3f;--mute:#67686a;--rule:#d9d8d3;--paper:#f4f3ef;--card:#f8f7f3;--stone:#e9e7e1;--white:#fff;
+ --blue:#203fe4;--moss:#5e6f4f;--oak:#a27c55;--rust:#9a5b3e;
+ --side:clamp(22px,4.2vw,64px);--col:min(1120px,calc(100vw - 2*var(--side)));
+ --ease:cubic-bezier(.22,.7,.18,1)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.75 Anuphan,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{font-weight:400;letter-spacing:-.012em}
+.wrap{width:var(--col);margin:0 auto}
+.label{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--mute)}
+.cap{font-size:12px;color:var(--mute);margin-top:10px;letter-spacing:.01em}
+.tag{display:inline-block;font-size:10.5px;border:1px solid currentColor;padding:1px 7px;margin-right:8px;letter-spacing:.04em;opacity:.8}
+.sand{background-color:var(--paper);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .33 0 0 0 0 .3 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.btn{display:inline-flex;align-items:center;gap:18px;font-size:13.5px;padding:10px 16px;border:1px solid currentColor;transition:background .5s var(--ease),color .5s var(--ease)}
+.btn.solid{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:hover{background:var(--ink);color:#fff}.dark .btn:hover,.btn.inv:hover{background:#fff;color:var(--ink)}
+/* enso marker */
+.enso{width:30px;height:30px;color:var(--ink);flex:none}
+.enso path{fill:none;stroke:currentColor;stroke-linecap:round;stroke-dasharray:1 1.1;stroke-dashoffset:1;opacity:0;transition:stroke-dashoffset 2.6s var(--ease),opacity .4s}
+.in .enso path,.enso.in path{stroke-dashoffset:0;opacity:1}.in .enso path+path,.enso.in path+path{opacity:.5}
+.num{display:flex;align-items:center;gap:14px}
+
+/* header */
+.bar{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;padding:22px var(--side);color:#fff;transition:color .8s var(--ease),background .8s var(--ease)}
+.bar .logo{position:relative;width:96px;height:26px}.bar .logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .8s}
+.bar .lg2{opacity:0}.bar.lt{color:var(--ink);background:rgba(244,243,239,.82);backdrop-filter:blur(14px)}.bar.lt .lg1{opacity:0}.bar.lt .lg2{opacity:1}
+.bar nav{margin-left:auto;display:flex;gap:30px;font-size:14px}.bar nav a{opacity:.85}.bar nav a:hover{opacity:1}
+
+/* HERO */
+.hero{position:relative;height:620svh;background:var(--black)}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--black)}
+#dust{position:absolute;inset:0;width:100%;height:100%}
+.poster{position:absolute;right:6%;top:16%;width:min(40vw,560px);opacity:.85}
+html.gl .poster{opacity:0;transition:opacity 1.4s var(--ease)}
+#dust{opacity:0;transition:opacity 1.4s var(--ease)}html.gl #dust{opacity:1}
+.copy{position:absolute;left:var(--side);top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;width:min(440px,40vw);color:#fff;padding-top:40px;will-change:opacity}
+.copy .label{color:#d8d8d8}
+.copy h1{font-size:clamp(46px,5.1vw,82px);line-height:1.18;margin:26px 0 30px;font-weight:400}
+.copy h1 span{display:block}
+.copy p{font-size:clamp(15px,1.12vw,18px);color:#e6e6e6;line-height:2}
+.copy figure{margin-top:clamp(36px,7vh,80px);width:min(330px,100%)}
+.copy figure img{aspect-ratio:3/1;object-fit:cover;width:100%}
+.copy .cap{color:#9a9a9a}
+.settle{position:absolute;left:var(--side);top:50%;transform:translateY(-50%);max-width:300px;color:#cfcfcf;font-size:clamp(14px,1.05vw,16px);line-height:2;opacity:0;letter-spacing:.02em;will-change:opacity,transform}
+.settle.r{left:auto;right:var(--side);text-align:right}
+.slabel{position:absolute;left:0;top:0;opacity:0;pointer-events:none;font-size:11px;letter-spacing:.14em;color:#bdbdbd;white-space:nowrap}
+.slabel span{position:absolute;left:0;bottom:12px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.slabel span::after{content:"";width:1px;height:22px;background:currentColor;opacity:.4}
+.settle small{display:block;font-size:11px;letter-spacing:.2em;color:#9a9a9a;text-transform:uppercase;margin-bottom:8px}
+.paperlayer{position:absolute;inset:0;opacity:0}
+.vig{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse 75% 70% at 50% 52%,transparent 55%,rgba(0,0,0,.55) 100%)}
+.foot .flogo{width:132px;height:auto;margin-bottom:56px;opacity:.95}
+.reveal{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0}
+.reveal .head{width:var(--col);margin:0 auto;padding-top:clamp(96px,14vh,150px)}
+.reveal h2{font-size:clamp(34px,3.6vw,56px);line-height:1.25;margin-top:14px}
+.reveal figure{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.reveal figure img{width:min(1060px,86vw);height:min(58svh,596px);object-fit:cover;mix-blend-mode:multiply;-webkit-mask:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,transparent 100%);mask:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,transparent 100%)}
+.reveal .rfoot{width:var(--col);margin:0 auto 28px;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.reveal .rfoot p{font-size:12px;color:var(--mute)}
+.scrollhint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:1px;height:46px;background:linear-gradient(#fff0,#ffffff80);overflow:hidden}
+.scrollhint::after{content:"";position:absolute;left:0;top:-46px;width:1px;height:46px;background:#fff;animation:drip 3.2s var(--ease) infinite}
+@keyframes drip{to{top:46px}}
+
+/* sections */
+.sec{padding:clamp(120px,15vw,210px) 0}
+.intro{display:grid;grid-template-columns:3fr 9fr;gap:0 40px}
+.intro h2{font-size:clamp(34px,3.6vw,56px);line-height:1.28;grid-column:2}
+.intro .lede{grid-column:2;margin-top:44px;max-width:640px;font-size:clamp(16px,1.2vw,19px);line-height:2;color:var(--ink2)}
+.intro .num{grid-row:1/3;align-self:start;padding-top:18px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:clamp(80px,9vw,130px)}
+.three article{border-top:1px solid var(--rule);padding-top:22px}
+.three h3{font-size:clamp(21px,1.7vw,26px);margin:14px 0 6px;line-height:1.4}
+.three p{font-size:14.5px;color:var(--ink2);min-height:3.4em}
+.three figure{margin-top:28px}
+.three .ph{aspect-ratio:7/5;overflow:hidden;background:var(--stone)}
+.three .ph img{width:100%;height:100%;object-fit:cover}
+.three .ph.dev{display:grid;place-items:center}.three .ph.dev img{width:62%;height:auto;mix-blend-mode:multiply}
+
+/* nature interlude */
+.nature{position:relative;height:118svh;overflow:hidden;background:#20251c;color:#fff}
+.nature img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;will-change:transform}
+.nature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,9,.15),rgba(10,12,9,0) 35%,rgba(10,12,9,.5) 75%,rgba(10,12,9,.6))}
+.nature .line{position:absolute;z-index:2;left:var(--side);top:56svh;max-width:640px}
+.nature h2{font-size:clamp(30px,3.2vw,50px);line-height:1.35;font-weight:300}
+.nature p{margin-top:18px;font-size:14px;color:#dcdcd4;max-width:30em}
+.nature .label{color:#d9dccd}
+.nature .enso{color:#fff;width:26px;height:26px}
+.nature .cap{position:absolute;z-index:2;right:var(--side);bottom:28px;color:#c7c9bf}
+
+
+/* academy */
+.academy{background:var(--paper)}
+.ahead{display:grid;grid-template-columns:5fr 7fr;align-items:end;gap:40px;padding-bottom:clamp(50px,6vw,80px)}
+.ahead h2{font-size:clamp(36px,4vw,64px);line-height:1.22}
+.wide{position:relative;overflow:hidden;height:min(72svh,820px)}
+.wide img{width:100%;height:118%;object-fit:cover;position:absolute;top:-9%;will-change:transform}
+.strip{background:var(--black);color:#fff;padding:36px 0 44px}
+.strip .wrap{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
+.strip h3{font-size:clamp(26px,2.4vw,38px);line-height:1.2;margin-top:18px}.strip h3 em{font-style:normal;color:#c9c2b3;display:block}
+.strip p{font-size:14px;color:#cfcfcf;max-width:30em;margin-bottom:22px}
+.strip .cap{color:#9a9a9a;margin:0}
+
+/* works */
+.works{background:var(--paper)}
+.whead{display:grid;grid-template-columns:5fr 7fr;align-items:end;gap:40px;margin-bottom:56px}
+.whead h2{font-size:clamp(34px,3.6vw,56px);line-height:1.28}
+.feat{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,4vw,64px);align-items:end}
+.feat figure img{width:100%;aspect-ratio:3/2;object-fit:cover;filter:saturate(.82) contrast(.97) sepia(.06)}
+.feat h3{font-size:clamp(22px,1.9vw,30px);line-height:1.35;margin-top:14px}
+.feat p{font-size:14.5px;color:var(--ink2);margin-top:10px;max-width:26em}
+.hw{display:flex;gap:20px;align-items:center;border-top:1px solid var(--rule);margin-top:36px;padding-top:22px}
+.hw img{width:84px;mix-blend-mode:multiply}.hw b{display:block;font-weight:500;font-size:16px}.hw span{font-size:13px;color:var(--mute)}
+.awards{margin-top:clamp(90px,10vw,140px);border-top:1px solid var(--rule);padding-top:22px}
+.awards .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px}
+.awards img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.82) contrast(.97) sepia(.06)}
+.awards h4{margin:16px 0 2px;font-weight:500;font-size:15px}.awards span{font-size:12.5px;color:var(--mute)}
+
+
+/* location */
+.loc{background:var(--paper)}
+.lhead{display:grid;grid-template-columns:5fr 7fr;align-items:end;gap:40px;margin-bottom:56px}
+.lhead h2{font-size:clamp(34px,3.6vw,56px);line-height:1.28}
+.lgrid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,4vw,64px);align-items:start}
+.mapill{background:var(--card);border:1px solid var(--rule);padding:clamp(14px,1.6vw,24px)}
+.mapill img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.72) contrast(.96);mix-blend-mode:multiply}
+.linfo dl{margin:0;border-top:1px solid var(--rule)}
+.linfo dl>div{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.linfo dt{font-size:12px;letter-spacing:.12em;color:var(--mute);padding-top:3px}
+.linfo dd{margin:0;font-size:15px;line-height:1.85;color:var(--ink)}
+.linfo dd a{border-bottom:1px solid var(--rule)}
+.linfo .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.gmap{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--rule);padding-top:22px}
+.gmap .frame{position:relative;height:clamp(280px,32vw,420px);background:var(--stone);overflow:hidden}
+.gmap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(.92) brightness(1.04);opacity:.9;transition:filter 1s var(--ease),opacity 1s var(--ease)}
+.gmap .frame:hover iframe,.gmap .frame:focus-within iframe{filter:none;opacity:1}
+.gmap .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+@media(max-width:860px){.lhead,.lgrid{grid-template-columns:1fr}.linfo dl>div{grid-template-columns:80px 1fr}}
+
+/* footer */
+.foot{background:var(--black);color:#fff;padding:clamp(100px,11vw,150px) 0 40px}
+.foot h2{font-size:clamp(36px,4vw,64px);line-height:1.25}
+.foot .row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:80px;border-top:1px solid #2a2a2a;padding-top:28px;font-size:13.5px;color:#bdbdbd}
+.foot .row b{display:block;color:#fff;font-weight:500;margin-bottom:8px;font-size:14px}
+.foot .row a{display:inline-block;margin-top:10px;color:#fff;border-bottom:1px solid #555}
+.foot .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:60px;font-size:12px;color:#8a8a8a}
+.foot .enso{color:#fff}
+
+/* reveal on scroll */
+.js [data-r]{opacity:0;transform:translateY(18px);transition:opacity 1.6s var(--ease),transform 1.6s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="img"]{transform:none;clip-path:inset(0 0 8% 0)}.js [data-r="img"] img{transform:scale(1.05);transition:transform 2.4s var(--ease)}
+.js [data-r="img"].in{clip-path:inset(0)}.js [data-r="img"].in img{transform:none}
+.js [data-r="img"]{transition:opacity 1.6s var(--ease),clip-path 2s var(--ease)}
+
+@media(max-width:860px){
+ .bar nav{gap:18px;font-size:13px}
+ .hero{height:380svh}
+ .copy{width:auto;right:var(--side);justify-content:flex-end;padding-bottom:9vh}
+ .copy h1{margin:16px 0 18px}
+ .copy figure{display:none}
+ .settle{top:12vh;transform:none;max-width:none;right:var(--side)}.slabel{display:none}.settle.r{top:auto;bottom:10vh;text-align:left;left:var(--side)}.slabel{font-size:10px}
+ .reveal figure img{width:100vw;max-height:46svh;aspect-ratio:4/3}
+ .intro{grid-template-columns:1fr}.intro h2,.intro .lede{grid-column:1}.intro .num{grid-row:auto;padding:0 0 22px}
+ .three{grid-template-columns:1fr;gap:56px}
+ .ahead,.strip .wrap,.whead,.feat,.awards .grid,.foot .row{grid-template-columns:1fr}
+ .wide{height:56svh}
+ .nature{height:100svh}
+}
+
+/* v5 · added content (same language) */
+.who{display:grid;grid-template-columns:3fr 9fr;gap:0 40px;margin-top:clamp(90px,10vw,140px);border-top:1px solid var(--rule);padding-top:26px}
+.who blockquote{margin:0;grid-column:2;font-size:clamp(20px,1.75vw,27px);line-height:1.6;max-width:30em;letter-spacing:-.005em}
+.who blockquote+p{grid-column:2;margin-top:22px;max-width:640px;font-size:15px;line-height:2;color:var(--ink2)}
+.vals{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
+.vals div{border-top:1px solid var(--rule);padding-top:16px}.vals b{display:block;font-weight:500;font-size:16px;margin-bottom:4px}.vals p{font-size:13.5px;color:var(--ink2);line-height:1.85}
+.svc,.fp{background:var(--paper)}
+/* quiet hairline list (services, portfolio) */
+.hl{grid-column:2;list-style:none;margin:clamp(70px,8vw,110px) 0 0;padding:0;border-top:1px solid var(--rule)}
+.hl li{display:grid;grid-template-columns:64px 1fr auto;align-items:baseline;padding:clamp(18px,1.9vw,26px) 0;border-bottom:1px solid var(--rule);font-size:clamp(19px,1.65vw,26px);line-height:1.45;font-weight:300;letter-spacing:-.005em}
+.hl li span{font-size:11.5px;letter-spacing:.16em;color:var(--mute);font-weight:400}
+.hl li em{font-style:normal;font-size:12.5px;color:var(--mute);font-weight:400;letter-spacing:.02em}
+.hl.sm li{font-size:clamp(16px,1.25vw,19px);padding:16px 0}
+/* minimal horizontal rhythm */
+.rhythm{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;margin-top:clamp(80px,9vw,130px)}
+.rhythm div{position:relative;padding-top:26px}
+.rhythm div::before{content:"";position:absolute;left:0;right:-40px;top:0;height:1px;background:var(--rule)}.rhythm div:last-child::before{right:0}
+.rhythm div::after{content:"";position:absolute;left:0;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--ink)}
+.rhythm b{display:block;font-weight:400;font-size:clamp(18px,1.4vw,22px);margin-bottom:8px}
+.rhythm p{font-size:14px;color:var(--ink2);line-height:1.9;max-width:20em}
+.quiet{grid-column:2;margin-top:clamp(60px,7vw,90px);font-size:13px;color:var(--mute);letter-spacing:.02em}
+/* Factory Pro */
+.fpfig{margin-top:clamp(70px,8vw,110px)}
+.fpfig .mat{background:var(--card);border:1px solid var(--rule);padding:clamp(16px,2.4vw,40px)}
+.fpfig img{width:100%;aspect-ratio:1400/711;object-fit:cover;filter:saturate(.5) contrast(.94) sepia(.1) brightness(1.02);mix-blend-mode:multiply}
+.mrow{display:grid;grid-template-columns:repeat(6,1fr);gap:0 28px;margin-top:clamp(56px,6vw,80px)}
+.mrow div{border-top:1px solid var(--rule);padding-top:18px}
+.mrow b{display:block;font-weight:400;font-size:clamp(17px,1.35vw,21px);letter-spacing:-.01em}
+.mrow span{display:block;font-size:12.5px;color:var(--mute);margin-top:6px;line-height:1.7}
+.fnote{display:grid;grid-template-columns:5fr 7fr;gap:40px;margin-top:clamp(70px,8vw,110px);font-size:13.5px;color:var(--ink2);line-height:1.95}
+.fnote p+p{margin-top:10px}.fnote b{font-weight:500;color:var(--ink)}.fnote a{border-bottom:1px solid var(--rule)}
+/* works additions: same typography as the original awards block */
+.plist{display:grid;grid-template-columns:5fr 7fr;gap:40px;margin-top:clamp(90px,10vw,140px);border-top:1px solid var(--rule);padding-top:22px}
+.plist .hl{margin:0;border-top:0}.plist .hl li:first-child{padding-top:0}
+.awards a{border-bottom:1px solid var(--rule)}
+.awards .grid+.grid{margin-top:clamp(56px,6vw,80px);padding-top:22px;border-top:1px solid var(--rule)}
+.awards .grid figure>span{display:block}
+.awards blockquote{margin:16px 0 2px;font-weight:500;font-size:15px;line-height:1.75}
+.clients{background:var(--paper)}
+.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:0;padding:0}
+.wall li{list-style:none;display:grid;place-items:center;height:clamp(96px,8.4vw,124px);background:var(--card);border:1px solid var(--rule);padding:0 12%}
+.wall img{width:var(--w);max-width:100%;height:auto;transition:transform .6s var(--ease)}
+.wall li:hover img{transform:translateY(-2px) scale(1.03)}
+.partner{display:grid;grid-template-columns:3fr 9fr;gap:0 40px;align-items:center;margin-top:clamp(56px,6vw,80px);border-top:1px solid var(--ink);padding-top:22px}
+.partner .pl{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.partner .pcell{display:grid;place-items:center;width:clamp(180px,16vw,220px);height:clamp(96px,8.4vw,124px);background:var(--card);border:1px solid var(--rule)}.partner .pcell img{width:var(--w);height:auto}
+.partner p{font-size:14px;color:var(--ink2);max-width:34em}
+.clients .cap2{font-size:12px;color:var(--mute);margin-top:18px}
+@media(max-width:860px){
+ .who,.partner{grid-template-columns:1fr}.who blockquote,.who blockquote+p,.vals{grid-column:1}.who .label,.voice .label,.partner .label{margin-bottom:16px}
+ .vals{grid-template-columns:1fr;gap:30px}.hl,.rhythm,.quiet{grid-column:1}.rhythm{grid-template-columns:1fr;gap:34px}.rhythm div::before{right:0}.hl li{grid-template-columns:44px 1fr}.hl li em{grid-column:2}.mrow{grid-template-columns:1fr 1fr;gap:26px 22px}.fnote,.plist{grid-template-columns:1fr;gap:24px}
+ .wall{grid-template-columns:repeat(3,1fr);gap:6px}.wall li{height:80px;padding:0 10%}.wall img{width:calc(var(--w)*.6)}.partner .pcell{width:160px;height:84px}.partner .pcell img{width:calc(var(--w)*.75)}
+ .bar nav a.hm{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* proposals */
+.awards h3{margin:16px 0 2px;font-weight:500;font-size:15px;line-height:1.6}
+.poster{height:auto;mix-blend-mode:screen}
+.copy{width:min(640px,47vw)}
+.copy h1.v{white-space:normal}.copy h1.v .nw{white-space:nowrap}
+@media(max-width:860px){.poster{right:auto;left:50%;top:13svh;width:min(64vw,340px);transform:translateX(-50%)}}
+.btn{min-height:44px}
+.copy h1.v{font-size:clamp(32px,3.3vw,54px);line-height:1.32;margin:22px 0 22px}
+.copy .sub{font-size:clamp(15px,1.15vw,18px);color:#e6e6e6;line-height:1.9;max-width:26em}
+.hcta{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:48px;padding:0 22px;margin-top:30px;border:1px solid #fff;color:#fff;font-size:15px;transition:background .5s var(--ease),color .5s var(--ease)}
+.hcta:hover,.hcta:focus-visible{background:#fff;color:var(--ink)}
+.copy .hl2{display:flex;gap:22px;flex-wrap:wrap;align-items:center}.copy .hl2 a.ln{font-size:14px;color:#e6e6e6;border-bottom:1px solid #777;margin-top:30px;min-height:44px;display:inline-flex;align-items:center}
+.tbd{display:inline-block;font-size:12px;letter-spacing:.04em;color:#7a4a32;border:1px dashed #b98d74;padding:2px 9px;background:transparent}
+.cta .qform{grid-column:2;margin-top:clamp(56px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.qform label{display:block;font-size:12px;letter-spacing:.12em;color:var(--mute);padding-top:18px}
+.qform input,.qform textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--rule);padding:10px 0 12px;min-height:44px;border-radius:0}
+.qform input:focus,.qform textarea:focus{outline:none;border-bottom-color:var(--ink)}
+.qform .full{grid-column:1/-1}.qform textarea{resize:vertical;min-height:88px}
+.qform .send{grid-column:1/-1;display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.qform button{font:inherit;cursor:pointer}
+.qform .note{font-size:12.5px;color:var(--mute)}
+.alt{grid-column:2;list-style:none;margin:clamp(56px,6vw,80px) 0 0;padding:0;border-top:1px solid var(--rule)}
+.alt li{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;min-height:64px;border-bottom:1px solid var(--rule);font-size:clamp(16px,1.25vw,19px)}
+.alt li a{display:flex;justify-content:space-between;align-items:center;width:100%;min-height:64px}
+.alt li a span{font-size:13px;color:var(--mute)}
+.ind{grid-column:2;list-style:none;margin:clamp(70px,8vw,110px) 0 0;padding:0;border-top:1px solid var(--rule)}
+.ind li a{display:grid;grid-template-columns:64px 1fr auto;align-items:baseline;padding:clamp(22px,2.4vw,34px) 0;border-bottom:1px solid var(--rule);font-size:clamp(24px,2.4vw,38px);font-weight:300;transition:padding .6s var(--ease)}
+.ind li a:hover{padding-left:10px}.ind li a span{font-size:11.5px;letter-spacing:.16em;color:var(--mute);font-weight:400}.ind li a em{font-style:normal;font-size:13px;color:var(--mute);font-weight:400}
+.case{display:grid;grid-template-columns:5fr 7fr;gap:clamp(30px,4vw,64px);align-items:start;margin-top:clamp(80px,9vw,130px);border-top:1px solid var(--rule);padding-top:26px}
+.case figure img{width:100%;aspect-ratio:16/10;object-fit:cover;filter:saturate(.8) contrast(.97) sepia(.06)}
+.case h3{font-size:clamp(24px,2.2vw,34px);line-height:1.35;margin:10px 0 14px;font-weight:400}
+.case p{font-size:15px;color:var(--ink2);line-height:1.95;max-width:32em}
+.case dl{margin:26px 0 0;border-top:1px solid var(--rule)}
+.case dl>div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.case dt{font-size:12px;letter-spacing:.1em;color:var(--mute)}.case dd{margin:0;font-size:15px}
+.acad-path{background:var(--black);color:#fff}
+.acad-path .label{color:#b5b5b5}.acad-path .enso{color:#fff}.acad-path .lede{color:#d6d6d6}
+.acad-path .qform label{color:#b5b5b5}.acad-path .qform input,.acad-path .qform textarea{color:#fff;border-bottom-color:#444}
+.acad-path .qform .note{color:#b5b5b5}
+.acad-path .wideimg{margin-top:clamp(56px,6vw,80px)}.acad-path .wideimg img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.proposal-tag{position:fixed;left:12px;bottom:12px;z-index:60;font-size:11.5px;letter-spacing:.08em;background:rgba(20,20,20,.86);color:#fff;padding:6px 10px}
+.ilk{border-bottom:1px solid currentColor;padding:12px 0}.srcnote{font-size:12px;color:var(--mute)}.ilinkrow{margin-top:22px}.ilink{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid currentColor;font-size:15px}.casenote{margin-top:22px;padding-top:16px;border-top:1px solid var(--rule);font-size:14px;color:var(--mute)}
+.proposal-tag a{border-bottom:1px solid #888;margin-left:8px}
+@media(max-width:860px){.copy{width:auto}.copy h1.v .nw{white-space:normal}.cta .qform,.alt,.ind{grid-column:1}.qform{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case dl>div{grid-template-columns:110px 1fr}.ind li a{grid-template-columns:44px 1fr}.ind li a em{grid-column:2}.copy h1.v{font-size:clamp(30px,8.4vw,40px)}}
+
+/* ARTRON ACADEMY (new) */
+.acad2{position:relative}
+.acad2 .kick{grid-column:2;margin-top:18px;font-size:13px;letter-spacing:.06em;color:var(--mute)}
+.acad2 h2{font-size:clamp(30px,3.2vw,50px);line-height:1.32}
+.acad2 .alink{display:inline-flex;align-items:center;min-height:44px;margin-top:22px;border-bottom:1px solid currentColor;font-size:15px}
+.acad2 .lede a{color:inherit}
+.stg .sn{font-size:11.5px;letter-spacing:.16em;color:var(--mute);font-weight:500}
+.stg h3{font-size:clamp(26px,2.2vw,34px);line-height:1.3;margin:6px 0 2px}
+.stg .en{font-size:13px;color:var(--ink2);letter-spacing:.01em}
+.stg .kw{font-size:13.5px;color:var(--ink);margin:14px 0 8px;padding:6px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stg .ds{font-size:14.5px;color:var(--ink2);line-height:1.9}
+.stages{list-style:none;margin:0;padding:0}
+.stg .mk{display:none}
+.js .acad2 .stg{opacity:0;transform:translateY(16px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.js .acad2 .stg.on{opacity:1;transform:none}
+.avis{margin-top:clamp(56px,7vw,100px)}
+
+.terr{width:100%;height:auto;display:block;overflow:visible}
+.terr .sl{font:500 30px Anuphan,system-ui,sans-serif;fill:#3c3d3f;letter-spacing:.04em}
+.js .terr .step{opacity:0;transform:translateY(40px);transition:opacity 1.4s var(--ease),transform 1.6s var(--ease)}
+.js .terr .step.on{opacity:1;transform:none}
+.terr .edge{stroke-dasharray:1 1.1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s var(--ease) .3s}
+.terr .step.on .edge,html:not(.js) .terr .edge{stroke-dashoffset:0}
+.stages.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:0}
+.stages.cols .stg{padding:26px 28px 0 0;border-left:1px solid var(--rule);padding-left:24px}
+@media(max-width:860px){.terr{width:calc(100% + 2*var(--side));margin-left:calc(-1*var(--side))}.terr .sl{font-size:44px}.stages.cols{grid-template-columns:1fr}.stages.cols .stg{border-left:0;border-top:1px solid var(--rule);padding:22px 0 8px}.stages.cols .stg:first-child{margin-top:14px}}
+@media(max-width:860px){.intro>*{grid-column:1/-1!important}}
+.lede2{font-size:14.5px!important;color:var(--mute)!important;margin-top:16px!important}.trio{letter-spacing:.12em}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="brush" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter></defs></svg>
+<header class="bar" id="bar">
+ <a class="logo" href="#top" aria-label="Artron Innovative"><img class="lg1" src="../../proposals/assets/artron-italic-white.svg" alt="Artron" width="96" height="26"><img class="lg2" src="../../proposals/assets/artron-italic-ink.svg" alt="" aria-hidden="true" width="96" height="26"></a>
+ <nav aria-label="เมนู"><a href="#academy">Academy</a><a href="#industries">อุตสาหกรรม</a><a class="hm" href="#i-factory">โรงงาน</a><a class="hm" href="#i-hospital">โรงพยาบาล</a><a class="hm" href="#i-energy">พลังงาน</a><a class="hm" href="#i-agri">เกษตร</a><a href="#cta">ติดต่อ</a></nav>
+</header>
+<main id="top">
+<section class="hero" id="hero" aria-label="สร้างเทคโนโลยี ที่เติบโตไปพร้อมกับมนุษย์">
+ <div class="stage" id="stage">
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="vig" id="vig" aria-hidden="true"></div>
+  <img class="poster" src="../../proposals/assets/a-dust-poster-wm2-s.webp" alt="" aria-hidden="true" width="600" height="600" fetchpriority="high">
+  <div class="copy" id="copy">
+   <p class="label">ARTRON INNOVATIVE · IoT · ROBOTICS · AI</p>
+   <h1 class="v"><span class="nw">สร้างเทคโนโลยี</span><span class="nw">ที่เติบโตไปพร้อมกับมนุษย์</span></h1>
+   <p class="sub">ออกแบบเทคโนโลยีเพื่อเกื้อกูลคนทำงาน — เราผสาน IoT, หุ่นยนต์ และ AI เข้ากับพื้นที่จริงอย่างลงตัว เพื่อยกระดับความปลอดภัยและประสิทธิภาพในภาคอุตสาหกรรม สุขภาพ พลังงาน และวิถีเกษตร</p>
+   <div class="hl2"><a class="hcta" href="#cta">ปรึกษาโครงการ <span aria-hidden="true">→</span></a><a class="ln" href="#industries">เลือกอุตสาหกรรม</a></div>
+  </div>
+  <p class="settle" id="settle"><small>เชื่อมต่อ · Connect the dots</small>ฝุ่นทุกเม็ดค่อย ๆ วางตัวลง<br>เหมือนทรายที่ถูกคราดอย่างตั้งใจ</p>
+  <p class="settle r" id="settle2"><small>การเดินทางเข้าสู่ภายใน · Inward</small>การเดินทางที่แท้จริง<br>คือการเดินทางเข้าสู่ภายใน</p>
+  <div class="slabel"><span>TECHNOLOGY</span></div><div class="slabel"><span>HUMANITY</span></div><div class="slabel"><span>NATURE</span></div>
+  <div class="paperlayer sand" id="paper"></div>
+  <div class="reveal" id="reveal">
+   <div class="head"><p class="label">ศิลปะ + เทคโนโลยี · สามสิ่งในวงเดียว</p><h2>เทคโนโลยี<br>ที่คิดอย่างมีศิลปะ.</h2></div>
+   <figure><img id="sculpt" src="../../proposals/assets/zen-sculpture.webp" width="1280" height="720" loading="lazy" decoding="async" alt="ริบบิ้นโลหะ แก้วสีน้ำเงิน และก้อนไม้ บนลานทรายเซน"></figure>
+   <div class="rfoot"><p><span class="tag">ภาพประกอบ</span>โลหะ · แก้ว · ไม้ · ทราย</p><p>เทคโนโลยี · มนุษย์ · ธรรมชาติ</p></div>
+  </div>
+  <span class="scrollhint" id="hint" aria-hidden="true"></span>
+ </div>
+</section>
+
+<section class="sec sand acad2 acad-A" id="academy" aria-label="ARTRON ACADEMY">
+ <div class="wrap"><div class="intro">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">01 / ARTRON ACADEMY</span></div>
+  <h2 data-r>เริ่มต้นจากการบ่มเพาะคน —<br>จากจิตใจที่ประณีต สู่ฝีมือที่แม่นยำ</h2>
+  <p class="kick" data-r>เริ่มต้นจากพัฒนาคน · บันได 3 ขั้นแห่งการฝึกตน ตามหลักไตรสิกขา</p>
+  <p class="lede" data-r>เพราะเทคโนโลยีที่ซับซ้อนต้องการสติและจิตใจที่ละเอียดอ่อน เราจึงฝึกฝนคนทำงานตั้งแต่ภายใน — ปลูกฝังความรอบคอบ ความรับผิดชอบ และสมาธิ ก่อนต่อยอดสู่ทักษะวิศวกรรมขั้นสูง เพื่อสร้างนักประดิษฐ์ที่เป็นนายของเทคโนโลยีอย่างแท้จริง</p>
+  <p data-r style="grid-column:2"><a class="alink" href="https://www.facebook.com/ArtronAcademy/" target="_blank" rel="noopener">Artron Academy ↗</a></p>
+ </div>
+<div class="avis" aria-label="The 3 Pillars of Mastery"><svg class="terr" viewBox="0 0 1200 470" role="img" aria-label="บันได 3 ขั้นแห่งการฝึกตน: จิตใจ ฝีมือ ปัญญา"><defs><radialGradient id="stoneg" cx="38%" cy="30%" r="75%"><stop offset="0" stop-color="#6d6c68"/><stop offset=".55" stop-color="#2b2b2a"/><stop offset="1" stop-color="#121212"/></radialGradient><clipPath id="tb0"><rect x="0" y="300" width="400" height="64"/></clipPath><clipPath id="tb1"><rect x="400" y="195" width="400" height="64"/></clipPath><clipPath id="tb2"><rect x="800" y="90" width="400" height="64"/></clipPath></defs><g class="step" data-i="0">
+ <rect x="0" y="364" width="400" height="106" fill="#e7e4dc"/>
+ <g stroke="#cfcabd" stroke-width="1" fill="none"><path d="M6 390H394" /><path d="M6 416H394" /><path d="M6 442H394" /><path d="M6 468H394" /></g>
+ <rect x="0" y="300" width="400" height="64" fill="#f1efe9"/>
+ <g clip-path="url(#tb0)"><g stroke="#cdc7b9" stroke-width="1.1" fill="none"><path d="M0 305.0H400"/><path d="M0 312.5H400"/><path d="M0 320.0H400"/><path d="M0 327.5H400"/><path d="M0 335.0H400"/><path d="M0 342.5H400"/><path d="M0 350.0H400"/><path d="M0 357.5H400"/><path d="M0 365.0H400"/></g><g fill="#f1efe9" stroke="#bdb6a6" stroke-width="1.2"><ellipse cx="200" cy="333.3" rx="154" ry="43"/><ellipse cx="200" cy="333.3" rx="130" ry="36"/><ellipse cx="200" cy="333.3" rx="106" ry="29"/><ellipse cx="200" cy="333.3" rx="82" ry="22"/></g></g>
+ <path class="edge" pathLength="1" filter="url(#brush)" d="M2 364V300H398" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round"/>
+ <ellipse cx="206" cy="347.6" rx="57" ry="9" fill="#000" opacity=".16"/>
+ <path d="M146 342.4C146 306.0 248.6 303.4 254 338.5C248.6 348.9 156.8 349.4 146 342.4Z" fill="url(#stoneg)"/>
+ <text x="28" y="416" class="sl">1 · จิตใจ</text>
+</g><g class="step" data-i="1">
+ <rect x="400" y="259" width="400" height="211" fill="#e7e4dc"/>
+ <g stroke="#cfcabd" stroke-width="1" fill="none"><path d="M406 285H794" /><path d="M406 311H794" /><path d="M406 337H794" /><path d="M406 363H794" /><path d="M406 389H794" /><path d="M406 415H794" /><path d="M406 441H794" /><path d="M406 467H794" /></g>
+ <rect x="400" y="195" width="400" height="64" fill="#f1efe9"/>
+ <g clip-path="url(#tb1)"><g stroke="#cdc7b9" stroke-width="1.1" fill="none"><path d="M400 200.0H800"/><path d="M400 207.5H800"/><path d="M400 215.0H800"/><path d="M400 222.5H800"/><path d="M400 230.0H800"/><path d="M400 237.5H800"/><path d="M400 245.0H800"/><path d="M400 252.5H800"/><path d="M400 260.0H800"/></g><g fill="#f1efe9" stroke="#bdb6a6" stroke-width="1.2"><ellipse cx="600" cy="228.3" rx="154" ry="43"/><ellipse cx="600" cy="228.3" rx="130" ry="36"/><ellipse cx="600" cy="228.3" rx="106" ry="29"/><ellipse cx="600" cy="228.3" rx="82" ry="22"/></g></g>
+ <path class="edge" pathLength="1" filter="url(#brush)" d="M402 259V195H798" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round"/>
+ <ellipse cx="606" cy="244.8" rx="65" ry="10" fill="#000" opacity=".16"/>
+ <path d="M538 238.8C538 196.8 655.8 193.8 662 234.3C655.8 246.3 550.4 246.9 538 238.8Z" fill="url(#stoneg)"/>
+ <text x="428" y="311" class="sl">2 · ฝีมือ</text>
+</g><g class="step" data-i="2">
+ <rect x="800" y="154" width="400" height="316" fill="#e7e4dc"/>
+ <g stroke="#cfcabd" stroke-width="1" fill="none"><path d="M806 180H1194" /><path d="M806 206H1194" /><path d="M806 232H1194" /><path d="M806 258H1194" /><path d="M806 284H1194" /><path d="M806 310H1194" /><path d="M806 336H1194" /><path d="M806 362H1194" /><path d="M806 388H1194" /><path d="M806 414H1194" /><path d="M806 440H1194" /><path d="M806 466H1194" /></g>
+ <rect x="800" y="90" width="400" height="64" fill="#f1efe9"/>
+ <g clip-path="url(#tb2)"><g stroke="#cdc7b9" stroke-width="1.1" fill="none"><path d="M800 95.0H1200"/><path d="M800 102.5H1200"/><path d="M800 110.0H1200"/><path d="M800 117.5H1200"/><path d="M800 125.0H1200"/><path d="M800 132.5H1200"/><path d="M800 140.0H1200"/><path d="M800 147.5H1200"/><path d="M800 155.0H1200"/></g><g fill="#f1efe9" stroke="#bdb6a6" stroke-width="1.2"><ellipse cx="1000" cy="123.3" rx="154" ry="43"/><ellipse cx="1000" cy="123.3" rx="130" ry="36"/><ellipse cx="1000" cy="123.3" rx="106" ry="29"/><ellipse cx="1000" cy="123.3" rx="82" ry="22"/></g></g>
+ <path class="edge" pathLength="1" filter="url(#brush)" d="M802 154V90H1198" fill="none" stroke="#141414" stroke-width="2.6" stroke-linecap="round"/>
+ <ellipse cx="1006" cy="142.0" rx="74" ry="12" fill="#000" opacity=".16"/>
+ <path d="M930 135.2C930 87.6 1063.0 84.2 1070 130.1C1063.0 143.7 944.0 144.4 930 135.2Z" fill="url(#stoneg)"/>
+ <text x="828" y="206" class="sl">3 · ปัญญา</text>
+</g></svg><ol class="stages cols"><li class="stg" data-i="0"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 1</p><h3>จิตใจ</h3><p class="en">Mindfulness &amp; Heart — จิตสิกขา</p><p class="kw">สติ · สมาธิ · ความรับผิดชอบ</p><p class="ds">เริ่มต้นจากความสงบนิ่งและรอบคอบ มีจิตสำนึกในการทำงาน เข้าใจคุณค่าของงานที่ทำ และพร้อมรับผิดชอบต่อผู้ใช้งานหน้างาน</p></li><li class="stg" data-i="1"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 2</p><h3>ฝีมือ</h3><p class="en">Craft &amp; Skill — สีลสิกขา/วินัยและกายภาพ</p><p class="kw">วินัย · ฮาร์ดแวร์ · งานช่างและโปรแกรม</p><p class="ds">ฝึกฝนระเบียบวินัยและความเชี่ยวชาญเชิงช่าง ลงลึกในการออกแบบวงจร ประกอบหุ่นยนต์ และเขียนโค้ดด้วยความประณีตทุกรายละเอียด</p></li><li class="stg" data-i="2"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 3</p><h3>ปัญญา</h3><p class="en">Wisdom &amp; System — ปัญญาสิกขา</p><p class="kw">ระบบองค์รวม · การแก้ปัญหา · เกื้อกูลมนุษย์</p><p class="ds">รู้เท่าทันเทคโนโลยี เข้าใจภาพรวมของระบบและบริบทแวดล้อม เพื่อสร้างนวัตกรรมที่แก้ปัญหาได้ตรงจุดและเกื้อกูลธรรมชาติอย่างยั่งยืน</p></li></ol></div>
+ </div>
+</section>
+
+<section class="sec sand" id="industries">
+ <div class="wrap"><div class="intro">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">02 / เลือกอุตสาหกรรม</span></div>
+  <h2 data-r>เริ่มต้นจาก<br>โจทย์ของคุณ</h2>
+  <p class="lede" data-r>เลือกดูโซลูชันตามลักษณะงานที่คุณทำอยู่</p>
+  
+  <ul class="ind" data-r>
+   <li><a href="#i-factory"><span>03</span>โรงงาน<em>Factory Pro · PdM Box</em></a></li>
+   <li><a href="#i-hospital"><span>04</span>โรงพยาบาล<em>Smart Healthcare</em></a></li>
+   <li><a href="#i-energy"><span>05</span>การจัดการพลังงาน<em>Solar · Power Monitoring</em></a></li>
+   <li><a href="#i-agri"><span>06</span>เกษตรกรรมแม่นยำ<em>Smart Agriculture · LoRaWAN</em></a></li>
+  </ul>
+ </div></div>
+</section>
+
+<!-- source: https://www.factorypro.ai/ · https://www.artroninnovative.co.th/ -->
+<section class="sec sand" id="i-factory">
+ <div class="wrap"><div class="intro">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">03 / โรงงาน · Smart Manufacturing</span></div>
+  <h2 data-r>เห็นภาพรวมสายการผลิต<br>คลังสินค้า และสถานะเครื่องจักร</h2>
+  <p class="lede" data-r>เพื่อความปลอดภัยและลดความสูญเสียหน้างาน</p>
+  <p class="lede lede2" data-r>Factory Pro เชื่อมการผลิต คลังสินค้า การบำรุงรักษา และการมองเห็นด้วย AI ไว้ในแพลตฟอร์มเดียว · PdM Box (Official Partner with SCG) ติดตั้งระบบได้ภายใน 30 นาที ตามข้อมูลผลิตภัณฑ์บน artroninnovative.co.th</p>
+  <figure class="fpfig" data-r="img" style="grid-column:1/-1"><div class="mat"><img src="../../proposals/assets/factorypro-ui-1400-s.webp" width="1100" height="559" alt="หน้าจอ Factory Pro" loading="lazy" decoding="async"></div><figcaption class="cap">รูปจริง · หน้าจอ Factory Pro</figcaption></figure><div class="mrow" data-r style="grid-column:1/-1">
+   <div><b>FacOEE</b><span>ประสิทธิภาพการผลิต</span></div><div><b>FacWMS</b><span>คลังสินค้า</span></div><div><b>FacCare</b><span>บำรุงรักษาเชิงพยากรณ์</span></div>
+   <div><b>FacZero</b><span>พลังงานและคาร์บอน</span></div><div><b>FacTWIN</b><span>Digital Twin</span></div><div><b>FacVision</b><span>ตรวจสอบด้วยภาพ AI</span></div></div><p class="ilinkrow" data-r style="grid-column:2"><!-- TODO: /innovative ยังไม่มีบน artroninnovative.co.th (404 ณ 2026-11-17) — path นี้จะมีบนเว็บจริง; ระหว่างนี้ลิงก์จะ 404 --><a class="ilink" href="/innovative">รายละเอียด PdM Box →</a></p>
+ </div></div>
+</section>
+
+<!-- source: https://www.artroninnovative.co.th/ (Application Area · Our Clients) -->
+<section class="sec sand" id="i-hospital">
+ <div class="wrap"><div class="intro">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">04 / โรงพยาบาล · Smart Healthcare</span></div>
+  <h2 data-r>ระบบอัตโนมัติ<br>ในพื้นที่ของการดูแล</h2>
+  <p class="lede" data-r>เพื่อแบ่งเบาภาระบุคลากร และคืนเวลาสู่การดูแลผู้คนอย่างใกล้ชิด</p>
+  <p class="lede lede2" data-r>ออกแบบและพัฒนาระบบ IoT ฮาร์ดแวร์ และแอปพลิเคชันสำหรับงานในโรงพยาบาล ตั้งแต่วิเคราะห์โจทย์จนถึงติดตั้งใช้งาน</p>
+  <div class="partner" data-r style="grid-column:2"><p class="label">ลูกค้ากลุ่มโรงพยาบาล</p><div class="pl"><span class="pcell"><img src="../../proposals/assets/clients-color/udonthani-cancer-hospital.webp" alt="Udonthani Cancer Hospital" style="--w:56px" width="56" height="57" loading="lazy"></span><span class="pcell"><img src="../../proposals/assets/clients-color/chiangkhong-hospital.webp" alt="โรงพยาบาลสมเด็จพระยุพราชเชียงของ" style="--w:54px" width="54" height="65" loading="lazy"></span></div></div>
+ </div></div>
+</section>
+
+<!-- source: https://www.artroninnovative.co.th/ (Portfolio · Application Area) · https://www.factorypro.ai/ (FacZero) -->
+<section class="sec sand" id="i-energy">
+ <div class="wrap"><div class="intro">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">05 / การจัดการพลังงาน · Solar · Power Monitoring</span></div>
+  <h2 data-r>ติดตามและบริหาร<br>การใช้พลังงานหน้างานอย่างรู้ค่า</h2>
+  <p class="lede" data-r>เพื่อลดต้นทุนแฝงและสร้างความยั่งยืนให้สิ่งแวดล้อม</p>
+  <p class="lede lede2" data-r>Solar Power Plant Monitoring and Control System · Smart Power Monitoring · FacZero ติดตามพลังงานและคาร์บอนฟุตพรินต์ เพื่อลดต้นทุนและรายงาน ESG</p>
+  <figure class="fpfig" data-r="img" style="grid-column:1/-1"><img src="../../proposals/assets/case-solar.webp" width="642" height="282" alt="โซลาร์ฟาร์มลอยน้ำ" loading="lazy" decoding="async" style="width:100%;aspect-ratio:642/282;object-fit:cover;filter:saturate(.8) contrast(.97) sepia(.06)"><figcaption class="cap">รูปจริง · Site Reference จาก artroninnovative.co.th</figcaption></figure>
+ </div></div>
+</section>
+
+<!-- source: https://www.artroninnovative.co.th/ (Portfolio · ModuRa-01 · Application Area) -->
+<section class="sec sand" id="i-agri">
+ <div class="wrap"><div class="intro">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">06 / เกษตรกรรมแม่นยำ · Smart Agriculture</span></div>
+  <h2 data-r>เครือข่ายเซนเซอร์ในแปลง<br>และหุ่นยนต์ในโรงเรือน</h2>
+  <p class="lede" data-r>ช่วยดูแลพืชผลให้เติบโตอย่างประณีตและกลมกลืนกับธรรมชาติ</p>
+  <p class="lede lede2" data-r>AMR Robot Smart Farming สำหรับโรงปลูกพืชแนวตั้ง · ModuRa-01 แปลง RS-485 สู่ LoRaWAN ส่งข้อมูลไร้สายระยะไกล ตัวเครื่องมาตรฐาน IP68 แบตเตอรี่ใช้งานได้นานกว่าหนึ่งปีตามข้อมูลผลิตภัณฑ์ เหมาะกับการติดตามสภาพแวดล้อม</p>
+  <figure class="fpfig" data-r="img" style="grid-column:2;max-width:420px"><img src="../../proposals/assets/case-amr.webp" width="304" height="378" alt="แขนหุ่นยนต์ในโรงปลูกพืชแนวตั้ง" loading="lazy" decoding="async" style="width:100%;height:auto;filter:saturate(.8) contrast(.97) sepia(.06)"><figcaption class="cap">รูปจริง · จาก artroninnovative.co.th</figcaption></figure><p class="ilinkrow" data-r style="grid-column:2"><!-- TODO: /innovative ยังไม่มีบน artroninnovative.co.th (404 ณ 2026-11-17) — path นี้จะมีบนเว็บจริง; ระหว่างนี้ลิงก์จะ 404 --><a class="ilink" href="/innovative">รายละเอียด ModuRa-01 →</a></p>
+ </div></div>
+</section>
+
+<!-- source: https://www.artroninnovative.co.th/ (Our Clients, Official Partner) · https://www.factorypro.ai/ (Panasonic Energy, AISIN, JTEKT, KM Interlab) -->
+<section class="clients sec sand" id="clients">
+ <div class="wrap">
+  <div class="whead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">07 / ความไว้วางใจ</span></div><h2 data-r>ลูกค้าและพันธมิตร<br>ที่ไว้วางใจให้เราร่วมสร้าง.</h2></div>
+  <ul class="wall" data-r><li><img src="../../proposals/assets/clients-color/panasonic-energy.webp" decoding="async" alt="Panasonic Energy" loading="lazy" style="--w:92px"></li><li><img src="../../proposals/assets/clients-color/aisin.webp" decoding="async" alt="AISIN" loading="lazy" style="--w:122px"></li><li><img src="../../proposals/assets/clients-color/jtekt.webp" decoding="async" alt="JTEKT" loading="lazy" style="--w:86px"></li><li><img src="../../proposals/assets/clients-color/toyota-tsusho.webp" decoding="async" alt="Toyota Tsusho (Thailand)" loading="lazy" style="--w:135px"></li><li><img src="../../proposals/assets/clients-color/km-interlab.webp" decoding="async" alt="KM Interlab" loading="lazy" style="--w:150px"></li><li><img src="../../proposals/assets/clients-color/nawaplastic.webp" decoding="async" alt="SCG Chemicals · NAWAPLASTIC" loading="lazy" style="--w:142px"></li><li><img src="../../proposals/assets/clients-color/eastwater.webp" decoding="async" alt="eastwater" loading="lazy" style="--w:127px"></li><li><img src="../../proposals/assets/clients-color/universal-utilities.webp" decoding="async" alt="Universal Utilities Group" loading="lazy" style="--w:130px"></li><li><img src="../../proposals/assets/clients-color/nt.webp" decoding="async" alt="NT" loading="lazy" style="--w:83px"></li><li><img src="../../proposals/assets/clients-color/arrow-energy.webp" decoding="async" alt="Arrow Energy" loading="lazy" style="--w:118px"></li><li><img src="../../proposals/assets/clients-color/vekin.webp" decoding="async" alt="VEKIN" loading="lazy" style="--w:108px"></li><li><img src="../../proposals/assets/clients-color/sensornic.webp" decoding="async" alt="SENSORNIC" loading="lazy" style="--w:129px"></li><li><img src="../../proposals/assets/clients-color/thai-industech.webp" decoding="async" alt="Thai Industech" loading="lazy" style="--w:58px"></li><li><img src="../../proposals/assets/clients-color/ibcon.webp" decoding="async" alt="IBCON" loading="lazy" style="--w:87px"></li><li><img src="../../proposals/assets/clients-color/kmutnb.webp" decoding="async" alt="KMUTNB" loading="lazy" style="--w:103px"></li><li><img src="../../proposals/assets/clients-color/payap.webp" decoding="async" alt="Payap University" loading="lazy" style="--w:115px"></li><li><img src="../../proposals/assets/clients-color/udonthani-cancer-hospital.webp" decoding="async" alt="Udonthani Cancer Hospital" loading="lazy" style="--w:56px"></li><li><img src="../../proposals/assets/clients-color/chiangkhong-hospital.webp" decoding="async" alt="โรงพยาบาลสมเด็จพระยุพราชเชียงของ" loading="lazy" style="--w:54px"></li></ul>
+  <p class="cap2">โลโก้และเครื่องหมายการค้าเป็นลิขสิทธิ์ของเจ้าของแต่ละราย</p>
+  <div class="partner" data-r><p class="label">Official Partner</p><div class="pl"><span class="pcell"><img src="../../proposals/assets/clients-color/scg.webp" decoding="async" alt="SCG" style="--w:96px"></span><p>PdM Box – Official Partner with SCG · ระบบบำรุงรักษาเชิงพยากรณ์ที่เชื่อมกับ Factory PRO</p></div></div>
+  <div class="partner" data-r><p class="label">มาตรฐาน</p><div class="pl"><span class="pcell"><img src="../assets/iso-29110.webp" alt="TÜV SÜD · ISO/IEC 29110" width="96" height="80" loading="lazy" decoding="async" style="--w:96px"></span><p>ISO/IEC 29110 · รับรองโดย TÜV SÜD</p></div></div>
+ </div>
+</section>
+
+<section class="cta sec sand" id="cta" aria-label="ติดต่อ">
+ <div class="wrap"><div class="intro">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">08 / เริ่มคุยกัน</span></div>
+  <h2 data-r>เล่าโจทย์<br>ในอุตสาหกรรมของคุณ.</h2>
+  <p class="lede" data-r>ระบุอุตสาหกรรมและโจทย์สั้น ๆ ทีมที่เกี่ยวข้องจะติดต่อกลับ</p>
+  <form class="qform" data-r data-subject="ปรึกษาโครงการ" action="mailto:sales@artroninnovative.co.th" method="post" enctype="text/plain">
+   <div><label for="f-name">ชื่อ</label><input id="f-name" name="name" autocomplete="name" required></div>
+   <div><label for="f-co">บริษัท / หน่วยงาน</label><input id="f-co" name="company" autocomplete="organization"></div>
+   <div><label for="f-ct">โทรศัพท์ หรือ อีเมล</label><input id="f-ct" name="contact" autocomplete="email" required></div>
+   <div><label for="f-ind">อุตสาหกรรม</label><input id="f-ind" name="industry" placeholder="เช่น โรงงาน · พลังงาน"></div>
+   <div class="full"><label for="f-msg">โจทย์โดยย่อ</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+   <div class="send"><button class="btn solid" type="submit">ปรึกษาโครงการ <span aria-hidden="true">→</span></button><span class="note">ส่งผ่านอีเมล sales@artroninnovative.co.th · <span class="tbd">ฟอร์มจริงรอเชื่อมระบบ</span></span></div>
+  </form>
+  <ul class="alt" data-r><li><a href="mailto:sales@artroninnovative.co.th?subject=%E0%B8%82%E0%B8%AD%E0%B9%80%E0%B8%94%E0%B9%82%E0%B8%A1%20Factory%20Pro">ขอเดโม Factory Pro <span>อีเมล ↗</span></a></li><li>ดาวน์โหลด Company Profile <span class="tbd">รอไฟล์ PDF</span></li><li>Artron Innovative LINE OA <span class="tbd">รอลิงก์ LINE OA</span></li></ul>
+ </div></div>
+</section>
+</main>
+
+<section class="loc sec sand" id="location" aria-label="ติดต่อเรา ที่ตั้ง">
+ <div class="wrap">
+  <div class="lhead"><div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg><span class="label">09 / ติดต่อเรา · ที่ตั้ง</span></div><h2 data-r>แวะมาคุยกัน<br>ที่ปากเกร็ด นนทบุรี</h2></div>
+  <div class="lgrid">
+   <figure data-r><div class="mapill"><img src="../../proposals/assets/artron-3d-map.webp" width="1280" height="720" alt="ภาพประกอบแผนที่ 3 มิติ บริเวณที่ตั้ง Artron Innovative" loading="lazy"></div><figcaption class="cap"><span class="tag">ภาพประกอบ</span>แผนที่โดยรอบสำนักงาน · ไม่ได้ย่อตามมาตราส่วนจริง</figcaption></figure>
+   <div class="linfo" data-r>
+    <dl>
+     <div><dt>ที่อยู่</dt><dd>37/145 หมู่ 5 ซอยโรงเรียนสวนกุหลาบนนทบุรี<br>ถนนติวานนท์ ต.ปากเกร็ด อ.ปากเกร็ด<br>จ.นนทบุรี 11120</dd></div>
+     <div><dt>เวลาทำการ</dt><dd>เปิด 09:00 น.</dd></div>
+     <div><dt>โทร</dt><dd><a href="tel:+6620033688">+66 2 003 3688</a></dd></div>
+     <div><dt>อีเมล</dt><dd><a href="mailto:sales@artroninnovative.co.th">sales@artroninnovative.co.th</a></dd></div>
+    </dl>
+    <div class="acts"><a class="btn solid" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.910194,100.511081" target="_blank" rel="noopener">นำทาง <span>↗</span></a><a class="btn" href="https://www.google.com/maps?q=13.910194,100.511081" target="_blank" rel="noopener">เปิดใน Google Maps</a></div>
+   </div>
+  </div>
+  <div class="gmap" data-r><div class="row"><p class="label">Google Maps · 13.910194, 100.511081</p><p class="cap" style="margin:0">แตะเพื่อดูแผนที่สีจริง</p></div>
+   <div class="frame"><iframe src="https://www.google.com/maps?q=13.910194,100.511081&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="แผนที่ Artron Innovative บน Google Maps" allowfullscreen></iframe></div></div>
+ </div>
+</section>
+<footer class="foot dark" id="contact">
+ <div class="wrap">
+  <img class="flogo" src="../../proposals/assets/artron-italic-white.svg" alt="Artron Innovative">
+  <div class="num" data-r><svg class="enso" viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" filter="url(#brush)" stroke-width="2.4" d="M27.5 6.8C21 3.6 11.6 5.6 7.6 12.6 3.4 20 6.4 30.4 14.6 33.6c7.6 3 16.8-.6 19.2-8.6 1.4-4.6.4-9.8-3-13.6"/><path pathLength="1" filter="url(#brush)" stroke-width=".8" opacity=".55" d="M26 8.4C20.4 5.8 12.6 7.6 9.4 13.6 6 20 8.4 28.6 15.4 31.6c6.6 2.8 14.4-.4 16.6-7.2"/></svg></div>
+  <h2 data-r style="margin-top:26px">สิ่งดี ๆ เริ่มต้น<br>จากการคุยกัน.</h2>
+  <a class="btn inv" data-r href="mailto:sales@artroninnovative.co.th" style="margin-top:34px">ปรึกษาโครงการ <span>↗</span></a>
+  <div class="row">
+   <div><b>Artron Innovative</b>IoT · Automation · การผลิต<br><a href="https://www.factorypro.ai/">Factory Pro ↗</a> <a href="https://www.facebook.com/ArtronInnovative">Facebook ↗</a></div>
+   <div><b>Artron Academy</b>หลักสูตรเรียนรู้การลงมือสร้าง<br>STEM · Robotics<br><a href="https://www.facebook.com/ArtronAcademy/">Academy ↗</a></div>
+   <div><b>Artron Shop</b>บริษัท อาร์ทรอน ชอป จำกัด<br>อุปกรณ์อิเล็กทรอนิกส์สำหรับนักสร้าง<br><a href="https://www.artronshop.co.th/">artronshop.co.th ↗</a> <a href="https://page.line.me/280czymm">LINE Official ↗</a></div>
+  </div>
+  <div class="base"><span>37/145 หมู่ 5 ถนนติวานนท์ ปากเกร็ด นนทบุรี 11120 · +66 2 003 3688 · sales@artroninnovative.co.th</span><span>© 2026 Artron Innovative · เทคโนโลยี · มนุษย์ · ธรรมชาติ</span></div>
+ </div>
+</footer>
+<script>
+window.GLYPH="M161.0,73.7 L147.0,66.7 L131.7,62.3 L115.7,60.3 L90.0,60.7 L67.0,63.3 L46.0,68.7 L35.3,73.7 L21.7,84.0 L22.0,85.3 L45.7,108.0 L47.7,107.7 L54.0,102.3 L62.3,99.0 L88.7,96.0 L111.7,96.0 L125.3,98.7 L134.3,102.7 L141.0,109.3 L142.0,111.3 L142.0,116.0 L140.0,120.3 L137.0,123.3 L126.0,128.3 L112.7,132.0 L45.3,145.3 L32.0,151.0 L20.7,159.0 L14.3,165.3 L6.7,176.3 L2.0,187.7 L0.0,198.0 L0.0,207.3 L3.0,220.0 L9.3,231.7 L15.3,238.3 L26.7,246.7 L39.0,252.3 L46.3,254.7 L68.3,258.3 L86.7,258.7 L107.3,256.0 L123.3,251.7 L134.3,247.0 L145.7,240.7 L159.3,230.0 L164.0,222.7 L166.3,214.0 L181.3,114.0 L180.7,99.3 L176.3,89.0 L170.7,81.7Z M135.0,161.0 L128.0,210.3 L126.7,212.0 L120.3,215.3 L109.7,219.0 L94.0,222.3 L87.0,223.0 L71.3,222.3 L59.0,219.3 L50.7,216.0 L42.7,209.0 L40.7,205.3 L39.3,201.0 L39.3,195.0 L40.7,190.0 L46.0,182.7 L51.7,179.3 L113.3,167.0 L127.3,163.3 L132.7,161.0Z";window.GLYPHBOX=[0.0,60.3,181.7,198.7];
+(()=>{
+const D=document,RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});
+D.querySelectorAll('[data-r]').forEach(el=>io.observe(el));
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,seg=(p,a,b)=>ease(cl((p-a)/(b-a)));
+const hero=D.getElementById('hero'),copy=D.getElementById('copy'),settle=D.getElementById('settle'),paper=D.getElementById('paper'),reveal=D.getElementById('reveal'),sculpt=D.getElementById('sculpt'),hint=D.getElementById('hint'),bar=D.getElementById('bar'),vig=D.getElementById('vig');
+const natimg=D.getElementById('natimg'),nature=D.getElementById('nature'),wsimg=D.getElementById('wsimg');
+let target=0,hp=0,cp=0,ctarget=0;window.__hero={p:0};
+function prog(el){const r=el.getBoundingClientRect(),t=el.offsetHeight-innerHeight;return cl(-r.top/t)}
+function onScroll(){target=prog(hero);
+ const darkAt=y=>{for(const el of [hero,nature,D.querySelector('.strip'),D.querySelector('.acad-path'),D.getElementById('contact')].filter(Boolean)){const b=el.getBoundingClientRect();if(b.top<=y&&b.bottom>y)return el}return null};
+ const el=darkAt(40);bar.classList.toggle('lt',!el||(el===hero&&hp>.86))}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+function frame(){
+ hp+=(target-hp)*(RM?1:.075);window.__hero.p=hp;
+ const p=hp;
+ copy.style.opacity=1-seg(p,.05,.15);copy.style.transform='translateY('+(-24*seg(p,.05,.15))+'px)';
+ const mob=innerWidth<861,s=seg(p,.43,.5)*(1-seg(p,.58,.63));settle.style.opacity=s;settle.style.transform=(mob?'':'translateY(-50%) ')+'translateY('+(10*(1-seg(p,.43,.5)))+'px)';
+ const s2=seg(p,.64,.7)*(1-seg(p,.77,.8)),st2=D.getElementById('settle2');st2.style.opacity=s2;st2.style.transform=(mob?'':'translateY(-50%) ')+'translateY('+(10*(1-seg(p,.64,.7)))+'px)';
+ const gl=D.documentElement.classList.contains('gl');
+ const L=gl?seg(p,.955,.99):seg(p,.9,.94);paper.style.opacity=L;D.getElementById('dust').style.opacity=1-(gl?seg(p,.965,1):seg(p,.92,.96));
+ const R=gl?seg(p,.9,.965):seg(p,.9,.985),Hd=gl?seg(p,.94,.99):R;reveal.style.opacity=1;sculpt.style.opacity=R;sculpt.style.filter='blur('+(6*(1-R)).toFixed(2)+'px)';sculpt.style.transform='scale('+(1.02-.02*R)+')';
+ reveal.querySelector('.head').style.opacity=Hd;reveal.querySelector('.rfoot').style.opacity=Hd;reveal.querySelector('.head').style.transform='translateY('+(12*(1-Hd))+'px)';
+ vig.style.opacity=gl?seg(p,.3,.45)*(1-seg(p,.8,.9)):0;
+ hint.style.opacity=1-seg(p,0,.06);
+ if(hp>.86!==bar._l){bar._l=hp>.86;onScroll()}
+ /* gentle parallax */
+ if(!RM&&nature){const r=nature.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const t=(r.top+r.height)/(innerHeight+r.height);natimg.style.transform='translateY('+((t-.5)*6)+'%) scale(1.04)'}
+}if(!RM&&wsimg){const w=wsimg.parentElement.getBoundingClientRect();if(w.bottom>0&&w.top<innerHeight){const t=(w.top+w.height)/(innerHeight+w.height);wsimg.style.transform='translateY('+((t-.5)*10)+'%)'}}
+ requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+})();
+</script>
+<script>
+document.querySelectorAll('form.qform').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(f),sub=f.dataset.subject||'ปรึกษาโครงการ';
+ const body=[...d.entries()].map(([k,v])=>k+': '+v).join('\n');location.href='mailto:sales@artroninnovative.co.th?subject='+encodeURIComponent(sub+(d.get('company')?' · '+d.get('company'):''))+'&body='+encodeURIComponent(body)}));
+</script>
+<script>
+function VARIANT(p,seg){document.querySelectorAll('#academy .step').forEach((g,i)=>g.classList.toggle('on',p>.12+i*.24));document.querySelectorAll('#academy .stg').forEach((s,i)=>s.classList.toggle('on',p>.2+i*.24))}
+(()=>{const sec=document.getElementById('academy');if(!sec)return;const vis=sec.querySelector('.avis'),RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,seg=(p,a,b)=>ease(cl((p-a)/(b-a)));
+const stg=[...sec.querySelectorAll('.stg')];let last=-1;
+function prog(){if(RM)return 1;const r=vis.getBoundingClientRect(),vh=innerHeight;return cl((vh*.88-r.top)/(Math.max(r.height,320)*.75+vh*.2))}
+function upd(){const p=prog();if(Math.abs(p-last)<.002)return;last=p;window.__acadP=p;VARIANT(p,seg)}
+function tick(){upd();requestAnimationFrame(tick)}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{vis._vis=e.isIntersecting})},{rootMargin:'200px 0px'});io.observe(vis);
+(function loop(){if(vis._vis||last<0)upd();requestAnimationFrame(loop)})();
+})();
+</script>
+<script type="importmap">{"imports":{"three":"../../proposals/assets/three.module.min.js"}}</script>
+<script type="module">
+let booted=false;
+async function boot(late){if(booted)return;booted=true;window.__late=late;const THREE=await import('three');
+THREE.ColorManagement.enabled=false;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,mobile=innerWidth<861,N=mobile?14000:38000,cv=document.getElementById('dust');
+const cl=x=>Math.min(1,Math.max(0,x)),sm=(a,b,x)=>{const t=cl((x-a)/(b-a));return t*t*(3-2*t)},seg=(p,a,b)=>{const t=cl((p-a)/(b-a));return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2},lerp=(a,b,t)=>a+(b-a)*t;
+function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}const R=rng(7);
+/* ---------- garden layout (world units) ---------- */
+const GY=-1.6, FREQ=4.6;
+const ST=[[-.56,.22,.5],[.56,.4,.29],[.06,-.72,.3]];   // tech, human, nature : x,z,r  (inside the a's bowl)
+/* centreline of the artron lowercase "a" (logo units, y down) traced from the logo outline:
+   terminal -> top arc -> stem -> bowl bottom -> left -> crossbar inward (one continuous inward spiral) */
+const AP=[[33.7,96],[42,89],[52,83.5],[64,80],[78,78.3],[92,77.8],[106,77.8],[118,78.6],[129,80.5],[139,84],[148,89],[155,96],[159.5,104],[161.5,113],[161,124],[159.3,136],[157.5,148],[155.6,161],[153.7,174],[151.8,187],[150,199],[148.3,211],[146,222],[141,230],[133,234.5],[122,237.5],[108,239.5],[93,240.6],[78,240.4],[63,238.5],[50,234.5],[38,228],[29,219.5],[23,209.5],[20.3,198.5],[21.5,188],[26,178.5],[33,170.5],[41,165],[50,161.5],[62,159],[76,156.2],[90,153.4],[104,150.6],[117,148],[127,145.5],[136,142.5],[144,138.5],[150,134.5]];
+const AC=[90.85,159.65],LOOPEND=39;
+const ENSO={x:0,y:-.35,z:-.9,r:2.45};
+/* resample the a-centreline by arc length, and build the matching enso (circle + inward spiral) */
+const NS=mobile?300:440;
+function catmull(P,t){const n=P.length-1,f=t*n,i=Math.min(n-1,Math.floor(f)),u=f-i,p0=P[Math.max(0,i-1)],p1=P[i],p2=P[i+1],p3=P[Math.min(n,i+2)];
+ const c=(a,b,c2,d)=>.5*((2*b)+(-a+c2)*u+(2*a-5*b+4*c2-d)*u*u+(-a+3*b-3*c2+d)*u*u*u);return [c(p0[0],p1[0],p2[0],p3[0]),c(p0[1],p1[1],p2[1],p3[1])]}
+const dense=[];for(let k=0;k<=2000;k++)dense.push(catmull(AP,k/2000));
+const cum=[0];for(let k=1;k<dense.length;k++)cum.push(cum[k-1]+Math.hypot(dense[k][0]-dense[k-1][0],dense[k][1]-dense[k-1][1]));
+const TOT=cum[cum.length-1],sC=(()=>{const tgt=LOOPEND/(AP.length-1)*2000|0;return cum[tgt]/TOT})();
+const KA=2*ENSO.r*1.04/198.7;
+const PA=new Float32Array((NS+1)*2),PE=new Float32Array((NS+1)*2);
+{let k=0;for(let i=0;i<=NS;i++){const L=i/NS*TOT;while(k<cum.length-2&&cum[k+1]<L)k++;const u=(L-cum[k])/Math.max(1e-6,cum[k+1]-cum[k]);
+  const gx=lerp(dense[k][0],dense[k+1][0],u),gy=lerp(dense[k][1],dense[k+1][1],u);PA[i*2]=ENSO.x+(gx-AC[0])*KA;PA[i*2+1]=ENSO.y-(gy-AC[1])*KA;
+  const s=i/NS,th0=Math.atan2(-(96-AC[1]),33.7-AC[0]),sweep=th0+Math.PI-Math.atan2(-(161.5-AC[1]),50-AC[0])+Math.PI;
+  let th,r;if(s<=sC){th=th0-(s/sC)*(5.40);r=ENSO.r*(1+.012*Math.sin(s*23.)+ .01*Math.sin(s*7.+1.))}else{const v=(s-sC)/(1-sC);th=th0-5.40-v*1.35;r=ENSO.r*(1-.46*Math.pow(v,1.15))}
+  PE[i*2]=ENSO.x+Math.cos(th)*r;PE[i*2+1]=ENSO.y+Math.sin(th)*r}}
+function smin(a,b,k){const h=Math.max(k-Math.abs(a-b),0)/k;return Math.min(a,b)-h*h*k*.25}
+function field(x,z){
+ let dx=x-ST[0][0],dz=z-ST[0][1];const e=Math.hypot(dx,dz),o=Math.max(Math.abs(dx),Math.abs(dz),(Math.abs(dx)+Math.abs(dz))*.7071);
+ const d1=lerp(o,e,sm(.9,2.6,e))-ST[0][2];
+ const d2=Math.hypot(x-ST[1][0],z-ST[1][1])-ST[1][2],d3=Math.hypot(x-ST[2][0],z-ST[2][1])-ST[2][2];
+ let F=smin(smin(d1,d2,.7),d3,.7);return smin(F,4.2-z,1.1)}
+/* ---------- glyph ---------- */
+function sampleGlyph(){const b=window.GLYPHBOX,S=440/Math.max(b[2],b[3]),c=document.createElement('canvas');c.width=Math.ceil(b[2]*S)+8;c.height=Math.ceil(b[3]*S)+8;const x=c.getContext('2d');x.translate(4,4);x.scale(S,S);x.translate(-b[0],-b[1]);x.fill(new Path2D(window.GLYPH),'evenodd');const d=x.getImageData(0,0,c.width,c.height).data,P=[];for(let y=0;y<c.height;y+=2)for(let X=0;X<c.width;X+=2)if(d[(y*c.width+X)*4+3]>128)P.push((X-c.width/2)/440*5.7,(c.height/2-y)/440*5.7);
+ let mx=1e9,Mx=-1e9,my=1e9,My=-1e9;for(let i=0;i<P.length;i+=2){mx=Math.min(mx,P[i]);Mx=Math.max(Mx,P[i]);my=Math.min(my,P[i+1]);My=Math.max(My,P[i+1])}for(let i=0;i<P.length;i+=2){P[i]-=(mx+Mx)/2;P[i+1]-=(my+My)/2}return P}
+const gp=sampleGlyph(),gn=gp.length/2;
+const G=new Float32Array(N*3),Dd=new Float32Array(N*3),Z=new Float32Array(N*3),rnd=new Float32Array(N),del=new Float32Array(N),kind=new Float32Array(N);
+for(let i=0;i<N;i++){const r=R();rnd[i]=r;const k=(R()*gn|0)*2;
+ G.set([gp[k]+(R()-.5)*.04,gp[k+1]+(R()-.5)*.04,(R()-.5)*.5*(.4+r)],i*3);
+ const gx=(R()+R()+R()-1.5)/1.5,gy=(R()+R()+R()-1.5)/1.5;Dd.set([gx*7.5,-.2+gy*gy*gy*1.4+gy*.5+Math.sin(gx*2.2)*.55,(R()-.5)*2.5],i*3);
+ if(R()<.22){const f=R()*sC,q=Math.min(NS,Math.round(f*NS)),w=.17*(1-.6*f)+.02;Z.set([PE[q*2]+(R()-.5)*w*2,PE[q*2+1]+(R()-.5)*w*2,ENSO.z+(R()-.5)*.06],i*3);del[i]=f*.55;kind[i]=1}
+ else{let x,z,t=0;do{x=(R()-.5)*20;z=-7+R()*12.5;const F=field(x,z);const fr=F*FREQ-Math.floor(F*FREQ);if(F>0.05&&(fr<.14||fr>.94))break}while(++t<40);
+  Z.set([x,GY+.015,z],i*3);del[i]=cl((Math.hypot(x,z+.3))/10)*.55+R()*.08;kind[i]=0}}
+let renderer;try{renderer=new THREE.WebGLRenderer({canvas:cv,antialias:!mobile,alpha:false,powerPreference:'high-performance'})}catch(e){}
+if(renderer&&!RM){document.documentElement.classList.add('gl');const DPR=Math.min(devicePixelRatio||1,mobile?1.5:1.75);renderer.setPixelRatio(DPR);
+renderer.outputColorSpace=THREE.LinearSRGBColorSpace;
+const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,1,.1,120);cam.position.set(0,0,15);
+const BG0=new THREE.Color(0x0a0a0a),BG1=new THREE.Color(0xf4f3ef),bg=new THREE.Color();renderer.setClearColor(BG0,1);
+const NOISE=`float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float vnoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float s=0.,a=.5;for(int i=0;i<4;i++){s+=a*vnoise(p);p*=2.03;a*=.5;}return s;}`;
+/* ---------- ground: raked sand ---------- */
+const trailC=document.createElement('canvas');trailC.width=trailC.height=256;const tx=trailC.getContext('2d');tx.fillStyle='#000';tx.fillRect(0,0,256,256);
+const trailT=new THREE.CanvasTexture(trailC);trailT.minFilter=THREE.LinearFilter;
+const GA=[];for(let i=0;i<AP.length;i+=1)GA.push(new THREE.Vector2((AP[i][0]-AC[0])*.032,(AP[i][1]-200)*.032));
+const NGA=GA.length;
+const GU={uSA:{value:0},uM:{value:0},uGa:{value:GA},uT:{value:0},uG:{value:0},uDay:{value:0},uBg:{value:new THREE.Color()},uTrail:{value:trailT},uSt:{value:ST.map(s=>new THREE.Vector3(...s))},uCam:{value:new THREE.Vector3()},uKey:{value:new THREE.Vector3(-.2,.5,-1)}};
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(60,40).rotateX(-Math.PI/2).translate(0,GY,-6),new THREE.ShaderMaterial({uniforms:GU,
+vertexShader:`varying vec3 vW;void main(){vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`,
+fragmentShader:`uniform float uT,uG,uDay,uSA,uM;uniform vec3 uBg,uCam,uKey;uniform sampler2D uTrail;uniform vec3 uSt[3];uniform vec2 uGa[${NGA}];varying vec3 vW;${NOISE}
+float sdSeg(vec2 p,vec2 a,vec2 b){vec2 pa=p-a,ba=b-a;float h=clamp(dot(pa,ba)/dot(ba,ba),0.,1.);return length(pa-ba*h);}
+float smin(float a,float b,float k){float h=max(k-abs(a-b),0.)/k;return min(a,b)-h*h*k*.25;}
+void main(){vec2 p=vW.xz;
+ vec2 d=p-vec2(uSt[0].x,uSt[0].y);float e=length(d);float o=max(max(abs(d.x),abs(d.y)),(abs(d.x)+abs(d.y))*.7071);
+ float d1=mix(mix(o,e,smoothstep(.9,2.6,e)),e,uDay)-uSt[0].z;
+ float d2=length((p-vec2(uSt[1].x,uSt[1].y))*vec2(.8,1.05))-uSt[1].z,d3=length(p-vec2(uSt[2].x,uSt[2].y))-uSt[2].z;
+ float F=smin(smin(d1,d2,.6),d3,.6);float g=1e3;
+ if(uM>.001){for(int i=0;i<${NGA-1};i++)g=min(g,sdSeg(p,uGa[i],uGa[i+1]));float Fa=smin(F,g-.3,.45);F=mix(F,Fa,uM);}
+ F=smin(F,4.2-p.y,1.1);
+ vec2 tuv=vec2(p.x/24.+.5,(p.y+7.)/14.);float tr=texture2D(uTrail,tuv).r;
+ float ph=F*${FREQ.toFixed(2)}+.05*sin(uT*.45-F*1.4)+tr*.32;
+ float w=fwidth(ph);float c=1.-smoothstep(.1,.42,w);
+ float dist=length(vW-uCam);
+ /* height field: rounded raked ridges + the "a" carved deeper + fine grain */
+ float rr=.5+.5*cos(6.2832*ph);rr=rr*rr*(3.-2.*rr);
+ float H=rr*c*(1.-.75*tr);
+ float ag=uM*exp(-g*g/.006);H-=1.1*ag;
+ float gf=1.-smoothstep(4.,13.,dist);
+ float gr=(vnoise(p*95.)-.5)*.6+(vnoise(p*230.)-.5)*.4;
+ float Ht=H*.055+gr*.006*gf;
+ vec3 dpx=dFdx(vW),dpy=dFdy(vW);float hx=dFdx(Ht),hy=dFdy(Ht);vec3 n0=vec3(0.,1.,0.);
+ vec3 r1=cross(dpy,n0),r2=cross(n0,dpx);float det=dot(dpx,r1);vec3 N=normalize(abs(det)*n0-sign(det)*(hx*r1+hy*r2));
+ vec3 L=normalize(uKey),V=normalize(uCam-vW),Hh=normalize(L+V);
+ float dif=clamp((dot(N,L)+.25)/1.25,0.,1.);
+ float spec=pow(max(dot(N,Hh),0.),36.)*.06;
+ float glint=step(.9965,hash(floor(p*520.)))*pow(max(dot(N,Hh),0.),8.)*gf*.5;
+ float moon=exp(-dot(p-vec2(0.,-2.),p-vec2(0.,-2.))/26.);
+ vec3 albN=vec3(.30,.296,.285)*(.45+.75*moon),albD=vec3(.95,.94,.915);
+ vec3 alb=mix(albN,albD,uDay)*(.95+.07*(vnoise(p*14.)-.5)+.05*gr*gf);
+ vec3 keyC=mix(vec3(.78,.82,.92),vec3(1.,.985,.96),uDay),ambC=mix(vec3(.30,.31,.34),vec3(.80,.80,.79),uDay);
+ float cav=mix(.78,1.,smoothstep(-.3,.8,H));
+ vec3 col=alb*(ambC*cav+keyC*dif*mix(.95,.32,uDay))+ (spec+glint)*keyC;
+ /* contact + soft cast shadows of the three stones, and the blue glass caustic */
+ float ao=1.;vec2 lo=-normalize(L.xz+1e-4);
+ for(int i=0;i<3;i++){vec2 cc=vec2(uSt[i].x,uSt[i].y);float r=uSt[i].z;float dd=length(p-cc)-r*(i==1?1.15:1.);
+  ao*=mix(1.,smoothstep(-.02,r*.55,dd)*.75+.25,uSA*mix(1.,.55,uDay));
+  float ds=length(p-(cc+lo*r*mix(.7,.35,uDay)))-r*1.02;ao*=1.-uSA*mix(.42,.22,uDay)*(1.-smoothstep(-.05,r*.9,ds));}
+ col*=ao;
+ vec2 cq=p-(vec2(uSt[0].x,uSt[0].y)+lo*uSt[0].z*1.05);
+ col+=vec3(.10,.24,.95)*exp(-dot(cq,cq)/(uSt[0].z*uSt[0].z*.35))*.32*uSA*(.6+.4*uDay)*(.85+.3*vnoise(p*30.+uT*.2));
+ float fog=smoothstep(30.,9.,dist)*smoothstep(-15.,-4.,p.y);
+ col=mix(uBg,col,fog*uG);
+ gl_FragColor=vec4(col,1.);}`}));
+ground.material.extensions={derivatives:true};ground.renderOrder=0;scene.add(ground);
+/* ---------- moon glow ---------- */
+const MU={uA:{value:0},uDay:{value:0}};
+const moon=new THREE.Mesh(new THREE.PlaneGeometry(14,14),new THREE.ShaderMaterial({uniforms:MU,transparent:true,depthWrite:false,depthTest:false,blending:THREE.AdditiveBlending,
+vertexShader:`varying vec2 vU;void main(){vU=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+fragmentShader:`uniform float uA,uDay;varying vec2 vU;void main(){float r=length(vU-.5)*2.;float g=exp(-r*r*5.)*.55+exp(-r*r*18.)*.35;gl_FragColor=vec4(vec3(.85,.86,.9)*g*uA*(1.-uDay)*.32,1.);}`}));
+moon.position.set(ENSO.x,ENSO.y+.25,-7);moon.renderOrder=1;scene.add(moon);
+/* ---------- enso -> artron "a" : one sumi brushstroke (ribbon) ---------- */
+const NPRE=10,NV=(NS+1+NPRE)*2;
+const bpos=new Float32Array(NV*3),bS=new Float32Array(NV),bV=new Float32Array(NV),bidx=[];
+for(let i=0;i<NS+NPRE;i++){const a=i*2;bidx.push(a,a+1,a+2,a+1,a+3,a+2)}
+for(let i=0;i<NS+1+NPRE;i++){const s=(i-NPRE)/NS;bS[i*2]=bS[i*2+1]=s;bV[i*2]=-1.35;bV[i*2+1]=1.35}
+const bgeo=new THREE.BufferGeometry();bgeo.setAttribute('position',new THREE.BufferAttribute(bpos,3).setUsage(THREE.DynamicDrawUsage));bgeo.setAttribute('aS',new THREE.BufferAttribute(bS,1));bgeo.setAttribute('aV',new THREE.BufferAttribute(bV,1));bgeo.setIndex(bidx);
+const HW=s=>{s=Math.max(s,0);return ENSO.r*(.03+.034*(1-s*.45)*(1-sm(.78,1,s)*.75)+.024*Math.exp(-s*16))};
+const EU={uDraw:{value:0},uA:{value:0},uDay:{value:0},uLen:{value:1},uHW0:{value:HW(0)},uSteel:{value:0},uT:{value:0}};
+const enso=new THREE.Mesh(bgeo,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,depthTest:false,side:THREE.DoubleSide,
+vertexShader:`attribute float aS,aV;varying float vS,vV;varying vec2 vP;void main(){vS=aS;vV=aV;vP=position.xy;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+fragmentShader:`uniform float uDraw,uA,uDay,uLen,uHW0,uSteel,uT;varying float vS,vV;varying vec2 vP;${NOISE}
+void main(){float s=vS,sc=max(s,0.),y=vV;
+ float bristle=vnoise(vec2(sc*8.,y*6.5+3.))*.55+vnoise(vec2(sc*38.,y*17.))*.3+vnoise(vec2(sc*170.,y*3.))*.15;
+ float dry=.18+.22*smoothstep(.1,.8,sc)+.42*smoothstep(.8,1.,sc)+.22*smoothstep(.5,1.,abs(y));
+ float edge;
+ if(s<0.){float d=length(vec2(-s*uLen/uHW0*.9,y));edge=1.-smoothstep(.7,1.02,d+(vnoise(vec2(y*6.,s*400.))-.5)*.25);}
+ else edge=1.-smoothstep(.72,1.05,abs(y)+(fbm(vec2(sc*55.,y))-.5)*.35);
+ float a=edge*smoothstep(dry*.8,dry*.8+.12,bristle+.18*(1.-abs(y)));
+ float bleed=exp(-pow(abs(y)*.62,2.))*.15*(1.-sc*.8)*fbm(vec2(sc*20.,y*2.5));
+ a=max(a,bleed*step(-.001,s));
+ a*=smoothstep(uDraw+.002,uDraw-.014,s)*step(s,1.)*step(.0005,uDraw);
+ a*=mix(1.,.8,smoothstep(.6,0.,abs(y))*(1.-sc))*(.78+.22*bristle);
+ a*=.92+.08*vnoise(vP*18.);
+ vec3 inkN=vec3(.82,.805,.77),inkD=vec3(.1,.1,.11);vec3 ink=mix(inkN,inkD,uDay);
+ /* brushed steel: crisp edges, broad twisting reflections, fine anisotropic streaks along the stroke */
+ float ae=(1.-smoothstep(.93,1.,abs(y)))*smoothstep(-.02,.0,s)*step(s,1.)*step(.0005,uDraw)*smoothstep(uDraw+.002,uDraw-.014,s);
+ float tw=sin(sc*13.+y*.8+.6)*.5+sin(sc*31.-y*.5)*.25+sin(sc*5.3+1.)*.25;
+ float streak=vnoise(vec2(sc*1400.,y*2.))*.6+vnoise(vec2(sc*420.,y*7.))*.4;
+ float hl=smoothstep(.55,.95,tw)*.55+smoothstep(-.2,.9,tw)*.25;
+ vec3 base=mix(vec3(.36,.37,.39),vec3(.62,.63,.65),uDay);
+ vec3 steel=base*(.45+.6*(.5+.5*tw))+hl*mix(vec3(.6,.62,.68),vec3(.5),uDay);
+ steel*=.9+.14*streak;steel*=1.-.25*pow(abs(y),6.);
+ gl_FragColor=vec4(mix(ink,steel,uSteel),mix(a,ae,uSteel)*uA);}`}));
+enso.renderOrder=2;enso.frustumCulled=false;scene.add(enso);
+const PP=new Float32Array((NS+1)*2);let lastM=-1,lastS=-1,STL=0;
+function buildBrush(M,S=0){if(Math.abs(M-lastM)<1e-4&&Math.abs(S-lastS)<1e-4)return;lastM=M;lastS=S;STL=S;let len=0;
+ for(let i=0;i<=NS;i++){const s=i/NS,mm=sm(0,1,M*1.35-s*.35);PP[i*2]=lerp(PE[i*2],PA[i*2],mm);PP[i*2+1]=lerp(PE[i*2+1],PA[i*2+1],mm);if(i)len+=Math.hypot(PP[i*2]-PP[i*2-2],PP[i*2+1]-PP[i*2-1])}
+ EU.uLen.value=len;
+ const put=(vi,x,y)=>{bpos[vi*3]=x;bpos[vi*3+1]=y;bpos[vi*3+2]=ENSO.z};
+ for(let i=0;i<=NS;i++){const i0=Math.max(0,i-1),i1=Math.min(NS,i+1);let tx=PP[i1*2]-PP[i0*2],ty=PP[i1*2+1]-PP[i0*2+1];const tl=Math.hypot(tx,ty)||1;tx/=tl;ty/=tl;
+  const hw=lerp(HW(i/NS)*1.35,ENSO.r*.075*(1-.35*sm(.9,1,i/NS)),STL),nx=-ty,ny=tx,k=i+NPRE;put(k*2,PP[i*2]+nx*hw,PP[i*2+1]+ny*hw);put(k*2+1,PP[i*2]-nx*hw,PP[i*2+1]-ny*hw)}
+ let tx=PP[2]-PP[0],ty=PP[3]-PP[1];const tl=Math.hypot(tx,ty)||1;tx/=tl;ty/=tl;const hw=HW(0)*1.35;
+ for(let j=0;j<NPRE;j++){const s=(j-NPRE)/NS,b=-s*len,x=PP[0]-tx*b,y=PP[1]-ty*b;put(j*2,x-ty*hw,y+tx*hw);put(j*2+1,x+ty*hw,y-tx*hw)}
+ bgeo.attributes.position.needsUpdate=true}
+buildBrush(0);
+/* ---------- three stones: blue glass dome · oak pebble · matte moss stone ---------- */
+const stones=[];
+const SHAPE=[{top:1.0,bot:.74,sx:1,sz:1,n:0},{top:.73,bot:.5,sx:1.25,sz:.95,n:.035},{top:.62,bot:.45,sx:1.08,sz:.96,n:.07}];
+function stoneGeo(seed,r,sh){const g=new THREE.SphereGeometry(1,mobile?48:80,mobile?32:56),P=g.attributes.position,rr=rng(seed),v=new THREE.Vector3();const a=rr()*9,b=rr()*9;
+ for(let i=0;i<P.count;i++){v.fromBufferAttribute(P,i);const n=(Math.sin(v.x*2.1+a)*Math.cos(v.z*1.7+b)+Math.sin(v.y*3.3+a*v.x)*.4)*sh.n;v.multiplyScalar(1+n);v.x*=sh.sx;v.z*=sh.sz;v.y=v.y>0?v.y*sh.top:v.y*sh.bot;v.multiplyScalar(r);P.setXYZ(i,v.x,v.y,v.z)}
+ g.computeVertexNormals();return g}
+const SU={uDay:{value:0},uCam:{value:new THREE.Vector3()},uKey:{value:new THREE.Vector3()},uGY:{value:GY},uT:{value:0}};
+const SVS=`varying vec3 vN,vW,vL;void main(){vL=position;vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;vN=normalize(mat3(modelMatrix)*normal);gl_Position=projectionMatrix*viewMatrix*w;}`;
+const SFS=`uniform float uDay,uGY,uKind,uR,uT;uniform vec3 uCam,uKey;varying vec3 vN,vW,vL;${NOISE}
+vec3 env(vec3 d){float sky=smoothstep(-.25,.85,d.y);
+ vec3 c=mix(mix(vec3(.03),vec3(.80,.79,.76),uDay),mix(vec3(.12,.13,.16),vec3(1.,.995,.98),uDay),sky);
+ c+=smoothstep(.86,.97,dot(d,normalize(vec3(-.55,.7,.45))))*mix(.5,2.4,uDay);
+ c+=smoothstep(.9,.985,dot(d,normalize(vec3(.65,.45,.6))))*mix(.15,.8,uDay);
+ c+=(1.-uDay)*smoothstep(.8,.97,dot(d,normalize(vec3(-.15,.45,-1.))))*1.6;
+ return c;}
+void main(){vec3 N=normalize(vN),V=normalize(uCam-vW),L=normalize(uKey),H=normalize(L+V);
+ float NV=max(dot(N,V),0.),fr=.04+.96*pow(1.-NV,5.);vec3 q=vL/uR;float hgt=(vW.y-uGY)/uR;vec3 col;
+ vec3 keyC=mix(vec3(.75,.8,.92),vec3(1.,.98,.95),uDay);
+ if(uKind<.5){/* glass: fake transmission + absorption, internal caustic, fresnel env reflection */
+  vec3 T=refract(-V,N,.66);vec3 R=reflect(-V,N);
+  float th=pow(NV,.7);
+  vec3 deep=vec3(.006,.02,.2),thin=vec3(.08,.22,.9);
+  vec3 sandC=mix(vec3(.22,.22,.23),vec3(.93,.92,.9),uDay);
+  float look=.55+.45*vnoise(T.xz*3.+T.y);
+  vec3 tc=mix(thin,deep,th*.85)*(sandC*1.1+.15)*look;
+  float side=smoothstep(-.2,.9,dot(normalize(N.xz+1e-4),-normalize(L.xz+1e-4)));
+  tc+=vec3(.15,.38,1.)*(1.-smoothstep(-.1,.55,hgt))*side*mix(.6,1.1,uDay);
+  tc+=vec3(.2,.45,1.)*pow(1.-NV,2.)*.25;
+  col=mix(tc,env(R),fr*.9+.04)+keyC*pow(max(dot(R,L),0.),260.)*1.6;
+ }else if(uKind<1.5){/* oak: rings along the long axis, open-pore flecks, satin finish */
+  float rings=length(q.yz*vec2(1.6,1.))*7.+fbm(q.xy*vec2(1.2,5.)+3.)*2.2;
+  float gl=smoothstep(.25,.05,abs(fract(rings)-.5));
+  float pore=smoothstep(.62,.8,vnoise(vec2(q.x*7.,q.y*90.+q.z*60.)));
+  vec3 alb=mix(vec3(.86,.74,.60),vec3(.74,.60,.46),gl*.55)*(1.-.1*pore)*(.95+.08*fbm(q.xz*4.));
+  float dif=clamp((dot(N,L)+.35)/1.35,0.,1.);
+  col=alb*(env(N)*.5+keyC*dif*.7)+keyC*pow(max(dot(N,H),0.),18.)*.05+env(reflect(-V,N))*fr*.18;
+ }else{/* matte stone with a breath of moss on top */
+  float sp=fbm(q.xz*5.+q.y*3.);float fl=step(.93,hash(floor(q.xz*60.+q.y*40.)));
+  vec3 alb=mix(vec3(.44,.44,.41),vec3(.30,.31,.28),sp)+fl*.06;
+  alb=mix(alb,vec3(.33,.40,.25)*(.8+.4*fbm(q.xz*9.)),smoothstep(.55,.95,N.y)*smoothstep(.45,.7,fbm(q.xz*3.+7.))*.8);
+  float dif=clamp((dot(N,L)+.3)/1.3,0.,1.);
+  col=alb*(env(N)*.4+keyC*dif*.8)+keyC*pow(max(dot(N,H),0.),12.)*.025;}
+ col*=mix(.35,1.,smoothstep(-.05,.3,hgt));
+ gl_FragColor=vec4(col,1.);}`;
+ST.forEach((s,i)=>{const g=stoneGeo(11+i*7,s[2],SHAPE[i]);
+ const m=new THREE.ShaderMaterial({uniforms:{...SU,uKind:{value:i},uR:{value:s[2]}},vertexShader:SVS,fragmentShader:SFS});
+ const me=new THREE.Mesh(g,m);me.position.set(s[0],GY-s[2]*1.2,s[1]);me.rotation.y=[0,-.35,1.1][i];me.renderOrder=3;me.visible=false;scene.add(me);stones.push(me)});
+/* ---------- particles ---------- */
+const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(G,3));geo.setAttribute('pd',new THREE.BufferAttribute(Dd,3));geo.setAttribute('pz',new THREE.BufferAttribute(Z,3));geo.setAttribute('rnd',new THREE.BufferAttribute(rnd,1));geo.setAttribute('del',new THREE.BufferAttribute(del,1));geo.setAttribute('kind',new THREE.BufferAttribute(kind,1));
+const U={uK:{value:0},uT:{value:0},uA:{value:0},uB:{value:0},uFade:{value:1},uEnsoFade:{value:1},uOff:{value:new THREE.Vector3()},uSc:{value:1},uMouse:{value:new THREE.Vector2(99,99)},uSize:{value:30*DPR}};
+const mat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,depthTest:false,blending:THREE.AdditiveBlending,
+vertexShader:`attribute vec3 pd,pz;attribute float rnd,del,kind;uniform float uK,uT,uA,uB,uSc,uSize,uFade,uEnsoFade;uniform vec3 uOff;uniform vec2 uMouse;varying float vA;
+void main(){vec3 g=position*uSc+uOff;float a=smoothstep(rnd*.3,.7+rnd*.3,uA);
+ vec3 d=pd+vec3(sin(uT*.07+rnd*50.)*.6,cos(uT*.06+rnd*37.)*.4,sin(uT*.05+rnd*21.)*.4);
+ vec3 p=mix(g,d,a);float b=smoothstep(del,del+.42,uB);p=mix(p,pz,b);
+ float k=smoothstep(rnd*.35,.65+rnd*.35,uK);p=mix(d*1.15,p,k);
+ p+=vec3(sin(uT*.35+rnd*40.),cos(uT*.3+rnd*31.),0.)*.02*(1.+a*(1.-b)*4.);
+ vec2 dd=p.xy-uMouse;float l=dot(dd,dd);p.xy+=normalize(dd+1e-4)*.5*exp(-l*1.8)*k*(1.-a);
+ vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
+ gl_PointSize=uSize*(.42+rnd*.85)*(1.-.2*a*(1.-b))/-mv.z;
+ vA=(.3+.7*k)*(1.-.2*a*(1.-b))*mix(1.,mix(uFade,uEnsoFade,kind),b);}`,
+fragmentShader:`varying float vA;void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;gl_FragColor=vec4(vec3(.93,.92,.88),(1.-r*2.)*vA*.72);}`});
+const pts=new THREE.Points(geo,mat);pts.renderOrder=4;scene.add(pts);
+/* ---------- dust motes in the moonlight ---------- */
+const M=mobile?260:700,mp=new Float32Array(M*3),mr=new Float32Array(M);const R2=rng(3);
+for(let i=0;i<M;i++){mp.set([(R2()-.5)*11,GY+R2()*4.6,-4+R2()*7],i*3);mr[i]=R2()}
+const mg=new THREE.BufferGeometry();mg.setAttribute('position',new THREE.BufferAttribute(mp,3));mg.setAttribute('rnd',new THREE.BufferAttribute(mr,1));
+const MU2={uT:{value:0},uA:{value:0},uSize:{value:22*DPR},uDay:{value:0}};
+const motes=new THREE.Points(mg,new THREE.ShaderMaterial({uniforms:MU2,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+vertexShader:`attribute float rnd;uniform float uT,uSize;varying float vA;void main(){vec3 p=position;float t=uT*(.04+rnd*.05);
+ p.x+=sin(t*3.+rnd*30.)*.6+t*.8;p.y+=mod(t*.9+rnd*4.6,4.6)-2.3+sin(t*2.+rnd*9.)*.2;p.x=mod(p.x+5.5,11.)-5.5;
+ vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;gl_PointSize=uSize*(.3+rnd*.9)/-mv.z;
+ float tw=.5+.5*sin(uT*(.6+rnd)+rnd*20.);vA=tw*exp(-pow(length(p.xy-vec2(0.,-.1))/3.4,2.));}`,
+fragmentShader:`uniform float uA,uDay;varying float vA;void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;gl_FragColor=vec4(vec3(1.,.97,.9),pow(1.-r*2.,1.6)*vA*uA*(1.-uDay)*.8);}`}));
+motes.renderOrder=5;scene.add(motes);
+/* ---------- sizing / camera ---------- */
+const lbls=[...document.querySelectorAll('.slabel')];
+function size(){const w=cv.clientWidth,h=cv.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();
+ const vw=9.46*cam.aspect;U.uOff.value.set(mobile?0:Math.min(vw*.2,3.6),mobile?1.5:-.1,0);U.uSc.value=mobile?.58:1}
+size();addEventListener('resize',size);
+const C0=new THREE.Vector3(0,0,15),L0=new THREE.Vector3(0,0,0);
+const C1=mobile?new THREE.Vector3(0,2.2,25):new THREE.Vector3(0,1.15,11.4),L1=new THREE.Vector3(0,-.62,-.9);
+const C2=mobile?new THREE.Vector3(0,2.,23.5):new THREE.Vector3(0,1.,10.8),L2=new THREE.Vector3(0,-.58,-.9);
+const C3=mobile?new THREE.Vector3(-.1,.6,16):new THREE.Vector3(-.1,.15,7.7),L3=new THREE.Vector3(-.1,-1.05,-.9);
+const look=new THREE.Vector3(),cpos=new THREE.Vector3();
+const C4=new THREE.Vector3(),L4=new THREE.Vector3();
+/* photo: glass-dome centre (540,410) & oak centre (873,464) in the 1280x720 image */
+function solveFrame(){const im=document.getElementById('sculpt');if(!im)return;const b=im.getBoundingClientRect();if(!b.width)return;
+ const sc=1/(1.06-.06*(+getComputedStyle(document.getElementById('reveal')).opacity||0));
+ const w=b.width*sc,h=b.height*sc,x0=b.left+(b.width-w)/2,y0=b.top+(b.height-h)/2,k=Math.max(w/1280,h/720),ox=x0+(w-1280*k)/2,oy=y0+(h-720*k)/2;
+ const T0=[ox+540*k,oy+410*k],T1=[ox+873*k,oy+464*k],tm=[(T0[0]+T1[0])/2,(T0[1]+T1[1])/2],ts=Math.hypot(T1[0]-T0[0],T1[1]-T0[1]);
+ const P0=new THREE.Vector3(ST[0][0],GY+ST[0][2]*.72,ST[0][1]),P1=new THREE.Vector3(ST[1][0],GY+ST[1][2]*.5,ST[1][1]),M=P0.clone().add(P1).multiplyScalar(.5);
+ const dir=new THREE.Vector3(0,.2,1).normalize();let dist=6,off=new THREE.Vector3();const c=cam.clone(),a=new THREE.Vector3(),bb=new THREE.Vector3();
+ for(let it=0;it<60;it++){const lk=M.clone().add(off);c.position.copy(lk).addScaledVector(dir,dist);c.lookAt(lk);c.updateMatrixWorld();
+  a.copy(P0).project(c);bb.copy(P1).project(c);const W=innerWidth,Hh=innerHeight;const s0=[(a.x*.5+.5)*W,(-a.y*.5+.5)*Hh],s1=[(bb.x*.5+.5)*W,(-bb.y*.5+.5)*Hh];
+  const cs=Math.hypot(s1[0]-s0[0],s1[1]-s0[1]);if(!(cs>0)||!(ts>0))break;dist=Math.min(30,Math.max(1.5,dist*Math.pow(cs/ts,.8)));const wpp=2*dist*Math.tan(c.fov*Math.PI/360)/Hh;
+  off.x+=((s0[0]+s1[0])/2-tm[0])*wpp*.8;off.y-=((s0[1]+s1[1])/2-tm[1])*wpp*.8}
+ if(!isFinite(dist+off.x+off.y))return;L4.copy(M).add(off);C4.copy(L4).addScaledVector(dir,dist);window.__fr={C4:C4.toArray(),L4:L4.toArray(),ts,tm,T0,T1}}
+
+/* ---------- mouse: repel + raked trail ---------- */
+const ray=new THREE.Raycaster(),plane=new THREE.Plane(new THREE.Vector3(0,1,0),-GY),hit=new THREE.Vector3(),ndc=new THREE.Vector2();let last=null,mouseOn=false;
+addEventListener('pointermove',e=>{ndc.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);mouseOn=true});
+function trail(){ if(!mouseOn)return;ray.setFromCamera(ndc,cam);
+ const v=new THREE.Vector3(ndc.x,ndc.y,.5).unproject(cam).sub(cam.position).normalize();const d=-cam.position.z/v.z;U.uMouse.value.set(cam.position.x+v.x*d,cam.position.y+v.y*d);
+ if(GU.uG.value>.3&&ray.ray.intersectPlane(plane,hit)){const u=(hit.x/24+.5)*256,vv=(1-(hit.z+7)/14)*256;
+  if(last){const n=Math.max(1,Math.ceil(Math.hypot(u-last[0],vv-last[1])/2));for(let i=0;i<=n;i++){const x=lerp(last[0],u,i/n),y=lerp(last[1],vv,i/n);const gr=tx.createRadialGradient(x,y,0,x,y,14);gr.addColorStop(0,'rgba(255,255,255,.12)');gr.addColorStop(1,'rgba(255,255,255,0)');tx.fillStyle=gr;tx.fillRect(x-15,y-15,30,30)}}
+  last=[u,vv]}}
+/* ---------- loop ---------- */
+const t0=performance.now()-(window.__late?3600:0);let vis=true,frameN=0;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
+(function loop(now){requestAnimationFrame(loop);if(!vis||document.hidden)return;const t=(now-t0)/1000,p=window.__hero.p;frameN++;
+ /* timeline */
+ const A=cl((p-.07)/.2),B=cl((p-.25)/.22),Gd=seg(p,.36,.5),Dr=sC*sm(.41,.6,p)+(1-sC)*sm(.6,.73,p),Mo=sm(.6,.76,p),Day=seg(p,.8,.92),Cm=seg(p,.22,.55),Dl=seg(p,.5,.66),In=seg(p,.7,.88);
+ GU.uM.value=Mo*(1.-.9*seg(p,.84,.95));
+ U.uT.value=t;U.uK.value=cl(t/3.6);U.uA.value=A;U.uB.value=B;U.uFade.value=1-seg(p,.44,.58);U.uEnsoFade.value=1-seg(p,.42,.6)*.8-seg(p,.58,.66)*.2;
+ GU.uT.value=t;GU.uG.value=Gd;GU.uDay.value=Day;bg.copy(BG0).lerp(BG1,Day);GU.uBg.value.copy(bg);renderer.setClearColor(bg,1);
+ EU.uDraw.value=Dr;EU.uA.value=seg(p,.4,.46);EU.uDay.value=Day;
+ MU.uA.value=seg(p,.34,.55)*(1-.5*In);MU.uDay.value=Day;MU2.uT.value=t;MU2.uA.value=seg(p,.36,.52)*(1-seg(p,.8,.88));
+ const sr=seg(p,.5,.64);stones.forEach((s,i)=>{const r=ST[i][2],k=seg(p,.5+i*.03,.63+i*.03);s.visible=k>.001;s.position.y=GY-r*(1.2-1.13*k)+(SHAPE[i].bot-.74)*r*k});
+ const Fin=seg(p,.84,.95),Stl=seg(p,.74,.84);buildBrush(Mo,Stl);EU.uSteel.value=Stl;EU.uA.value*=1-seg(p,.89,.945);
+ SU.uDay.value=Day;SU.uKey.value.set(lerp(-.15,-.45,Day),lerp(.45,1.,Day),lerp(-1.,.75,Day));GU.uKey.value.copy(SU.uKey.value);GU.uSA.value=sr;
+ /* camera dolly */
+ if(!C4.lengthSq()||frameN%30===1)solveFrame();cpos.copy(C0).lerp(C1,Cm).lerp(C2,Dl*Cm).lerp(C3,In).lerp(C4,Fin);look.copy(L0).lerp(L1,Cm).lerp(L2,Dl*Cm).lerp(L3,In).lerp(L4,Fin);
+ cpos.x+=(Math.sin(t*.07)*.12+ndc.x*.18)*Cm*(1-.6*In)*(1-Fin);cpos.y+=ndc.y*.08*Cm*(1-.6*In)*(1-Fin);
+ cam.position.copy(cpos);cam.lookAt(look);GU.uCam.value.copy(cpos);SU.uCam.value.copy(cpos);
+ /* heal trail */
+ if(frameN%2===0){tx.fillStyle='rgba(0,0,0,.035)';tx.fillRect(0,0,256,256)}trail();trailT.needsUpdate=true;
+ renderer.render(scene,cam);
+ /* labels */
+ const la=seg(p,.79,.83)*(1-seg(p,.87,.9));const v=new THREE.Vector3();
+ lbls.forEach((el,i)=>{v.set(ST[i][0],GY+ST[i][2]*.75,ST[i][1]).project(cam);el.style.opacity=la;el.style.color=Day>.45?'#5a5a58':'';el.style.transform=`translate(${(v.x*.5+.5)*innerWidth}px,${(-v.y*.5+.5)*innerHeight}px)`});
+})(t0);}
+
+}
+/* the still poster is the first paint; WebGL starts on first interaction or once the page is idle */
+const go=()=>boot(true);['pointerdown','keydown','wheel','touchstart','scroll'].forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
+addEventListener('load',()=>setTimeout(()=>(window.requestIdleCallback||setTimeout)(()=>boot(true),{timeout:1500}),3200));
+</script>
+<p class="proposal-tag">ACADEMY แบบ A · บันได 3 ขั้น<a href="../">ดูทั้ง 3 แบบ</a></p>
+</body>
+</html>
