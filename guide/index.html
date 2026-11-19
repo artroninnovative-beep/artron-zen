@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/artron-italic-ink.svg" type="image/svg+xml">
+<title>Artron Innovative — คู่มือการออกแบบ · Design Guide</title>
+<style>
+@font-face{font-family:Anuphan;src:url(assets/anuphan-1.woff2) format("woff2");font-weight:100 700;font-display:swap;unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:Anuphan;src:url(assets/anuphan-2.woff2) format("woff2");font-weight:100 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --black:#0a0a0a;--ink:#141414;--ink2:#3c3d3f;--mute:#67686a;
+  --rule:#d9d8d3;--paper:#f4f3ef;--card:#f8f7f3;--stone:#e9e7e1;--white:#fff;
+  --blue:#203fe4;--moss:#5e6f4f;--oak:#a27c55;--rust:#9a5b3e;
+  --side:clamp(22px,4.2vw,64px);
+  --col:min(1120px,calc(100vw - 2*var(--side)));
+  --ease:cubic-bezier(.22,.7,.18,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.75 Anuphan,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-weight:400;letter-spacing:-.012em}
+h1{font-size:clamp(46px,5.1vw,82px);line-height:1.18;margin:26px 0 30px}
+h2{font-size:clamp(34px,3.6vw,56px);line-height:1.25;margin:14px 0 38px}
+h3{font-size:clamp(21px,1.7vw,26px);line-height:1.4;margin:14px 0 8px}
+p{max-width:46em;margin:0 0 22px}
+a{color:inherit}
+code{font-size:.92em;overflow-wrap:anywhere}
+.skip{position:absolute;left:var(--side);top:-40px;background:var(--ink);color:#fff;padding:8px 14px;z-index:80}
+.skip:focus{top:12px}
+.wrap{width:var(--col);margin:0 auto}
+.label{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--mute)}
+
+/* header + toc */
+.hero-guide{background:var(--black);color:#fff;padding:40px 0 clamp(100px,14vw,190px)}
+.hero-guide .logo{width:96px;height:26px;display:block}
+.hero-guide .kicker{color:#bdbdbd;margin-top:90px}
+.hero-guide h1{max-width:9em;margin:22px 0 20px;color:#fff}
+.hero-guide .lede{color:#e6e6e6;font-size:clamp(15px,1.12vw,18px);line-height:1.9;max-width:28em}
+.toc{position:sticky;top:0;z-index:40;background:rgba(244,243,239,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.toc nav{display:flex;gap:8px 28px;flex-wrap:wrap;padding:8px 0;font-size:13px}
+.toc a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;color:var(--ink2)}
+.toc a:hover,.toc a:focus-visible{color:var(--ink)}
+
+.sec{padding:clamp(120px,15vw,210px) 0;border-bottom:1px solid var(--rule);scroll-margin-top:72px}
+.sec > .label{display:block;margin-bottom:8px}
+
+.tablewrap{overflow-x:auto;margin:32px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th,td{text-align:left;vertical-align:top;padding:13px 12px 13px 0;border-bottom:1px solid var(--rule)}
+th{font-weight:500;color:var(--ink2)}
+
+.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 20px;margin:40px 0 10px}
+.swatch{background:var(--card);border:1px solid var(--rule)}
+.swatch .chip{height:92px;border-bottom:1px solid var(--rule)}
+.swatch .meta{padding:12px 14px 16px;font-size:13px;line-height:1.55}
+.swatch .meta b{display:block;font-weight:500;font-size:14px}
+.swatch .meta span{color:var(--ink2)}
+.swatch.is-retired .chip{position:relative}
+.swatch.is-retired .chip::after{content:"เลิกใช้บนกระดาษ";position:absolute;left:12px;bottom:10px;color:#fff;font-size:11px;letter-spacing:.08em}
+
+.sample{margin:48px 0 0;border-top:1px solid var(--rule);padding-top:28px}
+.sample > .label{margin-bottom:18px;display:block}
+.twocol,.three,.story,.wires{display:grid;gap:20px}
+.twocol{grid-template-columns:repeat(2,1fr)}
+.three{grid-template-columns:repeat(3,1fr)}
+.story{grid-template-columns:repeat(4,1fr)}
+.wires{grid-template-columns:repeat(3,1fr);margin-top:36px}
+.panel{padding:30px;background:var(--card);border:1px solid var(--rule)}
+.panel.dark{background:var(--black);color:#fff}
+.logobox{min-height:160px;display:flex;align-items:center;justify-content:center}
+.logobox img{width:132px;height:auto}
+.dont{position:relative}
+.dont .badge{position:absolute;top:14px;left:14px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);border:1px solid var(--rust);padding:2px 8px}
+.stretched img{width:210px;height:18px;object-fit:fill}
+.oldmark{width:92px;height:92px;border-radius:28px;background:#1c2c6b;color:#fff;display:grid;place-items:center;font:600 18px/1 ui-serif,Georgia,serif;letter-spacing:.02em}
+
+.samplebar{padding:22px var(--side);display:flex;justify-content:space-between;align-items:center;font-size:14px;gap:20px}
+.samplebar + .samplebar{border-top:1px solid var(--rule)}
+.samplebar.dark{background:var(--black);color:#fff}
+.samplebar.lt{background:rgba(244,243,239,.82);color:var(--ink);border:1px solid var(--rule)}
+.samplebar img{width:96px;height:26px}
+.samplebar span{display:flex;gap:30px}.samplebar i{font-style:normal}
+
+.btn{display:inline-flex;align-items:center;gap:18px;font:400 13.5px/1 Anuphan,system-ui,sans-serif;min-height:44px;padding:10px 16px;border:1px solid currentColor;background:transparent;color:inherit;margin:0 12px 12px 0;text-decoration:none;cursor:pointer;transition:background .5s var(--ease),color .5s var(--ease)}
+.btn.solid{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:hover,.btn:focus-visible{background:var(--ink);color:#fff}
+.panel.dark .btn:hover,.panel.dark .btn:focus-visible,.btn.hcta:hover,.btn.hcta:focus-visible{background:#fff;color:var(--ink)}
+.btn.hcta{min-height:48px;padding:0 22px;font-size:15px;border-color:#fff;color:#fff;margin-top:8px}
+.ilink{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid currentColor;font-size:15px;text-decoration:none}
+
+.choice{display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule);font-size:clamp(22px,1.9vw,30px);line-height:1.35}
+.choice .n{font-size:11.5px;letter-spacing:.16em;color:var(--mute);font-weight:500}
+
+.story .beat{min-height:170px;padding:22px 8px 8px 0;border-top:1px solid var(--rule)}
+.story .beat b{display:block;font-size:clamp(26px,2.2vw,34px);font-weight:400;margin:8px 0 10px}
+
+.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:0;padding:0;list-style:none}
+.wall li{display:grid;place-items:center;height:clamp(96px,8.4vw,124px);background:var(--card);border:1px solid var(--rule);padding:0 12%}
+.wall img{width:100%;height:auto;max-height:52px;object-fit:contain}
+
+.images figure{margin:0}
+.images img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--stone)}
+.images figcaption{font-size:12px;color:var(--mute);margin-top:10px;letter-spacing:.01em}
+
+.viz{width:100%;height:200px;background:var(--card);border:1px solid var(--rule);display:block}
+.viz-caption{font-size:13px;color:var(--ink2);margin-top:12px}
+
+.ramp{margin:8px 0 0}
+.ramp .row{padding:22px 0;border-bottom:1px solid var(--rule)}
+.ramp .row .meta{font-size:12px;color:var(--mute);margin:0 0 8px}
+
+.space-demo{display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;margin-top:28px;border:1px solid var(--rule);min-height:120px}
+.space-demo .gutter{width:clamp(22px,4.2vw,64px);background:repeating-linear-gradient(90deg,transparent,transparent 3px,var(--stone) 3px,var(--stone) 6px);color:var(--mute);font-size:11px;letter-spacing:.08em;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl}
+.space-demo .mid{padding:28px;background:var(--card)}
+.space-demo .mid b{font-weight:500}
+
+.wire{border:1px solid var(--rule);background:var(--card);padding:22px 22px 26px;min-height:280px}
+.wire h3{font-size:18px;margin:0 0 16px}
+.wire ol{list-style:none;margin:0;padding:0}
+.wire li{border-top:1px solid var(--rule);padding:9px 0;font-size:13.5px;color:var(--ink2)}
+.wire .wait{margin:16px 0 0;font-size:12px;color:var(--mute);line-height:1.7}
+
+.do-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;margin-top:8px}
+.do-grid p{margin:0}
+.avoid{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.avoid div{padding:20px;border:1px dashed #b98d74;color:#7a4a32;font-size:14px;line-height:1.7}
+
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+.contact dl{margin:0;font-size:15px}
+.contact dt{font-size:12px;letter-spacing:.12em;color:var(--mute);margin:16px 0 4px}
+.contact dd{margin:0}
+
+.foot{background:var(--black);color:#fff;padding:clamp(100px,11vw,150px) 0 40px}
+.foot img{width:132px;height:auto;display:block;margin-bottom:56px}
+.foot h2{font-size:clamp(36px,4vw,64px);line-height:1.25;color:#fff;margin:0 0 28px}
+.foot .colophon{color:#bdbdbd;font-size:13.5px;max-width:42em}
+
+.note{font-size:14.5px;color:var(--ink2);line-height:1.9}
+.forbid li{margin:6px 0}
+
+@media (max-width:860px){
+  .toc{position:static}
+  .toc nav{gap:0 18px}
+  .palette{grid-template-columns:repeat(2,1fr)}
+  .twocol,.three,.do-grid,.contact{grid-template-columns:1fr}
+  .story{grid-template-columns:repeat(2,1fr)}
+  .wires{grid-template-columns:1fr}
+  .wall{grid-template-columns:repeat(3,1fr);gap:6px}
+  .wall li{height:80px;padding:0 10%}
+  .samplebar span{gap:16px;font-size:12px}
+  .hero-guide h1{margin-top:12px}
+  .avoid{grid-template-columns:1fr}
+  h1{font-size:clamp(32px,10vw,46px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#s01">ข้ามไปเนื้อหา</a>
+<header class="hero-guide">
+  <div class="wrap">
+    <img class="logo" src="assets/artron-italic-white.svg" width="96" height="26" alt="artron">
+    <p class="label kicker">Brand &amp; Website / Design Guide</p>
+    <h1>ศิลปะของ<br>ความประณีต.</h1>
+    <p class="lede">คู่มือภาพและระบบออกแบบ จากไฟล์จริงของหน้าแรกชุดเซน สำหรับ Artron Innovative — ไม่ได้คิดสีหรือตัวอักษรใหม่</p>
+  </div>
+</header>
+<div class="toc">
+  <div class="wrap">
+    <nav aria-label="สารบัญ">
+      <a href="#s01">01 / หลักคิด</a>
+      <a href="#s02">02 / ตราสัญลักษณ์</a>
+      <a href="#s03">03 / โทนสี</a>
+      <a href="#s04">04 / ตัวอักษร</a>
+      <a href="#s05">05 / ระยะและกริด</a>
+      <a href="#s06">06 / องค์ประกอบ</a>
+      <a href="#s07">07 / ภาพ</a>
+      <a href="#s08">08 / การเคลื่อนไหว</a>
+      <a href="#s09">09 / แม่แบบหกหน้า</a>
+      <a href="#s10">10 / การเข้าถึง</a>
+      <a href="#s11">11 / คำห้ามใช้</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+<section class="sec" id="s01">
+  <span class="label">01 / Principles</span>
+  <h2>หลักคิดและน้ำเสียง · Principles</h2>
+  <p>เซนและธรรมชาติ งานประณีตที่สงบและมีพลัง เชื่อมเทคโนโลยี มนุษย์ และธรรมชาติ โดยให้ภาพสื่อความตึงเครียดที่อาจเกิดขึ้นอย่างนัย ไม่กล่าวเป็นข้อความ และไม่ใช้ภาพภัยพิบัติ เคารพภาษาการฝึกตนทางพุทธศาสนา รวมทั้งความตั้งใจด้านการศึกษาของเด็ก ๆ</p>
+  <div class="do-grid">
+    <div>
+      <p class="label">ใช้ · Do</p>
+      <p>เขียนอย่างสงบ ชัดเจน และเฉพาะเจาะจง ใช้ข้อความที่ตรวจแล้วจากหน้างานจริง ไม่โฆษณาเกินจริง ไม่สร้างตัวเลขเอง</p>
+    </div>
+    <div>
+      <p class="label">ไม่ใช้ · Don’t</p>
+      <p>ไม่กล่าววิกฤตโดยตรง ไม่ใช้คำห้ามในข้อ 11 ไม่ย่อข้อความที่อนุมัติจนกลายเป็นคำต้องห้าม และไม่ใส่ภาพหุ่นยนต์ในโรงพยาบาล</p>
+    </div>
+  </div>
+  <div class="sample">
+    <span class="label">ตัวอย่างจากงานจริง · Approved copy</span>
+    <p style="font-size:clamp(32px,3.3vw,54px);line-height:1.32;max-width:14em;margin:10px 0 22px">สร้างเทคโนโลยี<br>ที่เติบโตไปพร้อมกับมนุษย์</p>
+    <p>ออกแบบเทคโนโลยีเพื่อเกื้อกูลคนทำงาน — เราผสาน IoT, หุ่นยนต์ และ AI เข้ากับพื้นที่จริงอย่างลงตัว เพื่อยกระดับความปลอดภัยและประสิทธิภาพในภาคอุตสาหกรรม สุขภาพ พลังงาน และวิถีเกษตร</p>
+    <p class="note">ตัวอย่างอื่น: “เพื่อความปลอดภัยและลดความสูญเสียหน้างาน”; “เพื่อแบ่งเบาภาระบุคลากร และคืนเวลาสู่การดูแลผู้คนอย่างใกล้ชิด”; Academy: “เพราะเทคโนโลยีที่ซับซ้อนต้องการสติและจิตใจที่ละเอียดอ่อน เราจึงฝึกฝนคนทำงานตั้งแต่ภายใน”; ท้ายหน้า “สิ่งดี ๆ เริ่มต้น จากการคุยกัน.”; ปุ่ม “ปรึกษาโครงการ”; บรรทัดลูกค้าที่อนุมัติ “ลูกค้าและพันธมิตร ที่ไว้วางใจให้เราร่วมสร้าง”</p>
+    <p class="note">หัวข้อหลักที่อนุมัติอยู่ใกล้คำห้าม “เติบโตไปด้วยกัน” ห้ามย่อหรือเขียนใหม่ให้กลายเป็นวลีนั้น</p>
+  </div>
+  <p>ลำดับการฝึกที่อนุมัติในหน้า Academy คือ จิตใจ · ฝีมือ · ปัญญา (จิตสิกขา · สีลสิกขา · ปัญญาสิกขา) ลำดับไตรสิกขาตามแบบแผนคือ ศีล–สมาธิ–ปัญญา จึงยังเป็นคำถามเปิดให้ผู้เกี่ยวข้องยืนยัน โดยคงข้อความที่อนุมัติไว้ก่อน</p>
+</section>
+
+<section class="sec" id="s02">
+  <span class="label">02 / Logo</span>
+  <h2>ตราสัญลักษณ์ · Logo</h2>
+  <p>ใช้ wordmark ตัวเอียง artron เท่านั้น: ไฟล์สีขาวบนพื้น <code>--black</code> / <code>--ink</code> และไฟล์สี ink บน <code>--paper</code> ในต้นฉบับไม่มีกฎระยะว่างเป็นตัวเลข จึงเว้นพื้นที่โดยรอบแล้วตรวจด้วยสายตา ขนาดที่ใช้จริงในแถบนำทาง 96 × 26px และท้ายหน้ากว้าง 132px เป็นจุดอ้างอิง ไม่ใช่ขนาดขั้นต่ำที่ผ่านการทดสอบ</p>
+  <div class="twocol">
+    <div class="panel logobox"><img src="assets/artron-italic-ink.svg" width="132" height="36" alt="artron สีหมึกบนกระดาษ"></div>
+    <div class="panel dark logobox"><img src="assets/artron-italic-white.svg" width="132" height="36" alt="artron สีขาวบนพื้นเข้ม"></div>
+  </div>
+  <div class="sample twocol">
+    <div class="panel dont logobox stretched">
+      <span class="badge">ห้าม · Don’t</span>
+      <img src="assets/artron-italic-ink.svg" alt="ตัวอย่างที่ห้าม: อย่ายืด wordmark">
+      
+    </div>
+    <div class="panel dont logobox" style="flex-direction:column;gap:14px">
+      <span class="badge">ห้าม · Don’t</span>
+      <div class="oldmark" aria-hidden="true">a</div>
+      <p style="margin:0;font-size:13px;color:var(--ink2);text-align:center">โลโก้สีน้ำเงินเข้มทรงมนรุ่นเก่า — เลิกใช้แล้ว</p>
+    </div>
+  </div>
+  <p style="margin-top:28px"><strong>ทำ:</strong> รักษาสัดส่วนและวางบนพื้นเรียบสงบ <strong>ห้าม:</strong> ยืดตรา เปลี่ยนสีเอง ใช้โลโก้ทรงมนรุ่นเก่า หรือวางบนภาพที่รกโดยไม่มีพื้นที่สงบรองรับ</p>
+</section>
+
+<section class="sec" id="s03">
+  <span class="label">03 / Colour</span>
+  <h2>โทนสี · Colour</h2>
+  <p>ค่าต่อไปนี้มาจาก Academy A/B/C และ proposals/v4 คำนวณ contrast ตามสูตร WCAG sRGB อัตราส่วนแสดงทศนิยมสองตำแหน่ง สถานะในตารางใช้เกณฑ์ข้อความทั่วไปเป็นหลัก: AAA ≥ 7:1, AA ≥ 4.5:1, ข้อความขนาดใหญ่ (≥ 24px หรือ ≥ 18.66px ตัวหนา) ใช้ ≥ 3:1</p>
+  <p>ใช้ <code>--ink</code> กับเนื้อหา, <code>--mute</code> กับป้าย, <code>--blue</code> เป็นสีไฟฟ้าเน้นเพียงสีเดียว ส่วน moss, oak และ rust เป็นสำเนียงธรรมชาติ oak บน paper ผ่านเฉพาะข้อความใหญ่หรือใช้ตกแต่ง รุ่นเก่า zen-hybrid ใช้ mute <code>#7a7b7d</code> ซึ่งไม่ผ่าน AA ข้อความทั่วไปบน paper ให้ใช้ <code>#67686a</code> รุ่นล่าสุด</p>
+  <div class="palette">
+    <div class="swatch"><div class="chip" style="background:#0a0a0a"></div><div class="meta"><b>--black</b>#0a0a0a<br><span>บน paper 17.83:1 AAA</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#141414"></div><div class="meta"><b>--ink</b>#141414<br><span>บน paper 16.59:1 AAA · ข้อความหลัก</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#3c3d3f"></div><div class="meta"><b>--ink2</b>#3c3d3f<br><span>บน paper 9.79:1 AAA</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#67686a"></div><div class="meta"><b>--mute</b>#67686a<br><span>บน paper 5.02:1 AA · ป้ายและคำอธิบาย</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#d9d8d3"></div><div class="meta"><b>--rule</b>#d9d8d3<br><span>เส้นแบ่ง ไม่ใช้เป็นตัวอักษรบนกระดาษ</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#f4f3ef"></div><div class="meta"><b>--paper</b>#f4f3ef<br><span>พื้นหน้ากระดาษ</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#f8f7f3"></div><div class="meta"><b>--card</b>#f8f7f3<br><span>พื้นการ์ด / ผนังโลโก้</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#e9e7e1"></div><div class="meta"><b>--stone</b>#e9e7e1<br><span>สำเนียงหินทราย</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#ffffff;border-bottom:1px solid #d9d8d3"></div><div class="meta"><b>--white</b>#ffffff<br><span>บน black 19.80:1 AAA</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#203fe4"></div><div class="meta"><b>--blue</b>#203fe4<br><span>บน paper 6.54:1 AA · เน้นสีเดียว</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#5e6f4f"></div><div class="meta"><b>--moss</b>#5e6f4f<br><span>บน paper 4.90:1 AA</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#a27c55"></div><div class="meta"><b>--oak</b>#a27c55<br><span>บน paper 3.41:1 · ข้อความใหญ่ / ตกแต่งเท่านั้น</span></div></div>
+    <div class="swatch"><div class="chip" style="background:#9a5b3e"></div><div class="meta"><b>--rust</b>#9a5b3e<br><span>บน paper 4.80:1 AA</span></div></div>
+    <div class="swatch is-retired"><div class="chip" style="background:#7a7b7d"></div><div class="meta"><b>--mute เดิม</b>#7a7b7d<br><span>บน paper 3.82:1 ไม่ผ่าน AA — เลิกใช้</span></div></div>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Token / hex</th><th>บน paper<br>ทั่วไป / ใหญ่</th><th>บน black<br>ทั่วไป / ใหญ่</th><th>บน ink<br>ทั่วไป / ใหญ่</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>black #0a0a0a</td><td>17.83:1<br>AAA / AAA</td><td>1.00:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>1.07:1<br>ไม่ผ่าน / ไม่ผ่าน</td></tr>
+        <tr><td>ink #141414</td><td>16.59:1<br>AAA / AAA</td><td>1.07:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>1.00:1<br>ไม่ผ่าน / ไม่ผ่าน</td></tr>
+        <tr><td>ink2 #3c3d3f</td><td>9.79:1<br>AAA / AAA</td><td>1.82:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>1.69:1<br>ไม่ผ่าน / ไม่ผ่าน</td></tr>
+        <tr><td>mute #67686a</td><td>5.02:1<br>AA / AAA</td><td>3.55:1<br>ไม่ผ่าน / AA</td><td>3.30:1<br>ไม่ผ่าน / AA</td></tr>
+        <tr><td>rule #d9d8d3</td><td>1.29:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>13.87:1<br>AAA / AAA</td><td>12.91:1<br>AAA / AAA</td></tr>
+        <tr><td>paper #f4f3ef</td><td>1.00:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>17.83:1<br>AAA / AAA</td><td>16.59:1<br>AAA / AAA</td></tr>
+        <tr><td>card #f8f7f3</td><td>1.04:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>18.47:1<br>AAA / AAA</td><td>17.19:1<br>AAA / AAA</td></tr>
+        <tr><td>stone #e9e7e1</td><td>1.11:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>16.01:1<br>AAA / AAA</td><td>14.90:1<br>AAA / AAA</td></tr>
+        <tr><td>white #ffffff</td><td>1.11:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>19.80:1<br>AAA / AAA</td><td>18.42:1<br>AAA / AAA</td></tr>
+        <tr><td>blue #203fe4</td><td>6.54:1<br>AA / AAA</td><td>2.73:1<br>ไม่ผ่าน / ไม่ผ่าน</td><td>2.54:1<br>ไม่ผ่าน / ไม่ผ่าน</td></tr>
+        <tr><td>moss #5e6f4f</td><td>4.90:1<br>AA / AAA</td><td>3.64:1<br>ไม่ผ่าน / AA</td><td>3.39:1<br>ไม่ผ่าน / AA</td></tr>
+        <tr><td>oak #a27c55</td><td>3.41:1<br>ไม่ผ่าน / AA</td><td>5.23:1<br>AA / AAA</td><td>4.87:1<br>AA / AAA</td></tr>
+        <tr><td>rust #9a5b3e</td><td>4.80:1<br>AA / AAA</td><td>3.71:1<br>ไม่ผ่าน / AA</td><td>3.46:1<br>ไม่ผ่าน / AA</td></tr>
+        <tr><td>mute เดิม #7a7b7d</td><td>3.82:1<br>ไม่ผ่าน / AA</td><td>4.67:1<br>AA / AAA</td><td>4.35:1<br>ไม่ผ่าน / AA</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec" id="s04">
+  <span class="label">04 / Typography</span>
+  <h2>ตัวอักษร · Typography</h2>
+  <p>Thai-first ใช้ Anuphan variable 100–700 สองไฟล์แยก unicode-range ภาษาไทยและละติน พร้อม <code>font-display: swap</code> และ fallback <code>system-ui, sans-serif</code> เนื้อหา 400 16px/1.75 สี ink หัวข้อ h1–h3 น้ำหนัก 400 และ letter-spacing: -.012em</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>บทบาทจริง</th><th>ขนาด / ระยะบรรทัด</th></tr></thead>
+      <tbody>
+        <tr><td>เนื้อหา</td><td>400 16px / 1.75 · --ink</td></tr>
+        <tr><td>Hero H1 ฐาน</td><td>clamp(46px, 5.1vw, 82px) / 1.18</td></tr>
+        <tr><td>Hero H1 .v ที่ใช้ใน Academy ปัจจุบัน</td><td>clamp(32px, 3.3vw, 54px) / 1.32 · ที่ ≤860px เป็น clamp(30px, 8.4vw, 40px)</td></tr>
+        <tr><td>Section H2</td><td>clamp(34px, 3.6vw, 56px) / 1.25–1.28</td></tr>
+        <tr><td>Academy H2 / บางหัวข้อ</td><td>clamp(30px, 3.2vw, 50px) / 1.32</td></tr>
+        <tr><td>หัวข้อใหญ่ / footer</td><td>clamp(36px, 4vw, 64px) / 1.22–1.25</td></tr>
+        <tr><td>H3 การ์ดอุตสาหกรรม</td><td>clamp(21px, 1.7vw, 26px) / 1.4</td></tr>
+        <tr><td>H3 ขั้น Academy</td><td>clamp(26px, 2.2vw, 34px) / 1.3</td></tr>
+        <tr><td>คำนำ / บรรทัดรอง</td><td>clamp(15px, 1.12vw, 18px) / 1.9–2.0 สี #e6e6e6 บนฮีโร่เข้ม</td></tr>
+        <tr><td>Label · 01 / TITLE</td><td>11.5px, น้ำหนัก 500, letter-spacing .16em, uppercase, --mute</td></tr>
+        <tr><td>Caption / source note</td><td>12px, --mute · caption letter-spacing .01em</td></tr>
+        <tr><td>ปุ่ม / ลิงก์ / nav</td><td>13.5px / 15px / 14px</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sample ramp">
+    <span class="label">ตัวอย่างมาตราส่วน · Type ramp</span>
+    <div class="row"><p class="meta">Label · 11.5px · .16em</p><div class="label">01 / Artron Academy</div></div>
+    <div class="row"><p class="meta">Body · 16px / 1.75</p><p style="margin:0">เทคโนโลยี ที่คิดอย่างมีศิลปะ. เทคโนโลยี · มนุษย์ · ธรรมชาติ</p></div>
+    <div class="row"><p class="meta">H3 stage · clamp(26px, 2.2vw, 34px)</p><div style="font-size:clamp(26px,2.2vw,34px);line-height:1.3">จิตใจ</div></div>
+    <div class="row"><p class="meta">Section H2 · clamp(34px, 3.6vw, 56px)</p><div style="font-size:clamp(34px,3.6vw,56px);line-height:1.28">เริ่มต้นจากโจทย์ของคุณ</div></div>
+    <div class="row"><p class="meta">Hero H1 .v · clamp(32px, 3.3vw, 54px)</p><div style="font-size:clamp(32px,3.3vw,54px);line-height:1.32">สร้างเทคโนโลยีที่เติบโตไปพร้อมกับมนุษย์</div></div>
+  </div>
+</section>
+
+<section class="sec" id="s05">
+  <span class="label">05 / Spacing</span>
+  <h2>ระยะและกริด · Spacing</h2>
+  <p><code>--side: clamp(22px, 4.2vw, 64px)</code> · <code>--col: min(1120px, calc(100vw - 2 * var(--side)))</code> · padding ของ <code>.sec</code>: <code>clamp(120px, 15vw, 210px) 0</code> ใช้เส้น 1px สี <code>--rule</code> และพื้นที่ว่างเป็นจังหวะเหมือนทรายคราด ไม่ใช้มุมมนเป็นภาษาหลัก ยกเว้นวงกลม <code>border-radius: 50%</code> จุดเปลี่ยน responsive ที่ 860px ไม่ใช่ 768px: กริดเรียงเป็นคอลัมน์เดียวตามบริบท และผนังโลโก้ลูกค้าจาก 6 เหลือ 3 คอลัมน์</p>
+  <div class="space-demo" aria-hidden="true">
+    <div class="gutter">--side</div>
+    <div class="mid"><b>--col · สูงสุด 1120px</b><br>เนื้อหาอยู่กึ่งกลาง ระยะข้างละเท่ากับ --side</div>
+    <div class="gutter">--side</div>
+  </div>
+</section>
+
+<section class="sec" id="s06">
+  <span class="label">06 / Components</span>
+  <h2>องค์ประกอบ · Components</h2>
+
+  <div class="sample">
+    <span class="label">Navigation / Dark + Light</span>
+    <p>บนฮีโร่ตัวอักษรขาว โลโก้สีขาว เมื่อเลื่อนถึงพื้นกระดาษใช้ <code>.bar.lt</code>: สี ink, พื้น <code>rgba(244,243,239,.82)</code>, <code>backdrop-filter: blur(14px)</code> padding 22px var(--side), เมนู 14px ระยะห่าง 30px, โลโก้ 96 × 26px สลับไฟล์ขาว/หมึกใน 0.8s</p>
+    <div class="samplebar dark"><img src="assets/artron-italic-white.svg" width="96" height="26" alt=""><span><i>Academy</i><i>อุตสาหกรรม</i><i>ติดต่อ</i></span></div>
+    <div class="samplebar lt"><img src="assets/artron-italic-ink.svg" width="96" height="26" alt=""><span><i>Academy</i><i>อุตสาหกรรม</i><i>ติดต่อ</i></span></div>
+  </div>
+
+  <div class="sample">
+    <span class="label">Opening / Storyboard</span>
+    <p>ฉากเปิดเป็นจังหวะเลื่อนจอสี่ตอน ใช้ภาพนิ่งในคู่มือนี้ ไม่โหลด three.js</p>
+    <div class="story">
+      <div class="beat"><span class="label">01</span><b>อนุภาค a</b>ฝุ่นค่อยวางตัว</div>
+      <div class="beat"><span class="label">02</span><b>ทราย / enso</b>วงพู่กันบนลานทราย</div>
+      <div class="beat"><span class="label">03</span><b>รอยพู่กัน a</b>ตัวอักษรถูกเขียนขึ้น</div>
+      <div class="beat"><span class="label">04</span><b>ประติมากรรม</b>ครอสเฟดสู่ภาพวัสดุจริง</div>
+    </div>
+  </div>
+
+  <div class="sample">
+    <span class="label">01 / Artron Academy</span>
+    <p>ป้ายตอนใช้รูปแบบ <code>NN / TITLE</code> ขนาด 11.5px ระยะตัวอักษร .16em สี mute</p>
+    <button class="btn" type="button">ปรึกษาโครงการ <span aria-hidden="true">→</span></button>
+    <button class="btn solid" type="button">ปรึกษาโครงการ <span aria-hidden="true">→</span></button>
+    <div class="panel dark" style="margin-top:22px">
+      <button class="btn" type="button">ปรึกษาโครงการ <span aria-hidden="true">↗</span></button>
+      <button class="btn hcta" type="button">ปรึกษาโครงการ <span aria-hidden="true">→</span></button>
+    </div>
+    <p style="margin-top:22px"><a class="ilink" href="#s11">อ่านหลักเกณฑ์คำห้ามใช้</a></p>
+    <p class="note">ปุ่ม <code>.btn</code>: 13.5px, padding 10px 16px, ระยะลูกศร 18px, เส้นขอบ 1px, สูงอย่างน้อย 44px, โฮเวอร์พื้น ink ตัวขาว, ใช้เวลา .5s · <code>.btn.solid</code> พื้น ink · ฮีโร่ <code>.hcta</code> สูงอย่างน้อย 48px, padding 0 22px, 15px, ขอบขาว · ลิงก์ข้อความ <code>.ilink / .alink</code> สูงอย่างน้อย 44px มีเส้นใต้ 1px</p>
+  </div>
+
+  <div class="sample three">
+    <article>
+      <span class="label">Industry</span>
+      <h3>โรงงาน</h3>
+      <p>เห็นภาพรวมสายการผลิต คลังสินค้า และสถานะเครื่องจักร</p>
+    </article>
+    <article>
+      <span class="label">Award</span>
+      <h3>ความไว้วางใจ</h3>
+      <p>ชื่อรางวัลต้องมีแหล่งอ้างอิงที่ตรวจแล้ว ห้ามแต่งตัวเลข</p>
+    </article>
+    <article>
+      <span class="label">Stage</span>
+      <h3 style="font-size:clamp(26px,2.2vw,34px);line-height:1.3">จิตใจ</h3>
+      <p>ฝึกฝนจากภายใน — สติ · สมาธิ · ความรับผิดชอบ</p>
+    </article>
+  </div>
+
+  <div class="sample">
+    <span class="label">Industry chooser</span>
+    <div class="choice"><span class="n">01</span>โรงงาน<span>↗</span></div>
+    <div class="choice"><span class="n">02</span>โรงพยาบาล<span>↗</span></div>
+    <div class="choice"><span class="n">03</span>การจัดการพลังงาน<span>↗</span></div>
+    <div class="choice"><span class="n">04</span>เกษตรกรรมแม่นยำ<span>↗</span></div>
+  </div>
+
+  <div class="sample">
+    <span class="label">Academy · 3 directions</span>
+    <p>ทั้งสามแบบเป็นทางเลือกที่อนุมัติแล้ว ยังไม่ตัดสินผู้ชนะ แบบ A และ B อยู่หลังช่วงศิลปะ แบบ C อยู่ต่อจากฉากเปิดทันที บนจอแคบเรียงแนวตั้ง</p>
+    <div class="three">
+      <figure>
+        <svg class="viz" viewBox="0 0 320 200" role="img" aria-label="แบบ A บันไดสามขั้นบนลานทราย">
+          <rect width="320" height="200" fill="#f8f7f3"/>
+          <path d="M20 168 H300" stroke="#d9d8d3" stroke-width="1"/>
+          <path d="M40 168 C80 166 90 150 120 148" stroke="#d9d8d3" fill="none"/>
+          <ellipse cx="78" cy="150" rx="22" ry="12" fill="#e9e7e1" stroke="#3c3d3f" stroke-width="1.2"/>
+          <ellipse cx="158" cy="118" rx="20" ry="14" fill="#e9e7e1" stroke="#3c3d3f" stroke-width="1.2"/>
+          <ellipse cx="232" cy="84" rx="18" ry="16" fill="#e9e7e1" stroke="#3c3d3f" stroke-width="1.2"/>
+          <text x="78" y="188" text-anchor="middle" fill="#67686a" font-size="11" font-family="Anuphan,sans-serif">จิตใจ</text>
+          <text x="158" y="188" text-anchor="middle" fill="#67686a" font-size="11" font-family="Anuphan,sans-serif">ฝีมือ</text>
+          <text x="232" y="188" text-anchor="middle" fill="#67686a" font-size="11" font-family="Anuphan,sans-serif">ปัญญา</text>
+        </svg>
+        <figcaption class="viz-caption"><b>A / บันได</b> — หินสามก้อนบนลานทราย ไล่ระดับสูงขึ้น</figcaption>
+      </figure>
+      <figure>
+        <svg class="viz" viewBox="0 0 320 200" role="img" aria-label="แบบ B วงเอนโซสามวงซ้อนกัน">
+          <rect width="320" height="200" fill="#f8f7f3"/>
+          <path d="M160 42c46 4 74 32 76 62 3 38-28 68-76 70s-80-26-78-66c2-32 28-62 70-66" fill="none" stroke="#141414" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M160 64c32 3 50 22 51 42 2 26-18 46-51 47s-54-18-52-44c2-22 18-42 48-45" fill="none" stroke="#3c3d3f" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M160 86c18 2 28 12 28 24 1 14-10 24-28 25s-30-10-29-24c1-12 10-23 26-25" fill="none" stroke="#5e6f4f" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="160" y="188" text-anchor="middle" fill="#67686a" font-size="11" font-family="Anuphan,sans-serif">จิตใจ ⊂ ฝีมือ ⊂ ปัญญา</text>
+        </svg>
+        <figcaption class="viz-caption"><b>B / วงเซน</b> — วงเอนโซสามวง วงในสุดคือจิตใจ</figcaption>
+      </figure>
+      <figure>
+        <svg class="viz" viewBox="0 0 320 200" role="img" aria-label="แบบ C เส้นพู่กันลากผ่านสามขั้น">
+          <rect width="320" height="200" fill="#f8f7f3"/>
+          <path d="M28 132 C90 128, 110 96, 160 100 S230 128, 292 86" fill="none" stroke="#141414" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="70" cy="128" r="7" fill="#e9e7e1" stroke="#141414"/>
+          <circle cx="160" cy="102" r="7" fill="#e9e7e1" stroke="#141414"/>
+          <circle cx="250" cy="108" r="7" fill="#e9e7e1" stroke="#141414"/>
+          <text x="70" y="168" text-anchor="middle" fill="#67686a" font-size="11" font-family="Anuphan,sans-serif">จิตใจ</text>
+          <text x="160" y="168" text-anchor="middle" fill="#67686a" font-size="11" font-family="Anuphan,sans-serif">ฝีมือ</text>
+          <text x="250" y="168" text-anchor="middle" fill="#67686a" font-size="11" font-family="Anuphan,sans-serif">ปัญญา</text>
+        </svg>
+        <figcaption class="viz-caption"><b>C / เส้นพู่กัน</b> — เส้นลากผ่านสามขั้น เล่าคนก่อนเทคโนโลยี</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="sample">
+    <span class="label">Client logo wall</span>
+    <p>โลโก้สีจริงบนพื้น <code>--card</code> ขอบ <code>--rule</code> 1px กริด 6 คอลัมน์ เหลือ 3 คอลัมน์ที่ความกว้าง ≤ 860px</p>
+    <ul class="wall">
+      <li><img src="assets/panasonic-energy.webp" alt="Panasonic Energy" width="506" height="160"></li>
+      <li><img src="assets/aisin.webp" alt="AISIN" width="816" height="160"></li>
+      <li><img src="assets/jtekt.webp" alt="JTEKT" width="339" height="160"></li>
+      <li><img src="assets/scg.webp" alt="SCG" width="490" height="160"></li>
+      <li><img src="assets/km-interlab.webp" alt="KM Interlab" width="1050" height="160"></li>
+      <li><img src="assets/toyota-tsusho.webp" alt="Toyota Tsusho" width="632" height="160"></li>
+    </ul>
+  </div>
+
+  <div class="sample contact">
+    <div>
+      <span class="label">08 / เริ่มคุยกัน</span>
+      <h3 style="font-size:clamp(34px,3.6vw,56px);line-height:1.28;margin:12px 0 18px">เล่าโจทย์ในอุตสาหกรรมของคุณ.</h3>
+      <p>ระบุอุตสาหกรรมและโจทย์สั้น ๆ ทีมที่เกี่ยวข้องจะติดต่อกลับ</p>
+      <button class="btn solid" type="button">ปรึกษาโครงการ <span aria-hidden="true">→</span></button>
+    </div>
+    <div>
+      <span class="label">09 / ติดต่อเรา · ที่ตั้ง</span>
+      <h3>แวะมาคุยกัน ที่ปากเกร็ด นนทบุรี</h3>
+      <dl>
+        <dt>โทร</dt><dd>+66 2 003 3688</dd>
+        <dt>อีเมล</dt><dd>sales@artroninnovative.co.th</dd>
+      </dl>
+      <p class="note">แผนที่ในหน้าเว็บเป็นภาพประกอบ ไม่ใช่มาตราส่วน ให้ลิงก์ไปแผนที่จริงเสมอ</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="s07">
+  <span class="label">07 / Imagery</span>
+  <h2>ภาพและทิศทางศิลป์ · Imagery</h2>
+  <p>ใช้ทราย วง enso พู่กัน หิน ภาพประติมากรรม เวิร์กช็อป และเฟิร์นเป็นช่วงพัก เน้นวัสดุจริง แสงจริง และความสงบ แยกภาพประกอบจากภาพโครงการจริงให้ชัด วิกฤตที่เทคโนโลยีแซงมนุษย์สื่อผ่านภาพอย่างนัยเท่านั้น ไม่เขียนเป็นข้อความ และไม่ใช้ภาพภัยพิบัติ</p>
+  <div class="three images">
+    <figure>
+      <img src="assets/zen-sculpture.webp" alt="วัสดุบนลานทรายเซน" width="1280" height="720" loading="lazy">
+      <figcaption>ภาพประกอบ · โลหะ แก้ว ไม้ ทราย</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/workshop-crop.webp" alt="บรรยากาศการเรียนรู้ในเวิร์กช็อป" width="704" height="540" loading="lazy">
+      <figcaption>ภาพประกอบ · การเรียนรู้</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/nature-fern.webp" alt="เฟิร์นในธรรมชาติ" width="640" height="418" loading="lazy">
+      <figcaption>ภาพประกอบ · ธรรมชาติ</figcaption>
+    </figure>
+  </div>
+  <div class="avoid">
+    <div>หลีกเลี่ยงภาพจับมือสำเร็จรูป และวงจรเทคสีน้ำเงินทั่วไป</div>
+    <div>ไม่ใช้แสงนีออนแข็ง หรือภาพผลิตภัณฑ์ที่เร่งความคมเกินจริง</div>
+    <div>ห้ามใช้โลโก้รุ่นเก่า และห้ามใช้ภาพหุ่นยนต์ในโรงพยาบาล ซึ่ง NDA ยังไม่ยืนยัน</div>
+  </div>
+</section>
+
+<section class="sec" id="s08">
+  <span class="label">08 / Motion</span>
+  <h2>การเคลื่อนไหว · Motion</h2>
+  <p>ใช้ <code>--ease: cubic-bezier(.22, .7, .18, 1)</code> ให้จังหวะยิ่งใหญ่แต่สงบ ลำดับฉากเปิดคือ อนุภาค → วางตัวเป็นทรายและ enso → รอยพู่กัน → ภาพประติมากรรม</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>การเคลื่อนไหว</th><th>ระยะเวลา</th></tr></thead>
+      <tbody>
+        <tr><td>ปุ่ม hover</td><td>.5s</td></tr>
+        <tr><td>สีและพื้นแถบนำทาง / สลับโลโก้</td><td>.8s / .8s</td></tr>
+        <tr><td>scroll reveal แบบ [data-r] · opacity + transform</td><td>1.6s</td></tr>
+        <tr><td>ภาพ clip-path / transform</td><td>2s / 2.4s</td></tr>
+        <tr><td>enso stroke-dashoffset / opacity</td><td>2.6s / .4s</td></tr>
+        <tr><td>การ์ดขั้น Academy</td><td>1.2s</td></tr>
+        <tr><td>ขั้นบันได opacity / transform</td><td>1.4s / 1.6s</td></tr>
+        <tr><td>ขอบเส้นทาง</td><td>2.2s หน่วง .3s</td></tr>
+        <tr><td>หยดทราย (drip)</td><td>3.2s infinite</td></tr>
+        <tr><td>poster / three.js fade</td><td>1.4s</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>คงกฎ <code>@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }</code> และแสดงเนื้อหาภาพนิ่งให้ครบ ไม่เคลื่อนไหวจนเกิด layout shift (CLS ≤ 0.1)</p>
+</section>
+
+<section class="sec" id="s09">
+  <span class="label">09 / Page templates</span>
+  <h2>แม่แบบหกหน้า · Page templates</h2>
+  <p>งานปัจจุบันเป็นหน้าแรกยาวแบบ in-page ส่วนต่อไปนี้เป็นโครงสร้างเสนอเพื่อแยกเป็น 6 หน้า ไม่ใช่หน้าที่สร้างเสร็จแล้ว</p>
+  <div class="wires">
+    <article class="wire">
+      <h3>หน้าแรก</h3>
+      <ol>
+        <li>ฉากเปิดเซน</li>
+        <li>Academy</li>
+        <li>เลือกอุตสาหกรรม</li>
+        <li>ความไว้วางใจ</li>
+        <li>ติดต่อ + footer</li>
+      </ol>
+      <p class="wait">รอ: ยืนยันทางเลือก Academy A/B/C และลิงก์ปลายทางของแต่ละหน้า</p>
+    </article>
+    <article class="wire">
+      <h3>ผลงาน</h3>
+      <ol>
+        <li>หัวเรื่อง</li>
+        <li>รายการตามอุตสาหกรรม</li>
+        <li>กรณีศึกษา: โจทย์ / วิธี / ผล</li>
+        <li>CTA</li>
+      </ol>
+      <p class="wait">รอ: ตัวเลขและหลักฐานโครงการที่ได้รับการยืนยัน ห้ามแต่ง metrics</p>
+    </article>
+    <article class="wire">
+      <h3>Innovative</h3>
+      <ol>
+        <li>หัวเรื่อง</li>
+        <li>รายการผลิตภัณฑ์</li>
+        <li>PdM Box และ ModuRa-01</li>
+        <li>รายละเอียด / CTA</li>
+      </ol>
+      <p class="wait">รอ: สร้างหน้า /innovative ซึ่งตอนนี้ยังเป็น 404 แล้วตรวจข้อมูลผลิตภัณฑ์</p>
+    </article>
+    <article class="wire">
+      <h3>Academy</h3>
+      <ol>
+        <li>บทนำ</li>
+        <li>จิตใจ / ฝีมือ / ปัญญา</li>
+        <li>กิจกรรม</li>
+        <li>สมัคร / ติดต่อ</li>
+      </ol>
+      <p class="wait">รอ: ยืนยันแบบ A/B/C และ URL แบบฟอร์ม Academy</p>
+    </article>
+    <article class="wire">
+      <h3>เกี่ยวกับ</h3>
+      <ol>
+        <li>แนวคิด</li>
+        <li>คนและความเชี่ยวชาญ</li>
+        <li>ความไว้วางใจ / รางวัล</li>
+        <li>ติดต่อ</li>
+      </ol>
+      <p class="wait">รอ: Company Profile และหลักฐานคำกล่าวอ้าง</p>
+    </article>
+    <article class="wire">
+      <h3>ติดต่อ</h3>
+      <ol>
+        <li>หัวเรื่อง</li>
+        <li>แบบฟอร์ม</li>
+        <li>ช่องทาง / ที่ตั้ง</li>
+        <li>แผนที่จริง + footer</li>
+      </ol>
+      <p class="wait">รอ: URL แบบฟอร์มและข้อมูลติดต่อที่ตรวจล่าสุด</p>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="s10">
+  <span class="label">10 / Accessibility</span>
+  <h2>การเข้าถึงและประสิทธิภาพ · Accessibility</h2>
+  <p>ข้อความทั่วไปและ UI ต้อง contrast ≥ 4.5:1 ข้อความใหญ่ ≥ 24px หรือ ≥ 18.66px ตัวหนาใช้ ≥ 3:1 พื้นที่แตะอย่างน้อย 44px ปุ่มฮีโร่ 48px ให้โฟกัสมองเห็นได้ และใช้ HTML เชิงความหมาย คง reduced motion และภาพนิ่งที่สมบูรณ์</p>
+  <p>เป้าหมาย Lighthouse มือถือ ≥ 90, LCP ≤ 2.5s และ CLS ≤ 0.1 กำหนดขนาดภาพล่วงหน้า ใช้ <code>font-display: swap</code> และโหลดภาพตามจำเป็น หน้า proposal ใช้ภาพ poster ก่อน แล้วค่อยโหลด three.js เมื่อมีการโต้ตอบหรือช่วงว่าง คู่มือนี้ไม่โหลด three.js ระหว่างตรวจใช้ <code>&lt;meta name="robots" content="noindex, nofollow"&gt;</code></p>
+</section>
+
+<section class="sec" id="s11">
+  <span class="label">11 / Forbidden words</span>
+  <h2>คำห้ามใช้ · Forbidden words และหลักฐาน</h2>
+  <p><strong>ห้ามใช้:</strong></p>
+  <ul class="forbid">
+    <li>“เติบโตไปด้วยกัน”</li>
+    <li>“แต่เพียงผู้เดียว”</li>
+    <li>“เจ้าของสิทธิบัตร”</li>
+    <li>“ซื้อสิทธิบัตร”</li>
+    <li>“สิทธิบัตร”แบบเดี่ยว — หากจำเป็นและมีหลักฐาน ให้ใช้ “อนุสิทธิบัตร”</li>
+  </ul>
+  <p>ทุกตัวเลขและคำกล่าวอ้างต้องมีแหล่งอ้างอิง ห้ามสร้างตัวเลขกรณีศึกษาเอง ส่วนย่อย ISO/IEC 29110 ยังต้องเทียบเครื่องหมาย TÜV SÜD กับไฟล์ข้อมูล และรางวัล Silver Thai Digital &amp; AI Award 2026 ยังต้องยืนยันก่อนเผยแพร่ PdM Box และ ModuRa-01 อยู่ที่หน้า /innovative</p>
+</section>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="assets/artron-italic-white.svg" width="132" height="36" alt="artron">
+    <h2>สิ่งดี ๆ เริ่มต้น<br>จากการคุยกัน.</h2>
+    <p class="colophon">สกัดจากไฟล์จริงของ academy A/B/C, proposals/v4 และ zen-hybrid — ไม่ได้คิดสีหรือตัวอักษรใหม่<br>19 พ.ย. 2026</p>
+  </div>
+</footer>
+</body>
+</html>
