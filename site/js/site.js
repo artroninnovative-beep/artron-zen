@@ -30,12 +30,18 @@
 
   const sec = D.querySelector('.acad-C');
   if (sec) {
+    const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     const tickPath = () => {
+      if (RM) {
+        sec.querySelectorAll('.bs').forEach(x => x.style.setProperty('--d', '0'));
+        sec.querySelectorAll('.nd, .stg').forEach(n => n.classList.add('on'));
+        return;
+      }
       const r = sec.getBoundingClientRect();
       const h = Math.max(sec.offsetHeight, 1);
       let p = (innerHeight * 0.85 - r.top) / (h * 0.7);
       p = Math.min(1, Math.max(0, p));
-      if (RM) p = 1;
+      p = ease(p);
       sec.querySelectorAll('.bs').forEach(x => x.style.setProperty('--d', (1 - p).toFixed(4)));
       const th = innerWidth < 861 ? [0.12, 0.45, 0.78] : [0.2, 0.5, 0.82];
       sec.querySelectorAll('.nd').forEach((n, i) => n.classList.toggle('on', p >= th[i] - 0.04));

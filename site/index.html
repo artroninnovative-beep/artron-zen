@@ -162,12 +162,15 @@ html.gl .poster{opacity:0;transition:opacity 1.4s var(--ease)}
 .foot .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:60px;font-size:12px;color:#8a8a8a}
 .foot .enso{color:#fff}
 
-/* reveal on scroll */
-.js [data-r]{opacity:0;transform:translateY(18px);transition:opacity 1.6s var(--ease),transform 1.6s var(--ease)}
+/* reveal on scroll — quiet fade + rise */
+.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity 1.85s var(--ease),transform 1.85s var(--ease)}
 .js [data-r].in{opacity:1;transform:none}
-.js [data-r="img"]{transform:none;clip-path:inset(0 0 8% 0)}.js [data-r="img"] img{transform:scale(1.05);transition:transform 2.4s var(--ease)}
+.js .intro [data-r]:nth-child(2){transition-delay:.08s}
+.js .intro [data-r]:nth-child(3){transition-delay:.16s}
+.js .intro [data-r]:nth-child(4){transition-delay:.24s}
+.js [data-r="img"]{transform:none;clip-path:inset(0 0 8% 0);transition-delay:0s}.js [data-r="img"] img{transform:scale(1.05);transition:transform 2.4s var(--ease)}
 .js [data-r="img"].in{clip-path:inset(0)}.js [data-r="img"].in img{transform:none}
-.js [data-r="img"]{transition:opacity 1.6s var(--ease),clip-path 2s var(--ease)}
+.js [data-r="img"]{transition:opacity 1.85s var(--ease),clip-path 2s var(--ease)}
 
 @media(max-width:860px){
  .bar nav{gap:18px;font-size:13px}
@@ -237,7 +240,14 @@ html.gl .poster{opacity:0;transition:opacity 1.4s var(--ease)}
  .vals{grid-template-columns:1fr;gap:30px}.hl,.rhythm,.quiet{grid-column:1}.rhythm{grid-template-columns:1fr;gap:34px}.rhythm div::before{right:0}.hl li{grid-template-columns:44px 1fr}.hl li em{grid-column:2}.mrow{grid-template-columns:1fr 1fr;gap:26px 22px}.fnote,.plist{grid-template-columns:1fr;gap:24px}
  .wall{grid-template-columns:repeat(3,1fr);gap:6px}.wall li{height:80px;padding:0 10%}.wall img{width:calc(var(--w)*.6)}.partner .pcell{width:160px;height:84px}.partner .pcell img{width:calc(var(--w)*.75)}
  .bar nav a.hm{display:none}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(prefers-reduced-motion:reduce){
+ *{transition:none!important;animation:none!important}
+ .js [data-r],.js [data-r].in{opacity:1;transform:none;clip-path:none;transition:none!important;transition-delay:0s!important}
+ .js [data-r="img"] img{transform:none}
+ .js .acad2 .stg,.js .stroke-h .nd{opacity:1;transform:none}
+ .bs{stroke-dashoffset:0!important}
+}
+
 
 /* proposals */
 .awards h3{margin:16px 0 2px;font-weight:500;font-size:15px;line-height:1.6}
@@ -303,10 +313,14 @@ html.gl .poster{opacity:0;transition:opacity 1.4s var(--ease)}
 
 .cwrap{position:relative}
 .stroke-h{width:100%;height:auto;display:block;overflow:visible}
-.bs{fill:none;stroke:#141414;stroke-linecap:round;stroke-dasharray:1 1.1;stroke-dashoffset:var(--d,0)}
+.bs{fill:none;stroke:#141414;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1.1;stroke-dashoffset:var(--d,0)}
+.js .acad-C .bs{--d:1}
 .bs.thin{opacity:.45}
+.bs.wet{opacity:.28}
 .js .stroke-h .nd{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4);transition:opacity .8s var(--ease),transform 1s var(--ease)}
 .js .stroke-h .nd.on{opacity:1;transform:none}
+.js .stroke-h .nd .ink{fill:#141414;opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.25);transition:opacity 1.2s var(--ease),transform 1.6s var(--ease)}
+.js .stroke-h .nd.on .ink{opacity:.14;transform:scale(1)}
 .stroke-v{display:none}
 .stages.trail{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px);margin-top:18px}
 .stages.trail .stg{text-align:center;padding:0 6px}
@@ -374,7 +388,7 @@ nav a[aria-current="page"]{border-bottom:1px solid currentColor}
   <p class="lede" data-r>เพราะเทคโนโลยีที่ซับซ้อนต้องการสติและจิตใจที่ละเอียดอ่อน เราจึงฝึกฝนคนทำงานตั้งแต่ภายใน — ปลูกฝังความรอบคอบ ความรับผิดชอบ และสมาธิ ก่อนต่อยอดสู่ทักษะวิศวกรรมขั้นสูง เพื่อสร้างนักประดิษฐ์ที่เป็นนายของเทคโนโลยีอย่างแท้จริง</p>
   <p data-r style="grid-column:2"><a class="alink" href="academy/">อ่านหน้า Academy →</a> · <a class="alink" href="https://www.facebook.com/ArtronAcademy/" target="_blank" rel="noopener">Facebook ↗</a></p>
  </div>
-<div class="avis cwrap"><svg class="stroke-h" viewBox="0 0 1200 120" role="img" aria-label="เส้นพู่กันผ่าน 3 ขั้น: จิตใจ ฝีมือ ปัญญา"><path class="bs" pathLength="1" filter="url(#brush)" d="M20 70C80 62 140 58 200 62C330 71 470 49 600 58C730 67 870 47 1000 56C1080 61 1140 67 1185 62" stroke-width="13"/><path class="bs thin" pathLength="1" filter="url(#brush)" d="M40 76C120 70 160 66 200 68C330 76 470 55 600 63C730 71 870 53 1000 61C1070 65 1120 70 1150 70" stroke-width="3"/><g class="nd" data-i="0"><circle cx="200" cy="62" r="15" fill="#f4f3ef" stroke="#141414" stroke-width="2.4" filter="url(#brush)"/><circle cx="200" cy="62" r="5.5" fill="#141414"/></g><g class="nd" data-i="1"><circle cx="600" cy="58" r="15" fill="#f4f3ef" stroke="#141414" stroke-width="2.4" filter="url(#brush)"/><circle cx="600" cy="58" r="5.5" fill="#141414"/></g><g class="nd" data-i="2"><circle cx="1000" cy="56" r="15" fill="#f4f3ef" stroke="#141414" stroke-width="2.4" filter="url(#brush)"/><circle cx="1000" cy="56" r="5.5" fill="#141414"/></g></svg><svg class="stroke-v" viewBox="0 0 40 1000" preserveAspectRatio="none" aria-hidden="true"><path class="bs" pathLength="1" d="M20 0C14 120 26 240 20 360S14 600 21 760 18 920 20 1000" stroke-width="9" vector-effect="non-scaling-stroke"/></svg><ol class="stages trail"><li class="stg" data-i="0"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 1</p><h3>จิตใจ</h3><p class="en">Mindfulness &amp; Heart — จิตสิกขา</p><p class="kw">สติ · สมาธิ · ความรับผิดชอบ</p><p class="ds">เริ่มต้นจากความสงบนิ่งและรอบคอบ มีจิตสำนึกในการทำงาน เข้าใจคุณค่าของงานที่ทำ และพร้อมรับผิดชอบต่อผู้ใช้งานหน้างาน</p></li><li class="stg" data-i="1"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 2</p><h3>ฝีมือ</h3><p class="en">Craft &amp; Skill — สีลสิกขา/วินัยและกายภาพ</p><p class="kw">วินัย · ฮาร์ดแวร์ · งานช่างและโปรแกรม</p><p class="ds">ฝึกฝนระเบียบวินัยและความเชี่ยวชาญเชิงช่าง ลงลึกในการออกแบบวงจร ประกอบหุ่นยนต์ และเขียนโค้ดด้วยความประณีตทุกรายละเอียด</p></li><li class="stg" data-i="2"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 3</p><h3>ปัญญา</h3><p class="en">Wisdom &amp; System — ปัญญาสิกขา</p><p class="kw">ระบบองค์รวม · การแก้ปัญหา · เกื้อกูลมนุษย์</p><p class="ds">รู้เท่าทันเทคโนโลยี เข้าใจภาพรวมของระบบและบริบทแวดล้อม เพื่อสร้างนวัตกรรมที่แก้ปัญหาได้ตรงจุดและเกื้อกูลธรรมชาติอย่างยั่งยืน</p></li></ol></div>
+<div class="avis cwrap"><svg class="stroke-h" viewBox="0 0 1200 120" role="img" aria-label="เส้นพู่กันผ่าน 3 ขั้น: จิตใจ ฝีมือ ปัญญา"><path class="bs wet" pathLength="1" filter="url(#brush)" d="M28 73C86 66 146 61 206 65C334 74 474 53 604 62C732 70 872 51 1002 60C1082 64 1142 70 1180 66" stroke-width="6"/><path class="bs" pathLength="1" filter="url(#brush)" d="M20 70C80 62 140 58 200 62C330 71 470 49 600 58C730 67 870 47 1000 56C1080 61 1140 67 1185 62" stroke-width="13"/><path class="bs thin" pathLength="1" filter="url(#brush)" d="M40 76C120 70 160 66 200 68C330 76 470 55 600 63C730 71 870 53 1000 61C1070 65 1120 70 1150 70" stroke-width="3"/><g class="nd" data-i="0"><circle class="ink" cx="200" cy="62" r="26"/><circle cx="200" cy="62" r="15" fill="#f4f3ef" stroke="#141414" stroke-width="2.4" filter="url(#brush)"/><circle cx="200" cy="62" r="5.5" fill="#141414"/></g><g class="nd" data-i="1"><circle class="ink" cx="600" cy="58" r="26"/><circle cx="600" cy="58" r="15" fill="#f4f3ef" stroke="#141414" stroke-width="2.4" filter="url(#brush)"/><circle cx="600" cy="58" r="5.5" fill="#141414"/></g><g class="nd" data-i="2"><circle class="ink" cx="1000" cy="56" r="26"/><circle cx="1000" cy="56" r="15" fill="#f4f3ef" stroke="#141414" stroke-width="2.4" filter="url(#brush)"/><circle cx="1000" cy="56" r="5.5" fill="#141414"/></g></svg><svg class="stroke-v" viewBox="0 0 40 1000" preserveAspectRatio="none" aria-hidden="true"><path class="bs wet" pathLength="1" d="M16 8C10 128 22 248 16 368S10 608 17 768 14 928 16 992" stroke-width="4" vector-effect="non-scaling-stroke"/><path class="bs" pathLength="1" d="M20 0C14 120 26 240 20 360S14 600 21 760 18 920 20 1000" stroke-width="9" vector-effect="non-scaling-stroke"/></svg><ol class="stages trail"><li class="stg" data-i="0"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 1</p><h3>จิตใจ</h3><p class="en">Mindfulness &amp; Heart — จิตสิกขา</p><p class="kw">สติ · สมาธิ · ความรับผิดชอบ</p><p class="ds">เริ่มต้นจากความสงบนิ่งและรอบคอบ มีจิตสำนึกในการทำงาน เข้าใจคุณค่าของงานที่ทำ และพร้อมรับผิดชอบต่อผู้ใช้งานหน้างาน</p></li><li class="stg" data-i="1"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 2</p><h3>ฝีมือ</h3><p class="en">Craft &amp; Skill — สีลสิกขา/วินัยและกายภาพ</p><p class="kw">วินัย · ฮาร์ดแวร์ · งานช่างและโปรแกรม</p><p class="ds">ฝึกฝนระเบียบวินัยและความเชี่ยวชาญเชิงช่าง ลงลึกในการออกแบบวงจร ประกอบหุ่นยนต์ และเขียนโค้ดด้วยความประณีตทุกรายละเอียด</p></li><li class="stg" data-i="2"><span class="mk" aria-hidden="true"></span><p class="sn">ขั้นที่ 3</p><h3>ปัญญา</h3><p class="en">Wisdom &amp; System — ปัญญาสิกขา</p><p class="kw">ระบบองค์รวม · การแก้ปัญหา · เกื้อกูลมนุษย์</p><p class="ds">รู้เท่าทันเทคโนโลยี เข้าใจภาพรวมของระบบและบริบทแวดล้อม เพื่อสร้างนวัตกรรมที่แก้ปัญหาได้ตรงจุดและเกื้อกูลธรรมชาติอย่างยั่งยืน</p></li></ol></div>
  </div>
 </section>
 <section class="sec sand artsec" id="art" aria-label="ศิลปะ + เทคโนโลยี">
@@ -513,8 +527,12 @@ nav a[aria-current="page"]{border-bottom:1px solid currentColor}
 window.GLYPH="M161.0,73.7 L147.0,66.7 L131.7,62.3 L115.7,60.3 L90.0,60.7 L67.0,63.3 L46.0,68.7 L35.3,73.7 L21.7,84.0 L22.0,85.3 L45.7,108.0 L47.7,107.7 L54.0,102.3 L62.3,99.0 L88.7,96.0 L111.7,96.0 L125.3,98.7 L134.3,102.7 L141.0,109.3 L142.0,111.3 L142.0,116.0 L140.0,120.3 L137.0,123.3 L126.0,128.3 L112.7,132.0 L45.3,145.3 L32.0,151.0 L20.7,159.0 L14.3,165.3 L6.7,176.3 L2.0,187.7 L0.0,198.0 L0.0,207.3 L3.0,220.0 L9.3,231.7 L15.3,238.3 L26.7,246.7 L39.0,252.3 L46.3,254.7 L68.3,258.3 L86.7,258.7 L107.3,256.0 L123.3,251.7 L134.3,247.0 L145.7,240.7 L159.3,230.0 L164.0,222.7 L166.3,214.0 L181.3,114.0 L180.7,99.3 L176.3,89.0 L170.7,81.7Z M135.0,161.0 L128.0,210.3 L126.7,212.0 L120.3,215.3 L109.7,219.0 L94.0,222.3 L87.0,223.0 L71.3,222.3 L59.0,219.3 L50.7,216.0 L42.7,209.0 L40.7,205.3 L39.3,201.0 L39.3,195.0 L40.7,190.0 L46.0,182.7 L51.7,179.3 L113.3,167.0 L127.3,163.3 L132.7,161.0Z";window.GLYPHBOX=[0.0,60.3,181.7,198.7];
 (()=>{
 const D=document,RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});
+const revealNear=()=>{D.querySelectorAll('[data-r]').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*.95&&r.bottom>0)el.classList.add('in')})};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px',threshold:0.01});
 D.querySelectorAll('[data-r]').forEach(el=>io.observe(el));
+if(RM)D.querySelectorAll('[data-r]').forEach(el=>el.classList.add('in'));
+revealNear();
+addEventListener('load',revealNear);
 const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,seg=(p,a,b)=>ease(cl((p-a)/(b-a)));
 const hero=D.getElementById('hero'),copy=D.getElementById('copy'),settle=D.getElementById('settle'),paper=D.getElementById('paper'),reveal=D.getElementById('reveal'),sculpt=D.getElementById('sculpt'),hint=D.getElementById('hint'),bar=D.getElementById('bar'),vig=D.getElementById('vig');
 const natimg=D.getElementById('natimg'),nature=D.getElementById('nature'),wsimg=D.getElementById('wsimg');
@@ -523,7 +541,7 @@ function prog(el){const r=el.getBoundingClientRect(),t=el.offsetHeight-innerHeig
 function onScroll(){target=prog(hero);
  const darkAt=y=>{for(const el of [hero,nature,D.querySelector('.strip'),D.querySelector('.acad-path'),D.getElementById('contact')].filter(Boolean)){const b=el.getBoundingClientRect();if(b.top<=y&&b.bottom>y)return el}return null};
  const el=darkAt(40);bar.classList.toggle('lt',!el||(el===hero&&hp>.86))}
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+addEventListener('scroll',()=>{onScroll();revealNear()},{passive:true});onScroll();revealNear();
 function frame(){
  hp+=(target-hp)*(RM?1:.075);window.__hero.p=hp;
  const p=hp;
